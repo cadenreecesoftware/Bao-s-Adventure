@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsfb85y2oh665"]
+
+[ext_resource type="Texture2D" uid="uid://dln6c1slu7om5" path="res://Art/Action RPG Resources/World/Bush.png" id="1_trah5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4rue"]
+size = Vector2(20, 10.5)
+
+[node name="Bush" type="Sprite2D"]
+texture = ExtResource("1_trah5")
+centered = false
+offset = Vector2(-16, -25)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_w4rue")

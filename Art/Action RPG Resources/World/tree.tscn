@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp0sx0yqgyco5"]
+
+[ext_resource type="Texture2D" uid="uid://cu405ahwru12e" path="res://Art/Action RPG Resources/World/Tree.png" id="1_mcd76"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nna8o"]
+size = Vector2(14.9205, 10.8962)
+
+[node name="Tree" type="Sprite2D"]
+scale = Vector2(1, 0.979167)
+texture = ExtResource("1_mcd76")
+centered = false
+offset = Vector2(-16, -45)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -2.04255)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(1.07235, 0.937281)
+shape = SubResource("RectangleShape2D_nna8o")
