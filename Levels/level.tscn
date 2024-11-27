@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://267vvu56oe1j"]
+[gd_scene load_steps=12 format=4 uid="uid://267vvu56oe1j"]
 
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="1_jaqfe"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_pqwrr"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dsfb85y2oh665" path="res://Art/Action RPG Resources/World/bush.tscn" id="3_dmi8u"]
 [ext_resource type="Texture2D" uid="uid://qx2aka1uyiyu" path="res://Art/Action RPG Resources/World/DirtTileset.png" id="5_p6n8c"]
 [ext_resource type="Texture2D" uid="uid://dqofb050l6dij" path="res://Art/Action RPG Resources/World/CliffTileset.png" id="6_n4u1j"]
+[ext_resource type="PackedScene" uid="uid://bhja2n2qefc0h" path="res://Art/Action RPG Resources/World/grass.tscn" id="7_6s7dn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mflou"]
 texture = ExtResource("5_p6n8c")
@@ -1888,15 +1889,6 @@ region_rect = Rect2(0, 0, 304, 168)
 [node name="Bush" parent="." instance=ExtResource("3_dmi8u")]
 position = Vector2(61, 113)
 
-[node name="Tree" parent="." instance=ExtResource("2_tl7xp")]
-position = Vector2(214, 83)
-
-[node name="Tree" parent="Tree" instance=ExtResource("2_tl7xp")]
-position = Vector2(59, -34.7234)
-
-[node name="Tree2" parent="Tree" instance=ExtResource("2_tl7xp")]
-position = Vector2(60, 24.5106)
-
 [node name="PlayerPanda" parent="." instance=ExtResource("1_pqwrr")]
 position = Vector2(54, 36)
 
@@ -1908,3 +1900,24 @@ tile_set = SubResource("TileSet_mt86s")
 [node name="DirtCliffMap" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAGAAQAAAAEAAMAAAAGAAUAAAAQAAUAAAAFAAUAAAAGAAQAAAAFAAQAAAAAAAEAAAAFAAMAAAAIAAAAAAAGAAMAAAALAAAAAAAGAAYAAAAQAAkAAAAFAAYAAAAAAAUAAAAHAAUAAAAKAAUAAAAHAAYAAAAFAAMAAAAHAAcAAAAFAAUAAAAGAAcAAAAIAAcAAAAIAAUAAAAFAAMAAAAIAAYAAAAFAAUAAAAHAAQAAAAQAAIAAAAIAAQAAAAFAAEAAAAHAAMAAAABAAYAAAAIAAMAAAAFAAYAAAARAAYAAAAFAAEAAAARAAcAAAAFAAUAAAAQAAcAAAAGAAcAAAAQAAYAAAAAAAIAAAAQAAUAAAAOAAEAAAARAAUAAAAFAAEAAAAQAAQAAAACAAEAAAARAAQAAAAFAAQAAAAQAAMAAAANAAQAAAARAAMAAAAFAAEAAAAQAAIAAAADAAYAAAARAAIAAAAFAAAAAAAPAAQAAAAOAAMAAAAPAAMAAAANAAQAAAAPAAIAAAAKAAAAAAAOAAQAAAAAAAUAAAAOAAMAAAAIAAIAAAAOAAIAAAAAAAAAAAAPAAUAAAAGAAcAAAA=")
 tile_set = SubResource("TileSet_5c3tr")
+
+[node name="Trees" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Tree" parent="Trees" instance=ExtResource("2_tl7xp")]
+position = Vector2(214, 83)
+
+[node name="Tree" parent="Trees/Tree" instance=ExtResource("2_tl7xp")]
+position = Vector2(59, -34.7234)
+
+[node name="Tree2" parent="Trees/Tree" instance=ExtResource("2_tl7xp")]
+position = Vector2(60, 24.5106)
+
+[node name="Grass" type="Node2D" parent="."]
+position = Vector2(88, 120)
+
+[node name="Grass" parent="Grass" instance=ExtResource("7_6s7dn")]
+position = Vector2(-8, -8)
+
+[node name="Grass2" parent="Grass" instance=ExtResource("7_6s7dn")]
+position = Vector2(135, -41)

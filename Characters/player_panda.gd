@@ -24,7 +24,7 @@ func _ready():
 	animationTree.active = true
 
 
-func _physics_process(_delta):
+func _process(_delta):
 	match state:
 		MOVE: 
 			move_state()
