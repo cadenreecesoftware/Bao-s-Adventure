@@ -1879,7 +1879,7 @@ sources/0 = SubResource("TileSetAtlasSource_pxrk4")
 y_sort_enabled = true
 
 [node name="Background" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -2
 texture_repeat = 2
 position = Vector2(152, 84)
 texture = ExtResource("1_jaqfe")
@@ -1890,9 +1890,10 @@ region_rect = Rect2(0, 0, 304, 168)
 position = Vector2(61, 113)
 
 [node name="PlayerPanda" parent="." instance=ExtResource("1_pqwrr")]
-position = Vector2(54, 36)
+position = Vector2(273, 148)
 
 [node name="Ground" type="TileMapLayer" parent="."]
+z_index = -1
 position = Vector2(1, 0)
 tile_map_data = PackedByteArray("AAAAAAgAAAAAAAIAAAAAAAcAAAAAAAAAAAABAAcAAAACAAAAAAABAAgAAAAFAAMAAAACAAgAAAAHAAAAAAACAAkAAAAEAAMAAAADAAkAAAAGAAAAAAAEAAoAAAACAAIAAAADAAoAAAAAAAIAAAAEAAkAAAACAAAAAAAAAAIAAAAAAAIAAAABAAIAAAABAAIAAAACAAIAAAABAAIAAAACAAEAAAABAAAAAAABAAEAAAABAAAAAAAAAAEAAAAAAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAIAAAAEAAIAAAACAAIAAAAEAAEAAAAJAAEAAAAEAAAAAAAAAAAAAAAFAAAAAAAFAAAAAAAFAAEAAAACAAIAAAAGAAAAAAACAAMAAAANAAAAAAAAAAAAAAANAAEAAAAAAAIAAAAOAAEAAAAFAAMAAAAPAAEAAAABAAMAAAAQAAEAAAABAAMAAAARAAEAAAABAAMAAAASAAEAAAAHAAAAAAAOAAAAAAACAAAAAAASAAIAAAADAAIAAAAJAAkAAAAAAAEAAAAJAAgAAAAAAAEAAAAJAAcAAAAAAAEAAAAJAAYAAAAAAAEAAAAJAAUAAAAAAAAAAAAKAAUAAAACAAAAAAAKAAYAAAACAAEAAAAKAAcAAAACAAEAAAAKAAgAAAACAAEAAAAKAAkAAAACAAEAAAAKAAoAAAACAAIAAAAJAAoAAAAAAAIAAAA=")
 tile_set = SubResource("TileSet_mt86s")
@@ -1901,23 +1902,23 @@ tile_set = SubResource("TileSet_mt86s")
 tile_map_data = PackedByteArray("AAAGAAQAAAAEAAMAAAAGAAUAAAAQAAUAAAAFAAUAAAAGAAQAAAAFAAQAAAAAAAEAAAAFAAMAAAAIAAAAAAAGAAMAAAALAAAAAAAGAAYAAAAQAAkAAAAFAAYAAAAAAAUAAAAHAAUAAAAKAAUAAAAHAAYAAAAFAAMAAAAHAAcAAAAFAAUAAAAGAAcAAAAIAAcAAAAIAAUAAAAFAAMAAAAIAAYAAAAFAAUAAAAHAAQAAAAQAAIAAAAIAAQAAAAFAAEAAAAHAAMAAAABAAYAAAAIAAMAAAAFAAYAAAARAAYAAAAFAAEAAAARAAcAAAAFAAUAAAAQAAcAAAAGAAcAAAAQAAYAAAAAAAIAAAAQAAUAAAAOAAEAAAARAAUAAAAFAAEAAAAQAAQAAAACAAEAAAARAAQAAAAFAAQAAAAQAAMAAAANAAQAAAARAAMAAAAFAAEAAAAQAAIAAAADAAYAAAARAAIAAAAFAAAAAAAPAAQAAAAOAAMAAAAPAAMAAAANAAQAAAAPAAIAAAAKAAAAAAAOAAQAAAAAAAUAAAAOAAMAAAAIAAIAAAAOAAIAAAAAAAAAAAAPAAUAAAAGAAcAAAA=")
 tile_set = SubResource("TileSet_5c3tr")
 
-[node name="Trees" type="Node2D" parent="."]
-y_sort_enabled = true
+[node name="Tree" parent="." instance=ExtResource("2_tl7xp")]
+position = Vector2(245, 103)
 
-[node name="Tree" parent="Trees" instance=ExtResource("2_tl7xp")]
-position = Vector2(214, 83)
+[node name="Tree2" parent="." instance=ExtResource("2_tl7xp")]
+position = Vector2(211, 52)
 
-[node name="Tree" parent="Trees/Tree" instance=ExtResource("2_tl7xp")]
-position = Vector2(59, -34.7234)
+[node name="Tree3" parent="." instance=ExtResource("2_tl7xp")]
+position = Vector2(272, 135)
 
-[node name="Tree2" parent="Trees/Tree" instance=ExtResource("2_tl7xp")]
-position = Vector2(60, 24.5106)
+[node name="Tree4" parent="." instance=ExtResource("2_tl7xp")]
+position = Vector2(61, 75)
 
-[node name="Grass" type="Node2D" parent="."]
-position = Vector2(88, 120)
+[node name="Tree5" parent="." instance=ExtResource("2_tl7xp")]
+position = Vector2(81, 149)
 
-[node name="Grass" parent="Grass" instance=ExtResource("7_6s7dn")]
-position = Vector2(-8, -8)
+[node name="Grass2" parent="." instance=ExtResource("7_6s7dn")]
+position = Vector2(137, 127)
 
-[node name="Grass2" parent="Grass" instance=ExtResource("7_6s7dn")]
-position = Vector2(135, -41)
+[node name="Grass3" parent="." instance=ExtResource("7_6s7dn")]
+position = Vector2(224, 105)

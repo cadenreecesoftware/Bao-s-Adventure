@@ -53,6 +53,6 @@ script = ExtResource("1_4pcke")
 sprite_frames = SubResource("SpriteFrames_mvkem")
 animation = &"Animate"
 centered = false
-offset = Vector2(-8, -8)
+offset = Vector2(-16, -18)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
