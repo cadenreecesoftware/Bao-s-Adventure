@@ -1870,6 +1870,7 @@ texture = ExtResource("6_n4u1j")
 
 [sub_resource type="TileSet" id="TileSet_5c3tr"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Cliffs"
 terrain_set_0/terrain_0/color = Color(0.655862, 0.163588, 0.365502, 1)
@@ -1902,32 +1903,62 @@ tile_set = SubResource("TileSet_mt86s")
 tile_map_data = PackedByteArray("AAAGAAQAAAAEAAMAAAAGAAUAAAAQAAUAAAAFAAUAAAAGAAQAAAAFAAQAAAAAAAEAAAAFAAMAAAAIAAAAAAAGAAMAAAALAAAAAAAGAAYAAAAQAAkAAAAFAAYAAAAAAAUAAAAHAAUAAAAKAAUAAAAHAAYAAAAFAAMAAAAHAAcAAAAFAAUAAAAGAAcAAAAIAAcAAAAIAAUAAAAFAAMAAAAIAAYAAAAFAAUAAAAHAAQAAAAQAAIAAAAIAAQAAAAFAAEAAAAHAAMAAAABAAYAAAAIAAMAAAAFAAYAAAARAAYAAAAFAAEAAAARAAcAAAAFAAUAAAAQAAcAAAAGAAcAAAAQAAYAAAAAAAIAAAAQAAUAAAAOAAEAAAARAAUAAAAFAAEAAAAQAAQAAAACAAEAAAARAAQAAAAFAAQAAAAQAAMAAAANAAQAAAARAAMAAAAFAAEAAAAQAAIAAAADAAYAAAARAAIAAAAFAAAAAAAPAAQAAAAOAAMAAAAPAAMAAAANAAQAAAAPAAIAAAAKAAAAAAAOAAQAAAAAAAUAAAAOAAMAAAAIAAIAAAAOAAIAAAAAAAAAAAAPAAUAAAAGAAcAAAA=")
 tile_set = SubResource("TileSet_5c3tr")
 
-[node name="Grass2" parent="." instance=ExtResource("7_6s7dn")]
-position = Vector2(137, 127)
-
-[node name="Grass3" parent="." instance=ExtResource("7_6s7dn")]
-position = Vector2(224, 105)
-
-[node name="Trees" type="Node2D" parent="."]
+[node name="Trees_group" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(245, 103)
 scale = Vector2(1, 0.979167)
 
-[node name="Tree" parent="Trees" instance=ExtResource("2_tl7xp")]
+[node name="Tree" parent="Trees_group" instance=ExtResource("2_tl7xp")]
 scale = Vector2(1, 1)
 
-[node name="Tree2" parent="Trees" instance=ExtResource("2_tl7xp")]
+[node name="Tree2" parent="Trees_group" instance=ExtResource("2_tl7xp")]
 position = Vector2(-34, -52.0851)
 scale = Vector2(1, 1)
 
-[node name="Tree3" parent="Trees" instance=ExtResource("2_tl7xp")]
+[node name="Tree3" parent="Trees_group" instance=ExtResource("2_tl7xp")]
 position = Vector2(27, 32.6808)
 scale = Vector2(1, 1)
 
-[node name="Tree4" parent="Trees" instance=ExtResource("2_tl7xp")]
+[node name="Tree4" parent="Trees_group" instance=ExtResource("2_tl7xp")]
 position = Vector2(-184, -28.5957)
 scale = Vector2(1, 1)
 
-[node name="Tree5" parent="Trees" instance=ExtResource("2_tl7xp")]
+[node name="Tree5" parent="Trees_group" instance=ExtResource("2_tl7xp")]
 position = Vector2(-164, 46.9787)
 scale = Vector2(1, 1)
+
+[node name="Grass_group" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Grass2" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(185, 118)
+
+[node name="Grass4" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(103, 148)
+
+[node name="Grass5" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(120, 148)
+
+[node name="Grass6" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(136, 148)
+
+[node name="Grass7" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(137, 118)
+
+[node name="Grass9" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(137, 134)
+
+[node name="Grass10" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(185, 150)
+
+[node name="Grass11" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(185, 102)
+
+[node name="Grass12" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(185, 134)
+
+[node name="Grass8" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(120, 133)
+
+[node name="Grass3" parent="Grass_group" instance=ExtResource("7_6s7dn")]
+position = Vector2(224, 105)
