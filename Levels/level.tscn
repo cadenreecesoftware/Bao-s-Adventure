@@ -1890,7 +1890,7 @@ region_rect = Rect2(0, 0, 304, 168)
 position = Vector2(61, 113)
 
 [node name="PlayerPanda" parent="." instance=ExtResource("1_pqwrr")]
-position = Vector2(273, 148)
+position = Vector2(278, 152)
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
@@ -1902,23 +1902,32 @@ tile_set = SubResource("TileSet_mt86s")
 tile_map_data = PackedByteArray("AAAGAAQAAAAEAAMAAAAGAAUAAAAQAAUAAAAFAAUAAAAGAAQAAAAFAAQAAAAAAAEAAAAFAAMAAAAIAAAAAAAGAAMAAAALAAAAAAAGAAYAAAAQAAkAAAAFAAYAAAAAAAUAAAAHAAUAAAAKAAUAAAAHAAYAAAAFAAMAAAAHAAcAAAAFAAUAAAAGAAcAAAAIAAcAAAAIAAUAAAAFAAMAAAAIAAYAAAAFAAUAAAAHAAQAAAAQAAIAAAAIAAQAAAAFAAEAAAAHAAMAAAABAAYAAAAIAAMAAAAFAAYAAAARAAYAAAAFAAEAAAARAAcAAAAFAAUAAAAQAAcAAAAGAAcAAAAQAAYAAAAAAAIAAAAQAAUAAAAOAAEAAAARAAUAAAAFAAEAAAAQAAQAAAACAAEAAAARAAQAAAAFAAQAAAAQAAMAAAANAAQAAAARAAMAAAAFAAEAAAAQAAIAAAADAAYAAAARAAIAAAAFAAAAAAAPAAQAAAAOAAMAAAAPAAMAAAANAAQAAAAPAAIAAAAKAAAAAAAOAAQAAAAAAAUAAAAOAAMAAAAIAAIAAAAOAAIAAAAAAAAAAAAPAAUAAAAGAAcAAAA=")
 tile_set = SubResource("TileSet_5c3tr")
 
-[node name="Tree" parent="." instance=ExtResource("2_tl7xp")]
-position = Vector2(245, 103)
-
-[node name="Tree2" parent="." instance=ExtResource("2_tl7xp")]
-position = Vector2(211, 52)
-
-[node name="Tree3" parent="." instance=ExtResource("2_tl7xp")]
-position = Vector2(272, 135)
-
-[node name="Tree4" parent="." instance=ExtResource("2_tl7xp")]
-position = Vector2(61, 75)
-
-[node name="Tree5" parent="." instance=ExtResource("2_tl7xp")]
-position = Vector2(81, 149)
-
 [node name="Grass2" parent="." instance=ExtResource("7_6s7dn")]
 position = Vector2(137, 127)
 
 [node name="Grass3" parent="." instance=ExtResource("7_6s7dn")]
 position = Vector2(224, 105)
+
+[node name="Trees" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(245, 103)
+scale = Vector2(1, 0.979167)
+
+[node name="Tree" parent="Trees" instance=ExtResource("2_tl7xp")]
+scale = Vector2(1, 1)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("2_tl7xp")]
+position = Vector2(-34, -52.0851)
+scale = Vector2(1, 1)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("2_tl7xp")]
+position = Vector2(27, 32.6808)
+scale = Vector2(1, 1)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("2_tl7xp")]
+position = Vector2(-184, -28.5957)
+scale = Vector2(1, 1)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("2_tl7xp")]
+position = Vector2(-164, 46.9787)
+scale = Vector2(1, 1)
