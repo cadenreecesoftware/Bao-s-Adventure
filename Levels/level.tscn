@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://267vvu56oe1j"]
+[gd_scene load_steps=13 format=4 uid="uid://267vvu56oe1j"]
 
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="1_jaqfe"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_pqwrr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://qx2aka1uyiyu" path="res://Art/Action RPG Resources/World/DirtTileset.png" id="5_p6n8c"]
 [ext_resource type="Texture2D" uid="uid://dqofb050l6dij" path="res://Art/Action RPG Resources/World/CliffTileset.png" id="6_n4u1j"]
 [ext_resource type="PackedScene" uid="uid://bhja2n2qefc0h" path="res://Art/Action RPG Resources/World/grass.tscn" id="7_6s7dn"]
+[ext_resource type="PackedScene" uid="uid://2rgykdk1383j" path="res://Enemies/bat.tscn" id="8_36dim"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mflou"]
 texture = ExtResource("5_p6n8c")
@@ -1960,4 +1961,11 @@ position = Vector2(120, 133)
 [node name="Grass3" parent="Grass_group" instance=ExtResource("7_6s7dn")]
 position = Vector2(224, 105)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Bat" parent="." instance=ExtResource("8_36dim")]
+position = Vector2(208, 72)
+
+[node name="Bat2" parent="." instance=ExtResource("8_36dim")]
+position = Vector2(57, 46)
+
+[node name="Bat3" parent="." instance=ExtResource("8_36dim")]
+position = Vector2(247, 149)
