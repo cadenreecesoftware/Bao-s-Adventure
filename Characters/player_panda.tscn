@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://d3b7o540fmouk" path="res://Art/Action RPG Resources/Player/redpandaversion.png" id="1_nxoc4"]
 [ext_resource type="PackedScene" uid="uid://b5wg5rpfgccmy" path="res://Art/Action RPG Resources/Overlap/Hitbox.tscn" id="3_o1qnp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tgnpx"]
-radius = 6.28097
-height = 31.4049
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ksrx4"]
+radius = 13.6204
+height = 44.4866
 
 [sub_resource type="Animation" id="Animation_15a0p"]
 resource_name = "AttackDown"
@@ -531,6 +531,7 @@ height = 31.2677
 scale = Vector2(1, 1.02342)
 collision_layer = 2
 script = ExtResource("1_dasjy")
+move_speed = 75.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.00974e-28, -7.81693)
@@ -540,10 +541,10 @@ hframes = 60
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.27374e-13, 0.977116)
+position = Vector2(4.5995e-13, 1.19209e-07)
 rotation = 1.5708
-scale = Vector2(-0.622271, -0.507401)
-shape = SubResource("CapsuleShape2D_tgnpx")
+scale = Vector2(-0.358695, 0.359659)
+shape = SubResource("CapsuleShape2D_ksrx4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

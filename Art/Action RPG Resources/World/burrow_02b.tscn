@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfrjaicjr2bca"]
+
+[ext_resource type="Texture2D" uid="uid://bhum7xyiupdg0" path="res://Art/Action RPG Resources/Woodland Folk/1x/Buildings/Burrow02_B.png" id="1_6nfpx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjwao"]
+size = Vector2(85.8381, 48.452)
+
+[node name="Burrow02B" type="Sprite2D"]
+texture = ExtResource("1_6nfpx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.499998, 6)
+scale = Vector2(0.827138, 0.908115)
+shape = SubResource("RectangleShape2D_tjwao")
