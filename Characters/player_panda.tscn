@@ -1,8 +1,9 @@
-[gd_scene load_steps=52 format=3 uid="uid://d2upw8umcdeq0"]
+[gd_scene load_steps=53 format=3 uid="uid://d2upw8umcdeq0"]
 
 [ext_resource type="Script" path="res://Characters/player_panda.gd" id="1_dasjy"]
 [ext_resource type="Texture2D" uid="uid://d3b7o540fmouk" path="res://Art/Action RPG Resources/Player/redpandaversion.png" id="1_nxoc4"]
 [ext_resource type="PackedScene" uid="uid://b5wg5rpfgccmy" path="res://Art/Action RPG Resources/Overlap/Hitbox.tscn" id="3_o1qnp"]
+[ext_resource type="Script" path="res://Art/Action RPG Resources/Overlap/Sword_hitbox.gd" id="4_cqu16"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ksrx4"]
 radius = 13.6204
@@ -725,6 +726,7 @@ rotation = 1.5708
 [node name="SwordHitbox" parent="HitboxPivot" instance=ExtResource("3_o1qnp")]
 position = Vector2(15, 0)
 collision_layer = 8
+script = ExtResource("4_cqu16")
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
 position = Vector2(0, 0.091536)

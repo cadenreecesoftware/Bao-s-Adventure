@@ -13,7 +13,7 @@ var input_vector = Vector2.ZERO
 
 
 @export var move_speed : float = 75
-@export var roll_speed : float = 1.35
+@export var roll_speed : float = 1.5
 #@export var starting_direction : Vector2= Vector2(0,1)
 @onready var animations = $AnimationPlayer
 @onready var animationTree = $AnimationTree
