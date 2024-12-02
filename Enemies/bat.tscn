@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://2rgykdk1383j"]
+[gd_scene load_steps=18 format=3 uid="uid://2rgykdk1383j"]
 
 [ext_resource type="Texture2D" uid="uid://c2gi2vhpmq48m" path="res://Art/Action RPG Resources/Enemies/Bat.png" id="1_k41sd"]
 [ext_resource type="Script" path="res://Enemies/bat.gd" id="1_uwjkm"]
 [ext_resource type="Texture2D" uid="uid://coa6wfve7gxnn" path="res://Art/Action RPG Resources/Shadows/SmallShadow.png" id="2_d3ggj"]
 [ext_resource type="PackedScene" uid="uid://dqaxsun24l05v" path="res://Art/Action RPG Resources/Overlap/Hurtbox.tscn" id="4_lgxkg"]
+[ext_resource type="PackedScene" uid="uid://b5wg5rpfgccmy" path="res://Art/Action RPG Resources/Overlap/Hitbox.tscn" id="4_pkovh"]
 [ext_resource type="PackedScene" uid="uid://nmvo3soyvnmj" path="res://Stats/stats.tscn" id="5_dy3fc"]
 [ext_resource type="PackedScene" uid="uid://brrkm63potao4" path="res://Enemies/player_detection_zone.tscn" id="6_au6h0"]
 
@@ -53,6 +54,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_s12rs"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjbam"]
+radius = 4.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66nbj"]
 radius = 7.0
 height = 18.0
@@ -78,6 +82,13 @@ texture = ExtResource("2_d3ggj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s12rs")
 
+[node name="Hitbox" parent="." instance=ExtResource("4_pkovh")]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_gjbam")
+
 [node name="Hurtbox" parent="." instance=ExtResource("4_lgxkg")]
 collision_mask = 8
 
@@ -94,8 +105,10 @@ max_health = 2
 self_modulate = Color(0.494506, 0.576533, 0.230178, 0.67451)
 shape = SubResource("CircleShape2D_5a2f0")
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="Hurtbox/Stats" to="." method="_on_stats_no_health"]
 
+[editable path="Hitbox"]
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]

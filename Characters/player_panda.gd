@@ -10,6 +10,7 @@ enum {
 var state = MOVE
 var roll_vector = Vector2.LEFT
 var input_vector = Vector2.ZERO
+var stats = PlayerStats
 
 
 @export var move_speed : float = 75
@@ -17,7 +18,9 @@ var input_vector = Vector2.ZERO
 #@export var starting_direction : Vector2= Vector2(0,1)
 @onready var animations = $AnimationPlayer
 @onready var animationTree = $AnimationTree
+@onready var hurtbox = $Hurtbox
 @onready var animationState = animationTree.get("parameters/playback")
+@onready var hit_flash_anim_player = $HitFlashAnimationPlayer
 
 
 
@@ -25,6 +28,7 @@ var input_vector = Vector2.ZERO
 
 
 func _ready():
+	self.stats.connect("no_health", queue_free)
 	animationTree.active = true
 
 
@@ -61,6 +65,8 @@ func move_state():
 func roll_state():
 	input_vector = roll_vector * roll_speed
 	animationState.travel("Roll")
+	#make the player have i-frames during their dodge
+	hurtbox.start_invincibility(0.5)
 	move()
 	
 func attack_state():
@@ -78,4 +84,8 @@ func roll_animation_finished():
 	
 	
 
-			
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	stats.health -= 1
+	hurtbox.start_invincibility(0.7)
+	hit_flash_anim_player.play("hit_flash")
+	hurtbox.create_hit_effect()

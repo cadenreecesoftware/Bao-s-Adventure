@@ -1,9 +1,16 @@
-[gd_scene load_steps=53 format=3 uid="uid://d2upw8umcdeq0"]
+[gd_scene load_steps=60 format=3 uid="uid://d2upw8umcdeq0"]
 
 [ext_resource type="Script" path="res://Characters/player_panda.gd" id="1_dasjy"]
 [ext_resource type="Texture2D" uid="uid://d3b7o540fmouk" path="res://Art/Action RPG Resources/Player/redpandaversion.png" id="1_nxoc4"]
+[ext_resource type="Shader" uid="uid://i24e1lb6mpes" path="res://Characters/hit_flash.tres" id="2_ww2y6"]
 [ext_resource type="PackedScene" uid="uid://b5wg5rpfgccmy" path="res://Art/Action RPG Resources/Overlap/Hitbox.tscn" id="3_o1qnp"]
 [ext_resource type="Script" path="res://Art/Action RPG Resources/Overlap/Sword_hitbox.gd" id="4_cqu16"]
+[ext_resource type="PackedScene" uid="uid://dqaxsun24l05v" path="res://Art/Action RPG Resources/Overlap/Hurtbox.tscn" id="5_f4jwd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wl7c7"]
+shader = ExtResource("2_ww2y6")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ksrx4"]
 radius = 13.6204
@@ -687,12 +694,54 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mv5h4"]
 height = 31.2677
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sr2ha"]
+radius = 6.0
+height = 15.6339
+
+[sub_resource type="Animation" id="Animation_5x6dy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6ymqp"]
+resource_name = "hit_flash"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2ho7"]
+_data = {
+"RESET": SubResource("Animation_5x6dy"),
+"hit_flash": SubResource("Animation_6ymqp")
+}
+
 [node name="PlayerPanda" type="CharacterBody2D"]
 scale = Vector2(1, 1.02342)
 collision_layer = 2
 script = ExtResource("1_dasjy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wl7c7")
 position = Vector2(1.00974e-28, -7.81693)
 scale = Vector2(0.997712, 1)
 texture = ExtResource("1_nxoc4")
@@ -733,4 +782,20 @@ position = Vector2(0, 0.091536)
 shape = SubResource("CapsuleShape2D_mv5h4")
 disabled = true
 
+[node name="Hurtbox" parent="." instance=ExtResource("5_f4jwd")]
+position = Vector2(-2, 0)
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -3.90846)
+shape = SubResource("CapsuleShape2D_sr2ha")
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p2ho7")
+}
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
 [editable path="HitboxPivot/SwordHitbox"]
+[editable path="Hurtbox"]

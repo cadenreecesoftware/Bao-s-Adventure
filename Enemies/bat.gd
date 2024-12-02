@@ -13,6 +13,7 @@ enum {
 @onready var stats = $Hurtbox/Stats
 @onready var playerDetectionZone = $PlayerDetectionZone
 @onready var sprite = $AnimatedSprite
+@onready var hurtbox = $Hurtbox
 var state = CHASE
 
 
@@ -45,7 +46,8 @@ func seek_player():
 func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
 	var direction = (position - area.owner.position).normalized()
-	velocity = direction * 85
+	velocity = direction * 105
+	hurtbox.create_hit_effect()
 
 
 func _on_stats_no_health() -> void:
@@ -53,3 +55,8 @@ func _on_stats_no_health() -> void:
 	var enemyDeathEffect = EnemyDeathEffect.instantiate()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	var direction = (position - area.owner.position).normalized()
+	velocity = direction * 105
