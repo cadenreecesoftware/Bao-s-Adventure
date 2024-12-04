@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://brvqky2pukeg4"]
+
+[ext_resource type="Texture2D" uid="uid://bc6q1474sk7i2" path="res://Art/Action RPG Resources/UI/fullpack/emptyheart.png" id="1_sv3ls"]
+[ext_resource type="Texture2D" uid="uid://cy1dhivslds6v" path="res://Art/Action RPG Resources/UI/fullpack/full_heart.png" id="2_70huk"]
+
+[node name="Health_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeartUIEmpty" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 61.0
+offset_bottom = 16.0
+texture = ExtResource("1_sv3ls")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="HeartUIFull" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 63.0
+offset_bottom = 16.0
+texture = ExtResource("2_70huk")
+expand_mode = 1
+stretch_mode = 1

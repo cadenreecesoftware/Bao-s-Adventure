@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://267vvu56oe1j"]
+[gd_scene load_steps=15 format=4 uid="uid://267vvu56oe1j"]
 
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="1_jaqfe"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_pqwrr"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dqofb050l6dij" path="res://Art/Action RPG Resources/World/CliffTileset.png" id="6_n4u1j"]
 [ext_resource type="PackedScene" uid="uid://bhja2n2qefc0h" path="res://Art/Action RPG Resources/World/grass.tscn" id="7_6s7dn"]
 [ext_resource type="PackedScene" uid="uid://2rgykdk1383j" path="res://Enemies/bat.tscn" id="8_36dim"]
+[ext_resource type="PackedScene" uid="uid://brvqky2pukeg4" path="res://Art/Action RPG Resources/UI/health_ui.tscn" id="9_i7cok"]
+[ext_resource type="Script" path="res://Art/Action RPG Resources/UI/health_ui.gd" id="10_5fy8r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mflou"]
 texture = ExtResource("5_p6n8c")
@@ -1914,7 +1916,7 @@ scale = Vector2(1, 0.979167)
 scale = Vector2(1, 1)
 
 [node name="Tree2" parent="Trees_group" instance=ExtResource("2_tl7xp")]
-position = Vector2(-34, -52.0851)
+position = Vector2(-30, -56.1702)
 scale = Vector2(1, 1)
 
 [node name="Tree3" parent="Trees_group" instance=ExtResource("2_tl7xp")]
@@ -1923,6 +1925,10 @@ scale = Vector2(1, 1)
 
 [node name="Tree5" parent="Trees_group" instance=ExtResource("2_tl7xp")]
 position = Vector2(-164, 46.9787)
+scale = Vector2(1, 1)
+
+[node name="Tree6" parent="Trees_group" instance=ExtResource("2_tl7xp")]
+position = Vector2(-175, -27.5745)
 scale = Vector2(1, 1)
 
 [node name="Grass_group" type="Node2D" parent="."]
@@ -1962,10 +1968,13 @@ position = Vector2(120, 133)
 position = Vector2(224, 105)
 
 [node name="Bat" parent="." instance=ExtResource("8_36dim")]
-position = Vector2(208, 72)
+position = Vector2(170, 126)
 
 [node name="Bat2" parent="." instance=ExtResource("8_36dim")]
-position = Vector2(57, 46)
+position = Vector2(291, 158)
 
-[node name="Bat3" parent="." instance=ExtResource("8_36dim")]
-position = Vector2(247, 149)
+[node name="Health_UI" parent="." instance=ExtResource("9_i7cok")]
+z_index = 3
+offset_right = 67.0
+offset_bottom = 17.0
+script = ExtResource("10_5fy8r")

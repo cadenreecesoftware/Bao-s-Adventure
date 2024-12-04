@@ -73,7 +73,8 @@ script = ExtResource("1_uwjkm")
 sprite_frames = SubResource("SpriteFrames_qyp44")
 animation = &"Fly"
 autoplay = "Fly"
-frame_progress = 0.530959
+frame = 4
+frame_progress = 0.499582
 offset = Vector2(0, -12)
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]

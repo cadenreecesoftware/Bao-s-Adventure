@@ -1,10 +1,11 @@
-[gd_scene load_steps=60 format=3 uid="uid://d2upw8umcdeq0"]
+[gd_scene load_steps=61 format=3 uid="uid://d2upw8umcdeq0"]
 
 [ext_resource type="Script" path="res://Characters/player_panda.gd" id="1_dasjy"]
-[ext_resource type="Texture2D" uid="uid://d3b7o540fmouk" path="res://Art/Action RPG Resources/Player/redpandaversion.png" id="1_nxoc4"]
+[ext_resource type="Texture2D" uid="uid://cj7aopmk173cs" path="res://Art/Action RPG Resources/Shadows/MediumShadow.png" id="2_p428s"]
 [ext_resource type="Shader" uid="uid://i24e1lb6mpes" path="res://Characters/hit_flash.tres" id="2_ww2y6"]
 [ext_resource type="PackedScene" uid="uid://b5wg5rpfgccmy" path="res://Art/Action RPG Resources/Overlap/Hitbox.tscn" id="3_o1qnp"]
 [ext_resource type="Script" path="res://Art/Action RPG Resources/Overlap/Sword_hitbox.gd" id="4_cqu16"]
+[ext_resource type="Texture2D" uid="uid://c12a5pkiukjw7" path="res://Art/Action RPG Resources/Player/redpandaversion2-export.png" id="4_gvhpw"]
 [ext_resource type="PackedScene" uid="uid://dqaxsun24l05v" path="res://Art/Action RPG Resources/Overlap/Hurtbox.tscn" id="5_f4jwd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wl7c7"]
@@ -736,15 +737,18 @@ _data = {
 }
 
 [node name="PlayerPanda" type="CharacterBody2D"]
-scale = Vector2(1, 1.02342)
 collision_layer = 2
 script = ExtResource("1_dasjy")
+
+[node name="MediumShadow" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("2_p428s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_wl7c7")
 position = Vector2(1.00974e-28, -7.81693)
 scale = Vector2(0.997712, 1)
-texture = ExtResource("1_nxoc4")
+texture = ExtResource("4_gvhpw")
 hframes = 60
 frame = 1
 
