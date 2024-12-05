@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://d2upw8umcdeq0"]
+[gd_scene load_steps=72 format=3 uid="uid://d2upw8umcdeq0"]
 
 [ext_resource type="Script" path="res://Characters/player_panda.gd" id="1_dasjy"]
 [ext_resource type="Texture2D" uid="uid://cj7aopmk173cs" path="res://Art/Action RPG Resources/Shadows/MediumShadow.png" id="2_p428s"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Art/Action RPG Resources/Overlap/Sword_hitbox.gd" id="4_cqu16"]
 [ext_resource type="Texture2D" uid="uid://c12a5pkiukjw7" path="res://Art/Action RPG Resources/Player/redpandaversion2-export.png" id="4_gvhpw"]
 [ext_resource type="PackedScene" uid="uid://dqaxsun24l05v" path="res://Art/Action RPG Resources/Overlap/Hurtbox.tscn" id="5_f4jwd"]
-[ext_resource type="Texture2D" uid="uid://cbr6bwc8yueu6" path="res://Art/Action RPG Resources/Player/chain_head.png" id="8_v1wnn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wl7c7"]
 shader = ExtResource("2_ww2y6")
@@ -268,54 +267,6 @@ tracks/1/keys = {
 "method": &"grapple_animation_finished"
 }]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("grap_pivot:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5708]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("grap_pivot/grapple:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("grap_pivot/grapple:enabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_nxjd8"]
 resource_name = "GrappleLeft"
@@ -346,54 +297,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"grapple_animation_finished"
 }]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("grap_pivot:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.14159]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("grap_pivot/grapple:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3.49691e-07, 4)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("grap_pivot/grapple:enabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_1bomo"]
@@ -426,54 +329,6 @@ tracks/1/keys = {
 "method": &"grapple_animation_finished"
 }]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("grap_pivot:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("grap_pivot/grapple:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -4)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("grap_pivot/grapple:enabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_qguwo"]
 resource_name = "GrappleUp"
@@ -504,54 +359,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"grapple_animation_finished"
 }]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("grap_pivot:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [4.71239]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("grap_pivot/grapple:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("grap_pivot/grapple:enabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_mw7mp"]
@@ -663,42 +470,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("grap_pivot:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("grap_pivot/grapple:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -4)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("grap_pivot/grapple:enabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_us8vc"]
@@ -1135,16 +906,16 @@ texture = ExtResource("2_p428s")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_wl7c7")
 position = Vector2(1.00974e-28, -7.81693)
+scale = Vector2(0.997712, 1)
 texture = ExtResource("4_gvhpw")
 hframes = 60
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.0842e-19, 0)
+position = Vector2(4.5995e-13, 1.19209e-07)
 rotation = 1.5708
 scale = Vector2(-0.358695, 0.359659)
 shape = SubResource("CapsuleShape2D_ksrx4")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1180,7 +951,7 @@ position = Vector2(-2, 0)
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(2, -3)
+position = Vector2(0, -3.90846)
 shape = SubResource("CapsuleShape2D_sr2ha")
 
 [node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1192,20 +963,9 @@ libraries = {
 
 [node name="grapple" type="RayCast2D" parent="grap_pivot"]
 position = Vector2(0, -4)
-enabled = false
-target_position = Vector2(86, 0)
-collision_mask = 16
-collide_with_areas = true
-collide_with_bodies = false
+target_position = Vector2(88, 0)
+collision_mask = 9
 
-[node name="ChainHead" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(82, -4)
-rotation = 1.5708
-scale = Vector2(0.555, 0.555)
-texture = ExtResource("8_v1wnn")
-
-[connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="HitboxPivot/SwordHitbox"]

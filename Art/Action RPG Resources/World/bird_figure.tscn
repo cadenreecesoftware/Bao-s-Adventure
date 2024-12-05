@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp4jn2fwldtbu"]
+
+[ext_resource type="Texture2D" uid="uid://j0yi7kyvef5r" path="res://Art/Action RPG Resources/Woodland Folk/1x/Icons/BirdFigurine_1.png" id="1_oef3n"]
+[ext_resource type="Texture2D" uid="uid://cj7aopmk173cs" path="res://Art/Action RPG Resources/Shadows/MediumShadow.png" id="1_s1rfr"]
+[ext_resource type="PackedScene" uid="uid://dqaxsun24l05v" path="res://Art/Action RPG Resources/Overlap/Hurtbox.tscn" id="2_dhwvw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbfp4"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufsyx"]
+size = Vector2(17, 17)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="MediumShadow" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
+texture = ExtResource("1_s1rfr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oef3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_pbfp4")
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_dhwvw")]
+collision_layer = 16
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_ufsyx")
+
+[editable path="Hurtbox"]

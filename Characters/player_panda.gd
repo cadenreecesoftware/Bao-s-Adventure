@@ -4,7 +4,8 @@ extends CharacterBody2D
 enum {
 	MOVE,
 	ROLL,
-	ATTACK
+	ATTACK,
+	GRAPPLE
 }
 
 var state = MOVE
@@ -21,6 +22,9 @@ var stats = PlayerStats
 @onready var hurtbox = $Hurtbox
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var hit_flash_anim_player = $HitFlashAnimationPlayer
+@onready var grapple = $"grap_pivot/grapple"
+@onready var player_collider = $CollisionShape2D
+
 
 
 
@@ -40,8 +44,11 @@ func _physics_process(_delta):
 			roll_state()
 		ATTACK:
 			attack_state()
+		GRAPPLE:
+			grapple_state()
+			
 	
-	
+
 func move_state():
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -53,6 +60,7 @@ func move_state():
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationTree.set("parameters/Roll/blend_position", input_vector)
+		animationTree.set("parameters/Grapple/blend_position", input_vector)
 		animationState.travel("Run")
 	else:
 		animationState.travel("Idle")
@@ -61,6 +69,8 @@ func move_state():
 		state = ATTACK
 	if Input.is_action_just_pressed("roll"):
 		state = ROLL
+	if Input.is_action_just_pressed("grapple"):
+		state = GRAPPLE
 	
 func roll_state():
 	input_vector = roll_vector * roll_speed
@@ -68,9 +78,26 @@ func roll_state():
 	#make the player have i-frames during their dodge
 	hurtbox.start_invincibility(0.5)
 	move()
+
+func _draw():
+	if grapple.is_colliding():
+		draw_line(input_vector, to_local(grapple.get_collision_point()), Color("SIENNA"), 3, false)
+	else:
+		pass
 	
 func attack_state():
 	animationState.travel("Attack")
+
+func grapple_state():
+	print(to_local(grapple.get_collision_point()))
+	queue_redraw()
+	animationState.travel("Grapple")
+	if grapple.is_colliding():
+		#velocity = input_vector * to_local(grapple.get_collision_point() )
+		input_vector = lerp(input_vector, to_local(grapple.get_collision_point()), 0.003)
+		move()
+	else:
+		pass
 
 func move():
 	velocity = input_vector * move_speed
@@ -80,6 +107,10 @@ func attack_animation_finished():
 	state = MOVE
 
 func roll_animation_finished():
+	state = MOVE
+
+func grapple_animation_finished():
+	queue_redraw()
 	state = MOVE
 	
 	
