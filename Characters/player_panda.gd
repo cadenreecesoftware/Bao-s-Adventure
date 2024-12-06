@@ -89,7 +89,7 @@ func attack_state():
 	animationState.travel("Attack")
 
 func grapple_state():
-	print(to_local(grapple.get_collision_point()))
+	#print(to_local(grapple.get_collision_point()))
 	queue_redraw()
 	animationState.travel("Grapple")
 	if grapple.is_colliding():

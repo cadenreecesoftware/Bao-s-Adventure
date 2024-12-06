@@ -80,6 +80,7 @@ grapple={
 2d_physics/layer_4="EnemyHurtbox"
 2d_physics/layer_5="HookshotPoints"
 2d_physics/layer_6="Hookshotshooter"
+2d_physics/layer_7="SoftCollisions"
 
 [rendering]
 
