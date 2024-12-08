@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://d2upw8umcdeq0"]
+[gd_scene load_steps=73 format=3 uid="uid://d2upw8umcdeq0"]
 
 [ext_resource type="Script" path="res://Characters/player_panda.gd" id="1_dasjy"]
 [ext_resource type="Texture2D" uid="uid://cj7aopmk173cs" path="res://Art/Action RPG Resources/Shadows/MediumShadow.png" id="2_p428s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Art/Action RPG Resources/Overlap/Sword_hitbox.gd" id="4_cqu16"]
 [ext_resource type="Texture2D" uid="uid://c12a5pkiukjw7" path="res://Art/Action RPG Resources/Player/redpandaversion2-export.png" id="4_gvhpw"]
 [ext_resource type="PackedScene" uid="uid://dqaxsun24l05v" path="res://Art/Action RPG Resources/Overlap/Hurtbox.tscn" id="5_f4jwd"]
+[ext_resource type="Texture2D" uid="uid://cbr6bwc8yueu6" path="res://Art/Action RPG Resources/Player/chain_head.png" id="8_v1wnn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wl7c7"]
 shader = ExtResource("2_ww2y6")
@@ -1198,6 +1199,13 @@ target_position = Vector2(86, 0)
 collision_mask = 16
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="ChainHead" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(82, -4)
+rotation = 1.5708
+scale = Vector2(0.555, 0.555)
+texture = ExtResource("8_v1wnn")
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

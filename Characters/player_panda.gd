@@ -12,6 +12,10 @@ var state = MOVE
 var roll_vector = Vector2.LEFT
 var input_vector = Vector2.ZERO
 var stats = PlayerStats
+#var grapple_tip = preload("res://Characters/chain_head.tscn")
+#var grapple_instanced = false
+#var grapple_tip_instance = grapple_tip.instantiate()
+
 
 
 @export var move_speed : float = 75
@@ -24,6 +28,9 @@ var stats = PlayerStats
 @onready var hit_flash_anim_player = $HitFlashAnimationPlayer
 @onready var grapple = $"grap_pivot/grapple"
 @onready var player_collider = $CollisionShape2D
+@onready var grapple_pivot = $grap_pivot
+
+
 
 
 
@@ -32,6 +39,7 @@ var stats = PlayerStats
 
 
 func _ready():
+	randomize()
 	self.stats.connect("no_health", queue_free)
 	animationTree.active = true
 
@@ -96,9 +104,21 @@ func grapple_state():
 		#velocity = input_vector * to_local(grapple.get_collision_point() )
 		input_vector = lerp(input_vector, to_local(grapple.get_collision_point()), 0.003)
 		move()
+		#grapple_tipper()
 	else:
 		pass
 
+#func grapple_tipper():
+	#if grapple_instanced == false:
+		#var grapple_tip_instance = grapple_tip.instantiate()
+		#grapple_tip_instance.rotation = grapple_pivot.rotation
+		#grapple_tip_instance.global_position = to_local(grapple.get_collision_point())
+		#add_child(grapple_tip_instance)
+		#grapple_instanced = true
+	#else:
+		#pass
+
+	
 func move():
 	velocity = input_vector * move_speed
 	move_and_slide()

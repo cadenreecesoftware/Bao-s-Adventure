@@ -1924,16 +1924,16 @@ position = Vector2(224, 105)
 position = Vector2(115, 75)
 
 [node name="Bat" parent="." instance=ExtResource("11_0phlk")]
-position = Vector2(19, 81)
+position = Vector2(62, 24)
 
 [node name="Bat2" parent="." instance=ExtResource("11_0phlk")]
-position = Vector2(285, 157)
+position = Vector2(293, 25)
 
 [node name="Bat3" parent="." instance=ExtResource("11_0phlk")]
-position = Vector2(21, 154)
+position = Vector2(70, 84)
 
 [node name="Bat4" parent="." instance=ExtResource("11_0phlk")]
-position = Vector2(51, 158)
+position = Vector2(227, 144)
 
 [node name="Hookshotpivot2" parent="." instance=ExtResource("12_xf0pr")]
 position = Vector2(183, 80)
