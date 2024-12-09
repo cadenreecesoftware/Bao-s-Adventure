@@ -135,7 +135,7 @@ func grapple_animation_finished():
 	
 	
 
-func _on_hurtbox_area_entered(area: Area2D) -> void:
+func _on_hurtbox_area_entered(_area) -> void:
 	stats.health -= 1
 	hurtbox.start_invincibility(0.7)
 	hit_flash_anim_player.play("hit_flash")

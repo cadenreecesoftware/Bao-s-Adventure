@@ -27,8 +27,7 @@ func _ready():
 func _physics_process(delta) -> void:
 	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	move_and_slide()
-	print(state)
-	
+		
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
