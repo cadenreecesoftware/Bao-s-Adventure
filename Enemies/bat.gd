@@ -16,6 +16,7 @@ enum {
 @onready var hurtbox = $Hurtbox
 @onready var softCollision = $SoftCollision
 @onready var wanderController = $WanderController
+@onready var animationPlayer = $AnimationPlayer
 
 
 var state = CHASE
@@ -83,6 +84,7 @@ func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
 	var direction = (position - area.owner.position).normalized()
 	velocity = direction * 105
+	animationPlayer.play("hit_flash_animation")
 	hurtbox.create_hit_effect()
 
 
