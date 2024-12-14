@@ -32,7 +32,6 @@ streams_count = 1
 stream_0/stream = ExtResource("3_7j35s")
 
 [node name="HitEffect" type="AnimatedSprite2D"]
-z_index = 2
 sprite_frames = SubResource("SpriteFrames_cfm1c")
 animation = &"animate"
 autoplay = "animate"
@@ -42,3 +41,4 @@ script = ExtResource("2_ve55x")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_2ap8e")
 autoplay = true
+max_polyphony = 10
