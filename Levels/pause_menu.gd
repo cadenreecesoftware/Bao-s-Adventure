@@ -1,12 +1,15 @@
 extends Control
 
+@onready var animations = $AnimationPlayer
 
-
+func _ready():
+	animations.play("RESET")
 
 # Called when the node enters the scene tree for the first time.
 func resume():
 	get_tree().paused = false
 	visible = false
+	animations.play_backwards("blur")
 
 	
 func save():
@@ -15,6 +18,7 @@ func save():
 func pause():
 	get_tree().paused = true
 	visible = true
+	animations.play("blur")
 	
 	
 func pausePressed():

@@ -1,7 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://btrsg5ahqkvuw"]
+[gd_scene load_steps=19 format=3 uid="uid://btrsg5ahqkvuw"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_8jwm1"]
 [ext_resource type="FontFile" uid="uid://dhxhdvxxhce7o" path="res://Art/Action RPG Resources/UI/fullpack/FantasyRPGtitle (size 11).ttf" id="2_fu6jn"]
+[ext_resource type="Texture2D" uid="uid://doowvjrx6ss5n" path="res://Art/Action RPG Resources/UI/fullpack/MM-bar-flash.png" id="3_6xdfs"]
+[ext_resource type="Texture2D" uid="uid://jalyewu1o0dc" path="res://Art/Action RPG Resources/UI/fullpack/MM-bar-press.png" id="4_s7jtf"]
+[ext_resource type="Texture2D" uid="uid://ba7iu1vxdgbiw" path="res://Art/Action RPG Resources/UI/fullpack/MM-bar.png" id="5_st5mq"]
+[ext_resource type="Texture2D" uid="uid://ugw7tx6cc3qd" path="res://Art/Action RPG Resources/UI/fullpack/MM-banner-1.png" id="6_bbotn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05865"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_drtba"]
+texture = ExtResource("3_6xdfs")
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tbuk7"]
+texture = ExtResource("4_s7jtf")
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gt5mv"]
+texture = ExtResource("5_st5mq")
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_460n6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hcwnp"]
+texture = ExtResource("3_6xdfs")
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dgj2s"]
+texture = ExtResource("4_s7jtf")
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qtw82"]
+texture = ExtResource("5_st5mq")
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udv2d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfxlp"]
+texture = ExtResource("3_6xdfs")
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_naetf"]
+texture = ExtResource("4_s7jtf")
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c00x7"]
+texture = ExtResource("5_st5mq")
+expand_margin_left = 4.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +84,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8jwm1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 104.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0349066
+texture = ExtResource("6_bbotn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -30,16 +119,28 @@ alignment = 1
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fu6jn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_05865")
+theme_override_styles/hover = SubResource("StyleBoxTexture_drtba")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tbuk7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gt5mv")
 text = "START"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fu6jn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_460n6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hcwnp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dgj2s")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qtw82")
 text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fu6jn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_udv2d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hfxlp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_naetf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_c00x7")
 text = "EXIT"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
