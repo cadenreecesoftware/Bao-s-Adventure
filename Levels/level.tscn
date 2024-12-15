@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://267vvu56oe1j"]
+[gd_scene load_steps=24 format=4 uid="uid://267vvu56oe1j"]
 
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="1_jaqfe"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_pqwrr"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://hl4dfgysul3y" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Tree_small_2.png" id="16_f2d3p"]
 [ext_resource type="AudioStream" uid="uid://cvh23av83swib" path="res://Music/MysticalForest1.mp3" id="17_6863j"]
 [ext_resource type="PackedScene" uid="uid://uljnlavx08do" path="res://Levels/parallax_background_fog.tscn" id="18_kev2v"]
+[ext_resource type="PackedScene" uid="uid://dqrq8qyqigkoe" path="res://Enemies/slime.tscn" id="19_ws6ka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mflou"]
 texture = ExtResource("5_p6n8c")
@@ -1997,6 +1998,12 @@ volume_db = -20.0
 autoplay = true
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("18_kev2v")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.349185, 0.355337, 0.680972, 1)
+
+[node name="Slime" parent="." instance=ExtResource("19_ws6ka")]
+position = Vector2(220, 48)
 
 [editable path="Camera2D"]
 [editable path="ParallaxBackground"]

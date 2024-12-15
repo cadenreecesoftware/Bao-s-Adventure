@@ -1,0 +1,376 @@
+[gd_scene load_steps=43 format=3 uid="uid://dqrq8qyqigkoe"]
+
+[ext_resource type="Script" path="res://slime.gd" id="1_5xlgn"]
+[ext_resource type="PackedScene" uid="uid://5iarbjyecqcj" path="res://Art/Action RPG Resources/Overlap/soft_collision.tscn" id="2_4gs5h"]
+[ext_resource type="Shader" path="res://Enemies/slime.gdshader" id="2_pc3wi"]
+[ext_resource type="Texture2D" uid="uid://dgl7m1vth6doe" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Monsters and animals/Slime 01_walk (16x16).png" id="3_jl3rl"]
+[ext_resource type="PackedScene" uid="uid://dqaxsun24l05v" path="res://Art/Action RPG Resources/Overlap/Hurtbox.tscn" id="4_300h4"]
+[ext_resource type="PackedScene" uid="uid://nmvo3soyvnmj" path="res://Stats/stats.tscn" id="5_fln0o"]
+[ext_resource type="PackedScene" uid="uid://b5wg5rpfgccmy" path="res://Art/Action RPG Resources/Overlap/Hitbox.tscn" id="6_kbxr8"]
+[ext_resource type="PackedScene" uid="uid://brrkm63potao4" path="res://Enemies/player_detection_zone.tscn" id="7_8w1p0"]
+[ext_resource type="PackedScene" uid="uid://bdhg4keyl1niu" path="res://Enemies/wander_controller.tscn" id="8_kkrx2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tm2kk"]
+shader = ExtResource("2_pc3wi")
+shader_parameter/color = Color(1, 0.101961, 0.101961, 1)
+shader_parameter/tint_factor = 0.0
+shader_parameter/fade = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2so4"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_novpt"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_upgow"]
+resource_name = "IdleDown"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wjuud"]
+resource_name = "IdleLeft"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_laamm"]
+resource_name = "IdleRight"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_rk3c6"]
+resource_name = "IdleUp"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_c841u"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tsk7b"]
+resource_name = "RunDown"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_odgjp"]
+resource_name = "RunLeft"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_n6b84"]
+resource_name = "RunRight"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_dsdx1"]
+resource_name = "RunUp"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_akx1q"]
+_data = {
+"IdleDown": SubResource("Animation_upgow"),
+"IdleLeft": SubResource("Animation_wjuud"),
+"IdleRight": SubResource("Animation_laamm"),
+"IdleUp": SubResource("Animation_rk3c6"),
+"RESET": SubResource("Animation_c841u"),
+"RunDown": SubResource("Animation_tsk7b"),
+"RunLeft": SubResource("Animation_odgjp"),
+"RunRight": SubResource("Animation_n6b84"),
+"RunUp": SubResource("Animation_dsdx1")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yloqj"]
+animation = &"IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oqcdd"]
+animation = &"IdleDown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bmb8n"]
+animation = &"IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dqgw7"]
+animation = &"IdleUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_57gu2"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_yloqj")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_oqcdd")
+blend_point_1/pos = Vector2(0, 1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_bmb8n")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_dqgw7")
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mfqwf"]
+animation = &"RunLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uryxd"]
+animation = &"RunDown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y6n5o"]
+animation = &"RunRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_342ku"]
+animation = &"RunUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_4yepl"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_mfqwf")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_uryxd")
+blend_point_1/pos = Vector2(0, 1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_y6n5o")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_342ku")
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wvi4h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_elk1x"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6u2dp"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p60sg"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_57gu2")
+states/Idle/position = Vector2(332, 107)
+states/Run/node = SubResource("AnimationNodeBlendSpace2D_4yepl")
+states/Run/position = Vector2(468, 107)
+states/Start/position = Vector2(173, 107)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_wvi4h"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_elk1x"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_6u2dp")]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpf85"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63wc6"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w8pmj"]
+radius = 67.0298
+
+[sub_resource type="Animation" id="Animation_5t23w"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/tint_factor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.59, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ij67q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/tint_factor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lucgl"]
+_data = {
+"RESET": SubResource("Animation_ij67q"),
+"hit_flash": SubResource("Animation_5t23w")
+}
+
+[node name="Slime" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_5xlgn")
+MAX_SPEED = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tm2kk")
+position = Vector2(0, -3)
+texture = ExtResource("3_jl3rl")
+hframes = 4
+vframes = 4
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_w2so4")
+
+[node name="SoftCollision" parent="." instance=ExtResource("2_4gs5h")]
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+visible = false
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_novpt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_akx1q")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_p60sg")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/blend_position = Vector2(0, 0)
+parameters/Run/blend_position = Vector2(0, 0)
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_300h4")]
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+visible = false
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_wpf85")
+
+[node name="Stats" parent="Hurtbox" instance=ExtResource("5_fln0o")]
+max_health = 2
+
+[node name="Hitbox" parent="." instance=ExtResource("6_kbxr8")]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_63wc6")
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource("7_8w1p0")]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+visible = false
+shape = SubResource("CircleShape2D_w8pmj")
+
+[node name="WanderController" parent="." instance=ExtResource("8_kkrx2")]
+
+[node name="hit_flash_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lucgl")
+}
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="no_health" from="Hurtbox/Stats" to="." method="_on_stats_no_health"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+
+[editable path="SoftCollision"]
+[editable path="Hurtbox"]
+[editable path="Hitbox"]
+[editable path="PlayerDetectionZone"]
