@@ -1,6 +1,7 @@
 extends Control
 
 @onready var animations = $AnimationPlayer
+@onready var noises = $AudioStreamPlayer
 
 func _ready():
 	animations.play("RESET")
@@ -35,10 +36,14 @@ func pausePressed():
 
 func _on_resume_pressed() -> void:
 	resume()
+	noises.play()
 	
+func _on_save_pressed() -> void:
+	noises.play()
 
 func _on_quit_pressed() -> void:
 	resume()
+	noises.play()
 	get_tree().change_scene_to_file("res://Levels/main_menu.tscn")
 	
 	

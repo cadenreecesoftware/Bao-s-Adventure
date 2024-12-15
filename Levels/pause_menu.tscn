@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b7o40x7ing25t"]
+[gd_scene load_steps=24 format=3 uid="uid://b7o40x7ing25t"]
 
 [ext_resource type="Script" path="res://Levels/pause_menu.gd" id="1_0aohm"]
 [ext_resource type="FontFile" uid="uid://dhxhdvxxhce7o" path="res://Art/Action RPG Resources/UI/fullpack/FantasyRPGtitle (size 11).ttf" id="1_f87rk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b44fxvq7obgre" path="res://Art/Action RPG Resources/UI/fullpack/UI-bar-1-flash.png" id="2_bcf08"]
 [ext_resource type="Shader" path="res://Levels/pause_menu.gdshader" id="2_nbq8c"]
 [ext_resource type="Texture2D" uid="uid://c5ywmt6pw85at" path="res://Art/Action RPG Resources/UI/fullpack/UI-bar-1-press.png" id="3_vtwgc"]
+[ext_resource type="AudioStream" uid="uid://cmv8af3ewakjj" path="res://Art/Action RPG Resources/Music and Sounds/Menu Select.wav" id="7_41b5v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_atodp"]
 shader = ExtResource("2_nbq8c")
@@ -71,6 +72,33 @@ expand_margin_left = 6.0
 expand_margin_right = 6.0
 expand_margin_bottom = 4.0
 
+[sub_resource type="Animation" id="Animation_hx6fj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_wh168"]
 resource_name = "blur"
 length = 0.3
@@ -97,33 +125,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_hx6fj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx6ni"]
@@ -205,5 +206,9 @@ libraries = {
 "": SubResource("AnimationLibrary_yx6ni")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_41b5v")
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1320,7 +1320,7 @@ parameters/Attack/blend_position = Vector2(-0.00147277, -0.0209125)
 parameters/Grapple/blend_position = Vector2(-0.0545747, -0.092674)
 parameters/Idle/blend_position = Vector2(-0.00147277, 0)
 parameters/Roll/blend_position = Vector2(0, -0.00370359)
-parameters/Run/blend_position = Vector2(-0.202247, -0.398901)
+parameters/Run/blend_position = Vector2(0.00154555, 0)
 
 [node name="HitboxPivot" type="Marker2D" parent="."]
 visible = false
