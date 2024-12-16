@@ -43,7 +43,12 @@ func _ready():
 	randomize()
 	self.stats.connect("no_health", queue_free)
 	animationTree.active = true
+	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 
+func _on_spawn(position: Vector2, direction: String):
+	animations.play("Idle" + direction.to_pascal_case())
+	global_position = position
+	
 
 func _physics_process(_delta):
 	match state:

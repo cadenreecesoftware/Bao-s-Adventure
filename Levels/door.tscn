@@ -3,9 +3,11 @@
 [ext_resource type="Script" path="res://Levels/door.gd" id="1_14qw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23w2l"]
-size = Vector2(36, 26)
+size = Vector2(162, 26)
 
 [node name="Door" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_14qw5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
