@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://6qhx6tjotcs5"]
+
+[ext_resource type="Script" path="res://Levels/door.gd" id="1_14qw5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23w2l"]
+size = Vector2(36, 26)
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_14qw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_23w2l")
+
+[node name="Spawn" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
