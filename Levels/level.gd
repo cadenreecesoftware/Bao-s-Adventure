@@ -4,6 +4,7 @@ extends Node2D
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GlobalAudio.play_forest_music_level()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 		

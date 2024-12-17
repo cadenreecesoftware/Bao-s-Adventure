@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://n6ftc2hacivp"]
+[gd_scene load_steps=22 format=4 uid="uid://n6ftc2hacivp"]
 
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="1_2ijoo"]
 [ext_resource type="Script" path="res://Levels/level_2.gd" id="1_naq3d"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dsfb85y2oh665" path="res://Art/Action RPG Resources/World/bush.tscn" id="13_tnfu1"]
 [ext_resource type="Texture2D" uid="uid://cbl84w82o45tt" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Wooden logs.png" id="14_ydt2f"]
 [ext_resource type="Texture2D" uid="uid://hl4dfgysul3y" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Tree_small_2.png" id="15_y5c4d"]
-[ext_resource type="AudioStream" uid="uid://cvh23av83swib" path="res://Music/MysticalForest1.mp3" id="16_vddp3"]
 [ext_resource type="PackedScene" uid="uid://6qhx6tjotcs5" path="res://Levels/door.tscn" id="17_elsuc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mflou"]
@@ -2099,11 +2098,6 @@ texture = ExtResource("15_y5c4d")
 position = Vector2(39, 230)
 scale = Vector2(1.03125, 1)
 texture = ExtResource("15_y5c4d")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_vddp3")
-volume_db = -20.0
-autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.349185, 0.355337, 0.680972, 1)
