@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerStats="*res://Characters/player_stats.tscn"
 NavigationManager="*res://Global/navigation_manager.gd"
+TransitionScreen="*res://Global/transition_screen.tscn"
 
 [display]
 
