@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfoh6sqai4se1"]
+
+[ext_resource type="Script" path="res://Global/heart_pickup_noise.gd" id="2_sgnjy"]
+
+[node name="HeartPickupNoise" type="AudioStreamPlayer"]
+script = ExtResource("2_sgnjy")

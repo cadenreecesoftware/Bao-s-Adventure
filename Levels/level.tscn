@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Art/Action RPG Resources/UI/health_ui.gd" id="10_5fy8r"]
 [ext_resource type="PackedScene" uid="uid://sbjmlgfqqekh" path="res://camera_2d.tscn" id="10_ffy0g"]
 [ext_resource type="PackedScene" uid="uid://b7o40x7ing25t" path="res://Levels/pause_menu.tscn" id="14_8u4gw"]
-[ext_resource type="PackedScene" uid="uid://b2eontw3u47bp" path="res://Art/Action RPG Resources/Effects/grass_over_screen_effect.tscn" id="14_wiojj"]
+[ext_resource type="PackedScene" uid="uid://2rgykdk1383j" path="res://Enemies/bat.tscn" id="14_s47p4"]
 [ext_resource type="Texture2D" uid="uid://cbl84w82o45tt" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Wooden logs.png" id="15_qbsuf"]
 [ext_resource type="Texture2D" uid="uid://hl4dfgysul3y" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Tree_small_2.png" id="16_f2d3p"]
 [ext_resource type="PackedScene" uid="uid://6qhx6tjotcs5" path="res://Levels/door.tscn" id="17_w3q7n"]
@@ -2052,8 +2052,6 @@ offset_top = 1.0
 offset_right = 577.0
 offset_bottom = 325.0
 
-[node name="GrassOverScreenEffect" parent="CanvasLayer" instance=ExtResource("14_wiojj")]
-
 [node name="Bush_group" type="Node2D" parent="."]
 
 [node name="Bush" parent="Bush_group" instance=ExtResource("3_dmi8u")]
@@ -2126,6 +2124,21 @@ texture = ExtResource("16_f2d3p")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.349185, 0.355337, 0.680972, 1)
+
+[node name="Bat" parent="." instance=ExtResource("14_s47p4")]
+position = Vector2(144, 91)
+
+[node name="Bat2" parent="." instance=ExtResource("14_s47p4")]
+position = Vector2(123, 68)
+
+[node name="Bat3" parent="." instance=ExtResource("14_s47p4")]
+position = Vector2(148, 132)
+
+[node name="Bat4" parent="." instance=ExtResource("14_s47p4")]
+position = Vector2(95, 89)
+
+[node name="Bat5" parent="." instance=ExtResource("14_s47p4")]
+position = Vector2(117, 130)
 
 [node name="Doors" type="Node" parent="."]
 

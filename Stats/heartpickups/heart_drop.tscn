@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://bks7r3t80e2sy"]
+
+[ext_resource type="Script" path="res://Stats/heartpickups/heart_drop.gd" id="1_5rrp1"]
+[ext_resource type="Texture2D" uid="uid://bop2lduoysuta" path="res://Art/Action RPG Resources/Effects/heart_drop_effect.png" id="2_1av30"]
+[ext_resource type="Texture2D" uid="uid://coa6wfve7gxnn" path="res://Art/Action RPG Resources/Shadows/SmallShadow.png" id="3_ake5x"]
+[ext_resource type="AudioStream" uid="uid://bfb5ea08l5y3h" path="res://Art/Action RPG Resources/Music and Sounds/heart_drop.wav" id="4_fttye"]
+[ext_resource type="AudioStream" uid="uid://tu4my4kccw4y" path="res://Art/Action RPG Resources/Music and Sounds/heart_pickupsfx.mp3" id="5_ymxaw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn8xi"]
+atlas = ExtResource("2_1av30")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sxte"]
+atlas = ExtResource("2_1av30")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05kee"]
+atlas = ExtResource("2_1av30")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trt7k"]
+atlas = ExtResource("2_1av30")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a10tb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn8xi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sxte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05kee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trt7k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fre4"]
+size = Vector2(14, 14)
+
+[node name="HeartDrop" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_5rrp1")
+
+[node name="HeartDrop" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a10tb")
+autoplay = "default"
+frame_progress = 0.980448
+
+[node name="SmallShadow" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 6)
+texture = ExtResource("3_ake5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0fre4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fttye")
+volume_db = 10.0
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ymxaw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

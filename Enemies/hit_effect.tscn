@@ -40,5 +40,6 @@ script = ExtResource("2_ve55x")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_2ap8e")
+volume_db = -25.0
 autoplay = true
 max_polyphony = 10
