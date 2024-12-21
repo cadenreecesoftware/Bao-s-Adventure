@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 const EnemyDeathEffect = preload("res://Enemies/enemy_death_effect.tscn")
+const HeartDrop = preload("res://Stats/heartpickups/heart_drop.tscn")
+const TanNutDrop = preload("res://Stats/wallet_pickups/tan_nuts.tscn")
 @export var ACCELERATION = 280
 @export var MAX_SPEED = 30
 @export var FRICTION = 200
@@ -25,7 +27,7 @@ enum {
 
 var state = CHASE
 const randomStates = [IDLE, WANDER]
-
+const dropRate = [0,0,0,1,1,2]
 func _ready():
 	state = pick_random_state(randomStates)
 
@@ -91,6 +93,18 @@ func _on_stats_no_health() -> void:
 	var enemyDeathEffect = EnemyDeathEffect.instantiate()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+	match dropRate.pick_random():
+		1:
+			var heartDrop = HeartDrop.instantiate()
+			#get_parent().add_child(heartDrop)
+			get_parent().call_deferred("add_child", heartDrop)
+			heartDrop.global_position = global_position
+		2:
+			var tanNutDrop = TanNutDrop.instantiate()
+			get_parent().call_deferred("add_child", tanNutDrop)
+			tanNutDrop.global_position = global_position
+		0:
+			pass
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:

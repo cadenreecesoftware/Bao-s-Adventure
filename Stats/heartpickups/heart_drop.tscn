@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bks7r3t80e2sy"]
+[gd_scene load_steps=11 format=3 uid="uid://bks7r3t80e2sy"]
 
 [ext_resource type="Script" path="res://Stats/heartpickups/heart_drop.gd" id="1_5rrp1"]
 [ext_resource type="Texture2D" uid="uid://bop2lduoysuta" path="res://Art/Action RPG Resources/Effects/heart_drop_effect.png" id="2_1av30"]
 [ext_resource type="Texture2D" uid="uid://coa6wfve7gxnn" path="res://Art/Action RPG Resources/Shadows/SmallShadow.png" id="3_ake5x"]
 [ext_resource type="AudioStream" uid="uid://bfb5ea08l5y3h" path="res://Art/Action RPG Resources/Music and Sounds/heart_drop.wav" id="4_fttye"]
-[ext_resource type="AudioStream" uid="uid://tu4my4kccw4y" path="res://Art/Action RPG Resources/Music and Sounds/heart_pickupsfx.mp3" id="5_ymxaw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yn8xi"]
 atlas = ExtResource("2_1av30")
@@ -68,8 +67,5 @@ shape = SubResource("RectangleShape2D_0fre4")
 stream = ExtResource("4_fttye")
 volume_db = 10.0
 autoplay = true
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_ymxaw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

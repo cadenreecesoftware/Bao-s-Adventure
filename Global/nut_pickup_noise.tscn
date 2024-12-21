@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sbodi56otigj"]
+
+[ext_resource type="Script" path="res://Global/nut_pickup_noise.gd" id="1_2bkgd"]
+
+[node name="NutPickupNoise" type="AudioStreamPlayer"]
+script = ExtResource("1_2bkgd")

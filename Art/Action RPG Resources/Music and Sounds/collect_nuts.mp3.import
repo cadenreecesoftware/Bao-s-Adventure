@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnaa2ub558sed"
+path="res://.godot/imported/collect_nuts.mp3-6228b1080f70b007ee4fea4f26dbcf5a.mp3str"
+
+[deps]
+
+source_file="res://Art/Action RPG Resources/Music and Sounds/collect_nuts.mp3"
+dest_files=["res://.godot/imported/collect_nuts.mp3-6228b1080f70b007ee4fea4f26dbcf5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

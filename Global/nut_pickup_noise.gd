@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-const noise = preload("res://Art/Action RPG Resources/Music and Sounds/heart_pickupsfx.mp3")
+const noise = preload("res://Art/Action RPG Resources/Music and Sounds/collect_nuts.mp3")
 
 func _play_music(music: AudioStream, volume = 0.0):
 	stream = music

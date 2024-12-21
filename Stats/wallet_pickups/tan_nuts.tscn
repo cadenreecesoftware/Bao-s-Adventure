@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dabxbk0vjnxq0"]
+
+[ext_resource type="Script" path="res://Stats/wallet_pickups/tan_nuts.gd" id="1_cw6ej"]
+[ext_resource type="Texture2D" uid="uid://coa6wfve7gxnn" path="res://Art/Action RPG Resources/Shadows/SmallShadow.png" id="1_om1qe"]
+[ext_resource type="Texture2D" uid="uid://x7o2s7wd40qv" path="res://Art/Action RPG Resources/Woodland Folk/1x/Icons/Seeds_1.png" id="2_eh8ua"]
+[ext_resource type="AudioStream" uid="uid://bfm2b0sys2ptk" path="res://Art/Action RPG Resources/Music and Sounds/nuts_falling.mp3" id="4_4a0wv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm0sy"]
+
+[node name="TanNuts" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_cw6ej")
+
+[node name="SmallShadow" type="Sprite2D" parent="."]
+position = Vector2(1, 7)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("1_om1qe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_eh8ua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mm0sy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4a0wv")
+autoplay = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

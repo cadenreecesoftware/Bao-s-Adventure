@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccswynsm73dev"]
+
+[ext_resource type="Script" path="res://Global/wallet.gd" id="1_wle2f"]
+
+[node name="Wallet" type="Node"]
+script = ExtResource("1_wle2f")

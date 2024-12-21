@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwnaj0hgt0ptq"]
+
+[ext_resource type="Script" path="res://Global/player_pause.gd" id="1_3o1hr"]
+
+[node name="PlayerPause" type="Node"]
+script = ExtResource("1_3o1hr")

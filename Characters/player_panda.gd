@@ -13,6 +13,8 @@ var state = MOVE
 var roll_vector = Vector2.LEFT
 var input_vector = Vector2.ZERO
 var stats = PlayerStats
+var talking = PlayerPause.playerPaused:
+	get = get_talking, set = set_talking
 #var grapple_tip = preload("res://Characters/chain_head.tscn")
 #var grapple_instanced = false
 #var grapple_tip_instance = grapple_tip.instantiate()
@@ -30,6 +32,7 @@ var stats = PlayerStats
 @onready var grapple = $"grap_pivot/grapple"
 @onready var player_collider = $CollisionShape2D
 @onready var grapple_pivot = $grap_pivot
+@onready var interactable_finder: Area2D = $Direction/InteractableFinder
 
 
 
@@ -37,10 +40,14 @@ var stats = PlayerStats
 
 
 #parameters/Walk/blend_position
-
+func get_talking():
+	return talking
+func set_talking(value):
+	talking = value
 
 func _ready():
 	randomize()
+	PlayerPause.connect("paused_changed", set_talking)
 	self.stats.connect("no_health", queue_free)
 	animationTree.active = true
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
@@ -51,16 +58,19 @@ func _on_spawn(position: Vector2, direction: String):
 	
 
 func _physics_process(_delta):
-	match state:
-		MOVE: 
-			move_state()
-		ROLL:
-			roll_state()
-		ATTACK:
-			attack_state()
-		GRAPPLE:
-			grapple_state()
-			
+	
+	if(!talking):
+		match state:
+			MOVE: 
+				move_state()
+			ROLL:
+				roll_state()
+			ATTACK:
+				attack_state()
+			GRAPPLE:
+				grapple_state()
+	else:
+		pass
 	
 
 func move_state():
@@ -85,6 +95,14 @@ func move_state():
 		state = ROLL
 	if Input.is_action_just_pressed("grapple"):
 		state = GRAPPLE
+	#if Input.is_action_just_pressed("interact"):
+		#if interactables.size() > 0:
+			#PlayerPause.playerPaused = true
+			#print("this is talking bool: " + str(talking))
+			#
+			#return
+		#else:
+			#pass
 	
 func roll_state():
 	input_vector = roll_vector * roll_speed
@@ -103,7 +121,6 @@ func attack_state():
 	animationState.travel("Attack")
 
 func grapple_state():
-	#print(to_local(grapple.get_collision_point()))
 	queue_redraw()
 	animationState.travel("Grapple")
 	if grapple.is_colliding():
@@ -114,15 +131,6 @@ func grapple_state():
 	else:
 		pass
 
-#func grapple_tipper():
-	#if grapple_instanced == false:
-		#var grapple_tip_instance = grapple_tip.instantiate()
-		#grapple_tip_instance.rotation = grapple_pivot.rotation
-		#grapple_tip_instance.global_position = to_local(grapple.get_collision_point())
-		#add_child(grapple_tip_instance)
-		#grapple_instanced = true
-	#else:
-		#pass
 
 	
 func move():

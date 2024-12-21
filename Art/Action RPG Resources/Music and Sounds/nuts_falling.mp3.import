@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfm2b0sys2ptk"
+path="res://.godot/imported/nuts_falling.mp3-61a56a66f14ab3b444aa4bda52be8d2c.mp3str"
+
+[deps]
+
+source_file="res://Art/Action RPG Resources/Music and Sounds/nuts_falling.mp3"
+dest_files=["res://.godot/imported/nuts_falling.mp3-61a56a66f14ab3b444aa4bda52be8d2c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
