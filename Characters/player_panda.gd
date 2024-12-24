@@ -57,6 +57,7 @@ func _on_spawn(position: Vector2, direction: String):
 	global_position = position
 	
 
+
 func _physics_process(_delta):
 	
 	if(!talking):
@@ -95,10 +96,11 @@ func move_state():
 		state = ROLL
 	if Input.is_action_just_pressed("grapple"):
 		state = GRAPPLE
-	#if Input.is_action_just_pressed("interact"):
-		#if interactables.size() > 0:
-			#PlayerPause.playerPaused = true
-			#print("this is talking bool: " + str(talking))
+	if Input.is_action_just_pressed("interact"):
+		var interactables = interactable_finder.get_overlapping_areas()
+		if interactables.size() > 0:
+			PlayerPause.playerPaused = true
+			print("this is talking bool: " + str(talking))
 			#
 			#return
 		#else:
