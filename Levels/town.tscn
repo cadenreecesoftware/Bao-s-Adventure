@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://beqdqvwltrvws"]
+[gd_scene load_steps=25 format=4 uid="uid://beqdqvwltrvws"]
 
 [ext_resource type="Script" path="res://Levels/level_2.gd" id="1_ukwxg"]
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="2_sbdg1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cbl84w82o45tt" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Wooden logs.png" id="15_mn4ns"]
 [ext_resource type="Texture2D" uid="uid://hl4dfgysul3y" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Tree_small_2.png" id="16_r4a44"]
 [ext_resource type="PackedScene" uid="uid://6qhx6tjotcs5" path="res://Levels/door.tscn" id="17_gcs61"]
+[ext_resource type="Texture2D" uid="uid://c2le5qarus5df" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/House_big_1 (closed).png" id="18_1xhdo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mflou"]
 texture = ExtResource("4_d7slh")
@@ -1834,6 +1835,14 @@ terrain_set_0/terrain_0/name = "Cliffs"
 terrain_set_0/terrain_0/color = Color(0.655862, 0.163588, 0.365502, 1)
 sources/0 = SubResource("TileSetAtlasSource_pxrk4")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv2o0"]
+resource_local_to_scene = true
+size = Vector2(10, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qx8sl"]
+resource_local_to_scene = true
+size = Vector2(207, 13)
+
 [node name="Town" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ukwxg")
@@ -1848,7 +1857,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 2877.76, 1280)
 
 [node name="PlayerPanda" parent="." instance=ExtResource("3_sciqn")]
-position = Vector2(280, 59)
+position = Vector2(-98, 296)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerPanda"]
 remote_path = NodePath("../../Camera2D")
@@ -2158,7 +2167,7 @@ position = Vector2(630, 181)
 position = Vector2(645, 181)
 
 [node name="Camera2D" parent="." instance=ExtResource("8_l3kuj")]
-position = Vector2(280, 59)
+position = Vector2(-98, 296)
 zoom = Vector2(1.5, 1.5)
 
 [node name="TopLeft" parent="Camera2D/Limits" index="0"]
@@ -2279,17 +2288,36 @@ color = Color(1, 0.75405, 0.963252, 1)
 
 [node name="Doors" type="Node" parent="."]
 
+[node name="Door_may_house" parent="Doors" instance=ExtResource("17_gcs61")]
+position = Vector2(18, 211)
+destination_level_tag = "house_1_inter"
+destination_door_tag = "S"
+
+[node name="CollisionShape2D" parent="Doors/Door_may_house" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_sv2o0")
+
+[node name="Spawn" parent="Doors/Door_may_house" index="1"]
+position = Vector2(0, 10)
+
 [node name="Door_W" parent="Doors" instance=ExtResource("17_gcs61")]
-position = Vector2(-194, 258)
+position = Vector2(-181, 263)
 destination_level_tag = "level_2"
 destination_door_tag = "E"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(2, -5)
 rotation = 1.5708
+shape = SubResource("RectangleShape2D_qx8sl")
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
-position = Vector2(45, 0)
+position = Vector2(31, -1)
+
+[node name="HouseBig1(closed)" type="Sprite2D" parent="."]
+position = Vector2(18, 171)
+texture = ExtResource("18_1xhdo")
 
 [editable path="Camera2D"]
+[editable path="Doors/Door_may_house"]
 [editable path="Doors/Door_W"]

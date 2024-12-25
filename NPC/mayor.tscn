@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://ktd7dcw3w1tk"]
+
+[ext_resource type="Texture2D" uid="uid://b2x3fyu81tdvq" path="res://Art/Action RPG Resources/Woodland Folk/1x/Characters/Bird04_idle.png" id="1_s36iv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w84f"]
+atlas = ExtResource("1_s36iv")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sygc6"]
+atlas = ExtResource("1_s36iv")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h2j2"]
+atlas = ExtResource("1_s36iv")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvi31"]
+atlas = ExtResource("1_s36iv")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2j4pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w84f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sygc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h2j2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvi31")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r1s5"]
+size = Vector2(8, 5)
+
+[node name="Mayor" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_2j4pv")
+autoplay = "default"
+frame = 1
+frame_progress = 0.127329
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_2r1s5")

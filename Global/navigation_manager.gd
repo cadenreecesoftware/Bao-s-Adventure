@@ -4,6 +4,7 @@ extends Node
 const scene_level1 = preload("res://Levels/level.tscn")
 const scene_level2 = preload("res://Levels/level_2.tscn")
 const scene_town = preload("res://Levels/town.tscn")
+const scene_house_1_inter = preload("res://Levels/house_1_inter.tscn")
 
 signal on_trigger_player_spawn
 
@@ -19,6 +20,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_level2
 		"town":
 			scene_to_load = scene_town
+		"house_1_inter":
+			scene_to_load = scene_house_1_inter
 			
 	if scene_to_load != null:
 		TransitionScreen.transition()

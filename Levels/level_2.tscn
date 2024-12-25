@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://n6ftc2hacivp"]
+[gd_scene load_steps=25 format=4 uid="uid://n6ftc2hacivp"]
 
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="1_2ijoo"]
 [ext_resource type="Script" path="res://Levels/level_2.gd" id="1_naq3d"]
@@ -1835,6 +1835,14 @@ terrain_set_0/terrain_0/name = "Cliffs"
 terrain_set_0/terrain_0/color = Color(0.655862, 0.163588, 0.365502, 1)
 sources/0 = SubResource("TileSetAtlasSource_pxrk4")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lcas"]
+resource_local_to_scene = true
+size = Vector2(187, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67m2l"]
+resource_local_to_scene = true
+size = Vector2(187, 47)
+
 [node name="Level2" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_naq3d")
@@ -2316,6 +2324,10 @@ position = Vector2(243, 7)
 destination_level_tag = "level"
 destination_door_tag = "S"
 
+[node name="CollisionShape2D" parent="Doors/Door_N" index="0"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_3lcas")
+
 [node name="Spawn" parent="Doors/Door_N" index="1"]
 position = Vector2(1, 24)
 
@@ -2326,8 +2338,9 @@ destination_door_tag = "W"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(0, -1)
+position = Vector2(13.5, -0.999954)
 rotation = 1.5708
+shape = SubResource("RectangleShape2D_67m2l")
 
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-35, 5)

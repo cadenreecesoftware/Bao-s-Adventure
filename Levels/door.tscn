@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://Levels/door.gd" id="1_14qw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23w2l"]
-size = Vector2(162, 26)
+resource_local_to_scene = true
+size = Vector2(11, 13)
 
 [node name="Door" type="Area2D"]
 collision_layer = 3
