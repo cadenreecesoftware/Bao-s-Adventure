@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=4 uid="uid://beqdqvwltrvws"]
 
-[ext_resource type="Script" path="res://Levels/level_2.gd" id="1_ukwxg"]
+[ext_resource type="Script" path="res://Levels/town.gd" id="1_coqbe"]
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="2_sbdg1"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="3_sciqn"]
 [ext_resource type="Texture2D" uid="uid://qx2aka1uyiyu" path="res://Art/Action RPG Resources/World/DirtTileset.png" id="4_d7slh"]
@@ -1845,7 +1845,7 @@ size = Vector2(207, 13)
 
 [node name="Town" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_ukwxg")
+script = ExtResource("1_coqbe")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -2

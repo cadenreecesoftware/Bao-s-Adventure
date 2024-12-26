@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://b6mtd7ba0awir"]
 
-[ext_resource type="Script" path="res://Levels/level_2.gd" id="1_mvyh1"]
+[ext_resource type="Script" path="res://Levels/house_1_inter.gd" id="1_a5lc2"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="2_s8bgd"]
 [ext_resource type="PackedScene" uid="uid://sbjmlgfqqekh" path="res://camera_2d.tscn" id="3_sr3jp"]
 [ext_resource type="PackedScene" uid="uid://brvqky2pukeg4" path="res://Art/Action RPG Resources/UI/health_ui.tscn" id="4_mgbxe"]
@@ -21,7 +21,7 @@ size = Vector2(10, 51)
 
 [node name="House_1_Inter" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_mvyh1")
+script = ExtResource("1_a5lc2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -127,7 +127,7 @@ tile_set = ExtResource("9_53kox")
 position = Vector2(297, 82)
 
 [node name="Mayor" parent="." instance=ExtResource("11_cupu5")]
-position = Vector2(297, 135)
+position = Vector2(297, 131)
 
 [editable path="Camera2D"]
 [editable path="Doors/Door_S"]
