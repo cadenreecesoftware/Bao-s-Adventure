@@ -1,0 +1,3 @@
+Mayor: WOAH, what type of animal are you?
+Mayor: Well you certainly look unique, and you're a bit large. But all are welcome in this town.
+[signal arg="exit_mayor"]

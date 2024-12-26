@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ktd7dcw3w1tk"]
+[gd_scene load_steps=10 format=3 uid="uid://ktd7dcw3w1tk"]
 
+[ext_resource type="Script" path="res://NPC/mayor.gd" id="1_34jjq"]
 [ext_resource type="Texture2D" uid="uid://b2x3fyu81tdvq" path="res://Art/Action RPG Resources/Woodland Folk/1x/Characters/Bird04_idle.png" id="1_s36iv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7w84f"]
@@ -41,7 +42,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r1s5"]
 size = Vector2(8, 5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgv4s"]
+radius = 25.0
+
 [node name="Mayor" type="CharacterBody2D"]
+script = ExtResource("1_34jjq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
@@ -53,3 +58,15 @@ frame_progress = 0.127329
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_2r1s5")
+
+[node name="ChatDetection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetection"]
+shape = SubResource("CircleShape2D_tgv4s")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

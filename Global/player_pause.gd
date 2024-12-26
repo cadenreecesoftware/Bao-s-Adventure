@@ -6,7 +6,6 @@ var playerPaused = false:
 	set(value):
 			playerPaused = value
 			emit_signal("paused_changed", playerPaused)
-			print(playerPaused)
 
 
 # Called when the node enters the scene tree for the first time.
