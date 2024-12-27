@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhyou6gp4mb0y"]
+
+[ext_resource type="Script" path="res://Global/dialogue_tracker.gd" id="1_3ws36"]
+
+[node name="DialogueTracker" type="Node"]
+script = ExtResource("1_3ws36")

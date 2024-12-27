@@ -1,9 +1,18 @@
 extends CharacterBody2D
 
+enum {
+	NONE,
+	MET, 
+	QUESTING,
+	DONE
+}
 
-var mayor_dialogue = preload("res://Dialogue/Timelines/MayorMeeting.dtl")
+var mayor_meeting_dialogue = preload("res://Dialogue/Timelines/MayorMeeting.dtl")
 var player_in_area = false
 var dialogue_cooldown = false
+#var mayor_progress = DialogueTracker.mayor_progress
+
+
 @onready var timer = $Timer
 
 
@@ -12,9 +21,25 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	if player_in_area:
+		$AnimatedSprite2D.material.set_shader_parameter("line_thickness", 1)
 		if Input.is_action_just_pressed("interact") and PlayerPause.playerPaused != true and dialogue_cooldown == false:
-			run_dialogue("MayorMeeting")
-			PlayerPause.playerPaused = true
+			match DialogueTracker.mayor_progress:
+				NONE:
+					run_dialogue("MayorMeeting")
+					PlayerPause.playerPaused = true
+					DialogueTracker.mayor_progress = MET
+				MET:
+					run_dialogue("mayor_already_met")
+					PlayerPause.playerPaused = true
+					DialogueTracker.mayor_progress = QUESTING
+				QUESTING:
+					run_dialogue("mayor_questing")
+					PlayerPause.playerPaused = true
+
+				#run_dialogue("")
+				#PlayerPause.playerPaused = true
+	else:
+		$AnimatedSprite2D.material.set_shader_parameter("line_thickness", 0)
 
 func _on_chat_detection_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -29,7 +54,7 @@ func run_dialogue(dialogue_string: String):
 	
 func DialogicSignal(arg: String):
 	if arg == "exit_mayor":
-		timer.start(1)
+		timer.start(0.5)
 		dialogue_cooldown = true
 		PlayerPause.playerPaused = false
 

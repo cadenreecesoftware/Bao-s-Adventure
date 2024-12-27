@@ -1,3 +1,4 @@
-Mayor: WOAH, what type of animal are you?
+Mayor: WOAH, what kind of animal are you? ...
 Mayor: Well you certainly look unique, and you're a bit large. But all are welcome in this town.
+Mayor: Bao is your name? What a unique name for a unique critter! I hope you enjoy your stay in Kordo Village.
 [signal arg="exit_mayor"]

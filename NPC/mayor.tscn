@@ -1,7 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://ktd7dcw3w1tk"]
+[gd_scene load_steps=12 format=3 uid="uid://ktd7dcw3w1tk"]
 
 [ext_resource type="Script" path="res://NPC/mayor.gd" id="1_34jjq"]
 [ext_resource type="Texture2D" uid="uid://b2x3fyu81tdvq" path="res://Art/Action RPG Resources/Woodland Folk/1x/Characters/Bird04_idle.png" id="1_s36iv"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="2_l5l1p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rwxk"]
+shader = ExtResource("2_l5l1p")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7w84f"]
 atlas = ExtResource("1_s36iv")
@@ -49,6 +55,7 @@ radius = 25.0
 script = ExtResource("1_34jjq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_4rwxk")
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_2j4pv")
 autoplay = "default"
@@ -60,6 +67,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_2r1s5")
 
 [node name="ChatDetection" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetection"]

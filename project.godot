@@ -27,6 +27,7 @@ NutPickupNoise="*res://Global/nut_pickup_noise.tscn"
 PlayerPause="*res://Global/playerPause.tscn"
 Textbox="*res://Dialogue/textbox.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+DialogueTracker="*res://Global/dialogue_tracker.tscn"
 
 [dialogic]
 
@@ -35,7 +36,9 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"MayorMeeting": "res://Dialogue/Timelines/MayorMeeting.dtl"
+"MayorMeeting": "res://Dialogue/Timelines/MayorMeeting.dtl",
+"mayor_already_met": "res://Dialogue/Timelines/mayor_already_met.dtl",
+"mayor_questing": "res://Dialogue/Timelines/mayor_questing.dtl"
 }
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
@@ -59,6 +62,9 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/input_action="interact"
 text/autopauses={}
+layout/style_list=[]
+layout/default_style="Default"
+variables={}
 
 [display]
 

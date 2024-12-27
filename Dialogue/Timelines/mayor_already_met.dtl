@@ -1,0 +1,7 @@
+Mayor: "Where are you?" Well you are in the Kordo Village on the Ceecee Island!
+Mayor: We boast one of the most diverse ecoystsems in the world, I am sure you'll experience all we have to offer. 
+Mayor: Normally I would hate to ask you for help, but Kordo Village borders a deep forest that harbors many secrets, and any of our able bodies are stuck harvesting for the annual festival. 
+Mayor: The forest can be dangerous so normally we stay out, except the most shallow parts for resources.
+Mayor: Recently the fog has thickened, and the number of monsters is far greater. Do you think you could head south on the forest trail and investigate the Forest Temple for me?
+Mayor: I am quite the old bird but even I don't know where that temple came from, it was here before us folk settled down. So be careful!
+[signal arg="exit_mayor"]

@@ -1,5 +1,7 @@
 extends Node2D
 
+var mayor_dialogue = preload("res://Dialogue/Timelines/MayorMeeting.dtl")
+
 @onready var pause_menu = $CanvasLayer/PauseMenu
 var paused = false
 # Called when the node enters the scene tree for the first time.
