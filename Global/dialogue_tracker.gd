@@ -10,6 +10,13 @@ var mayor_progress = NONE:
 		return mayor_progress
 	set(value):
 		mayor_progress = value
+
+var well_progress = NONE:
+	get:
+		return well_progress
+	set(value):
+		well_progress = value
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -2230,7 +2230,12 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="ParallaxBackground" parent="CanvasLayer" instance=ExtResource("12_fpp76")]
-visible = false
+
+[node name="ColorRect" parent="CanvasLayer/ParallaxBackground/ParallaxLayer" index="0"]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 577.0
+offset_bottom = 326.0
 
 [node name="Bush_group" type="Node2D" parent="."]
 

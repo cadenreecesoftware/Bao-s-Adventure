@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c831mcwfcogjm"]
+
+[ext_resource type="Texture2D" uid="uid://bvamck2ec3ae5" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Well_1.png" id="1_jbo7j"]
+[ext_resource type="Script" path="res://Interactables/mayor_well.gd" id="1_wm7mu"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="2_cvymx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ho7e8"]
+shader = ExtResource("2_cvymx")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxh47"]
+size = Vector2(20, 21)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q4nkj"]
+radius = 39.0128
+
+[node name="Well" type="CharacterBody2D"]
+script = ExtResource("1_wm7mu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ho7e8")
+position = Vector2(-16, -22)
+texture = ExtResource("1_jbo7j")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_rxh47")
+
+[node name="ChatDetection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetection"]
+shape = SubResource("CircleShape2D_q4nkj")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

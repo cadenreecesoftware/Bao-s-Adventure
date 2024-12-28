@@ -67,7 +67,6 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_2r1s5")
 
 [node name="ChatDetection" type="Area2D" parent="."]
-visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetection"]

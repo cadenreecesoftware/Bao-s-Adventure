@@ -38,7 +38,8 @@ directories/dch_directory={
 directories/dtl_directory={
 "MayorMeeting": "res://Dialogue/Timelines/MayorMeeting.dtl",
 "mayor_already_met": "res://Dialogue/Timelines/mayor_already_met.dtl",
-"mayor_questing": "res://Dialogue/Timelines/mayor_questing.dtl"
+"mayor_questing": "res://Dialogue/Timelines/mayor_questing.dtl",
+"well_timeline": "res://Dialogue/Timelines/well_timeline.dtl"
 }
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
