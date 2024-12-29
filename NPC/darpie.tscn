@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgu1teqyj6w7d"]
+
+[ext_resource type="Texture2D" uid="uid://d2jdsf8xcfur1" path="res://Art/Action RPG Resources/Enemies/1x/Wildlings/Goblin_idle.png" id="1_ka7c8"]
+[ext_resource type="Script" path="res://NPC/darpie.gd" id="1_leyn5"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="2_hp86w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jpa0w"]
+shader = ExtResource("2_hp86w")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfis6"]
+atlas = ExtResource("1_ka7c8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw2mr"]
+atlas = ExtResource("1_ka7c8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umgy7"]
+atlas = ExtResource("1_ka7c8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m1bc"]
+atlas = ExtResource("1_ka7c8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhl3x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfis6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw2mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umgy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m1bc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8l70"]
+size = Vector2(8, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_liikb"]
+radius = 25.0
+
+[node name="Darpie" type="CharacterBody2D"]
+script = ExtResource("1_leyn5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_jpa0w")
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_hhl3x")
+autoplay = "default"
+frame_progress = 0.384242
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_d8l70")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ChatDetection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetection"]
+shape = SubResource("CircleShape2D_liikb")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]

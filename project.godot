@@ -32,11 +32,14 @@ DialogueTracker="*res://Global/dialogue_tracker.tscn"
 [dialogic]
 
 directories/dch_directory={
+"Darpie": "res://Dialogue/Dialogic_Characters/Darpie.dch",
 "Mayor": "res://Dialogue/Dialogic_Characters/Mayor.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"DarpieMeeting": "res://Dialogue/Timelines/DarpieMeeting.dtl",
 "MayorMeeting": "res://Dialogue/Timelines/MayorMeeting.dtl",
+"darpie_met": "res://Dialogue/Timelines/darpie_met.dtl",
 "mayor_already_met": "res://Dialogue/Timelines/mayor_already_met.dtl",
 "mayor_questing": "res://Dialogue/Timelines/mayor_questing.dtl",
 "well_timeline": "res://Dialogue/Timelines/well_timeline.dtl"
@@ -69,7 +72,7 @@ variables={}
 
 [display]
 
-window/stretch/scale=4.0
+window/stretch/scale=2.0
 
 [editor_plugins]
 

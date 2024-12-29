@@ -16,6 +16,12 @@ var well_progress = NONE:
 		return well_progress
 	set(value):
 		well_progress = value
+
+var darpie_progress = NONE:
+	get:
+		return darpie_progress
+	set(value):
+		darpie_progress = value
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
