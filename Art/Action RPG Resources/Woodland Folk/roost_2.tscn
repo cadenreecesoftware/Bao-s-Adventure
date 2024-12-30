@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://divmvaa87p16h"]
+
+[ext_resource type="Texture2D" uid="uid://c6tfk7u7l0wyw" path="res://Art/Action RPG Resources/Woodland Folk/1x/Buildings/Roost02_D.png" id="1_3y3i6"]
+
+[node name="Roost02D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -35)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_3y3i6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(25, 1, 17, -8, -17, -8, -25, 1, -26, 3, -28, 7, -25, 14, -19, 15, -9, 16, 8, 16, 25, 14, 28, 11, 28, 7)

@@ -53,7 +53,9 @@ func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 
 func _on_spawn(position: Vector2, direction: String):
-	animations.play("Idle" + direction.to_pascal_case())
+	animationState.travel("Idle")
+	#animations.play("Idle" + direction.to_pascal_case())
+	#print("Idle" + direction.to_pascal_case())
 	global_position = position
 	
 

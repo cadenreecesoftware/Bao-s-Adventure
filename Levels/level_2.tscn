@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://n6ftc2hacivp"]
+[gd_scene load_steps=27 format=4 uid="uid://n6ftc2hacivp"]
 
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="1_2ijoo"]
 [ext_resource type="Script" path="res://Levels/level_2.gd" id="1_naq3d"]
@@ -1843,6 +1843,13 @@ size = Vector2(187, 48)
 resource_local_to_scene = true
 size = Vector2(187, 47)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyfom"]
+resource_local_to_scene = true
+size = Vector2(162, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mb74"]
+size = Vector2(162, 20)
+
 [node name="Level2" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_naq3d")
@@ -2230,6 +2237,8 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="ParallaxBackground" parent="CanvasLayer" instance=ExtResource("12_fpp76")]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="ColorRect" parent="CanvasLayer/ParallaxBackground/ParallaxLayer" index="0"]
 offset_left = 1.0
@@ -2350,7 +2359,27 @@ shape = SubResource("RectangleShape2D_67m2l")
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-35, 5)
 
+[node name="Door_S" parent="Doors" instance=ExtResource("17_elsuc")]
+position = Vector2(240, 356)
+destination_level_tag = " "
+
+[node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
+shape = SubResource("RectangleShape2D_uyfom")
+
+[node name="Spawn" parent="Doors/Door_S" index="1"]
+position = Vector2(0, -22)
+
+[node name="Dialogue_barrier" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue_barrier"]
+position = Vector2(240, 349)
+shape = SubResource("RectangleShape2D_7mb74")
+
+[connection signal="body_entered" from="Dialogue_barrier" to="." method="_on_dialogue_barrier_body_entered"]
+
 [editable path="Camera2D"]
 [editable path="CanvasLayer/ParallaxBackground"]
 [editable path="Doors/Door_N"]
 [editable path="Doors/Door_E"]
+[editable path="Doors/Door_S"]

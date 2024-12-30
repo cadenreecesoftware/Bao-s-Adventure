@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckr71sf5k5udb"]
+
+[ext_resource type="Texture2D" uid="uid://np5q7d30k6sa" path="res://Art/Action RPG Resources/Woodland Folk/1x/Characters/Mouse01_idle.png" id="1_0n5jx"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="1_ixygo"]
+[ext_resource type="Script" path="res://NPC/guard_1.gd" id="1_pf327"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a1kra"]
+shader = ExtResource("1_ixygo")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0dre"]
+atlas = ExtResource("1_0n5jx")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68pc8"]
+atlas = ExtResource("1_0n5jx")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x86gr"]
+atlas = ExtResource("1_0n5jx")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otcb2"]
+atlas = ExtResource("1_0n5jx")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_auc0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0dre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68pc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x86gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otcb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qna3k"]
+size = Vector2(6, 4.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_34cp0"]
+radius = 25.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_pf327")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_a1kra")
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_auc0y")
+autoplay = "default"
+frame_progress = 0.81465
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_qna3k")
+
+[node name="ChatDetection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetection"]
+shape = SubResource("CircleShape2D_34cp0")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

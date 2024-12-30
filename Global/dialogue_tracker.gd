@@ -23,6 +23,11 @@ var darpie_progress = NONE:
 	set(value):
 		darpie_progress = value
 	
+var guard_progress = NONE:
+	get:
+		return guard_progress
+	set(value):
+		guard_progress = value
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

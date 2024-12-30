@@ -33,6 +33,7 @@ DialogueTracker="*res://Global/dialogue_tracker.tscn"
 
 directories/dch_directory={
 "Darpie": "res://Dialogue/Dialogic_Characters/Darpie.dch",
+"Guards": "res://Dialogue/Dialogic_Characters/Guards.dch",
 "Mayor": "res://Dialogue/Dialogic_Characters/Mayor.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
@@ -40,6 +41,8 @@ directories/dtl_directory={
 "DarpieMeeting": "res://Dialogue/Timelines/DarpieMeeting.dtl",
 "MayorMeeting": "res://Dialogue/Timelines/MayorMeeting.dtl",
 "darpie_met": "res://Dialogue/Timelines/darpie_met.dtl",
+"forest_gate": "res://Dialogue/Timelines/forest_gate.dtl",
+"guard_talking": "res://Dialogue/Timelines/guard_talking.dtl",
 "mayor_already_met": "res://Dialogue/Timelines/mayor_already_met.dtl",
 "mayor_questing": "res://Dialogue/Timelines/mayor_questing.dtl",
 "well_timeline": "res://Dialogue/Timelines/well_timeline.dtl"
