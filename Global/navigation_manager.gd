@@ -7,6 +7,7 @@ const scene_town = preload("res://Levels/town.tscn")
 const scene_house_1_inter = preload("res://Levels/house_1_inter.tscn")
 const scene_well = preload("res://Levels/well.tscn")
 const scene_roost_inter = preload("res://Levels/roost_interior.tscn")
+const scene_level3 = preload("res://Levels/level_3.tscn")
 
 signal on_trigger_player_spawn
 
@@ -28,6 +29,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_well
 		"roost_interior":
 			scene_to_load = scene_roost_inter
+		"level_3":
+			scene_to_load = scene_level3
 			
 	if scene_to_load != null:
 		TransitionScreen.transition()

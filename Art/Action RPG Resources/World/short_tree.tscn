@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b740bwnvditu6"]
+
+[ext_resource type="Texture2D" uid="uid://dgorw51c8wbek" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Tree_medium_2.png" id="1_4qth8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f7mp"]
+size = Vector2(11, 6.5)
+
+[node name="short_tree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("1_4qth8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_7f7mp")
