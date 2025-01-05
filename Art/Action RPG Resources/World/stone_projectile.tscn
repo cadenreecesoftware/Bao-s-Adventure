@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://0l1ew1j655c5"]
+
+[ext_resource type="Script" path="res://Art/Action RPG Resources/World/stone_projectile.gd" id="1_m5j2a"]
+[ext_resource type="Texture2D" uid="uid://dqfo7sxmo78op" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Rock_2.png" id="2_skg4o"]
+[ext_resource type="Texture2D" uid="uid://bu0l5xgpsewak" path="res://Art/Action RPG Resources/World/stone_break.png" id="3_3j34p"]
+[ext_resource type="AudioStream" uid="uid://k3di0p7fse4h" path="res://Art/Action RPG Resources/Music and Sounds/rock_break.mp3" id="4_naed0"]
+[ext_resource type="Texture2D" uid="uid://coa6wfve7gxnn" path="res://Art/Action RPG Resources/Shadows/SmallShadow.png" id="5_e0a83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ef32u"]
+size = Vector2(11, 12)
+
+[sub_resource type="Animation" id="Animation_q7bvs"]
+resource_name = "stone_break"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_screen_exited"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SmallShadow:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wid8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kh6v4"]
+_data = {
+"RESET": SubResource("Animation_wid8t"),
+"stone_break": SubResource("Animation_q7bvs")
+}
+
+[node name="stone_projectile" type="Area2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_m5j2a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_skg4o")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+position = Vector2(4.76837e-07, 0)
+scale = Vector2(0.85, 0.9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_ef32u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kh6v4")
+}
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_3j34p")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_naed0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+
+[node name="SmallShadow" type="Sprite2D" parent="."]
+position = Vector2(0, 11)
+texture = ExtResource("5_e0a83")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

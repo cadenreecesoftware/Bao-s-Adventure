@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://267vvu56oe1j"]
+[gd_scene load_steps=25 format=4 uid="uid://267vvu56oe1j"]
 
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="1_jaqfe"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_k6vkm"]
@@ -18,8 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://hl4dfgysul3y" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/Tree_small_2.png" id="16_f2d3p"]
 [ext_resource type="PackedScene" uid="uid://6qhx6tjotcs5" path="res://Levels/door.tscn" id="17_w3q7n"]
 [ext_resource type="PackedScene" uid="uid://uljnlavx08do" path="res://Levels/parallax_background_fog.tscn" id="18_kev2v"]
-[ext_resource type="PackedScene" uid="uid://2rgykdk1383j" path="res://Enemies/bat.tscn" id="19_bdaf7"]
-[ext_resource type="PackedScene" uid="uid://dqrq8qyqigkoe" path="res://Enemies/slime.tscn" id="20_xu8fa"]
+[ext_resource type="PackedScene" uid="uid://d3tcvhxiu1igr" path="res://Enemies/blemmyae.tscn" id="19_xmk6g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mflou"]
 texture = ExtResource("5_p6n8c")
@@ -2158,20 +2157,8 @@ shape = SubResource("RectangleShape2D_f5ng2")
 [node name="Spawn" parent="Doors/Door_S" index="1"]
 position = Vector2(-8, -26)
 
-[node name="Bat" parent="." instance=ExtResource("19_bdaf7")]
-position = Vector2(72, 155)
-
-[node name="Bat2" parent="." instance=ExtResource("19_bdaf7")]
-position = Vector2(136, 162)
-
-[node name="Bat3" parent="." instance=ExtResource("19_bdaf7")]
-position = Vector2(80, 64)
-
-[node name="Slime" parent="." instance=ExtResource("20_xu8fa")]
-position = Vector2(351, 88)
-
-[node name="Slime2" parent="." instance=ExtResource("20_xu8fa")]
-position = Vector2(345, 179)
+[node name="Blemmyae" parent="." instance=ExtResource("19_xmk6g")]
+position = Vector2(327, 144)
 
 [editable path="Camera2D"]
 [editable path="CanvasLayer/ParallaxBackground"]

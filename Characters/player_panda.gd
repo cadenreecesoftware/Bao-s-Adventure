@@ -107,7 +107,7 @@ func roll_state():
 	input_vector = roll_vector * roll_speed
 	animationState.travel("Roll")
 	#make the player have i-frames during their dodge
-	hurtbox.start_invincibility(0.5)
+	hurtbox.start_invincibility(0.40)
 	move()
 
 func _draw():
