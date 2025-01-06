@@ -319,6 +319,7 @@ position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_w2so4")
 
 [node name="SoftCollision" parent="." instance=ExtResource("2_4gs5h")]
+visible = false
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
 visible = false
@@ -337,6 +338,7 @@ parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Run/blend_position = Vector2(0, 0)
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_300h4")]
+visible = false
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -348,6 +350,7 @@ shape = SubResource("CircleShape2D_wpf85")
 max_health = 2
 
 [node name="Hitbox" parent="." instance=ExtResource("6_kbxr8")]
+visible = false
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
@@ -355,9 +358,9 @@ position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_63wc6")
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource("7_8w1p0")]
+visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
-visible = false
 shape = SubResource("CircleShape2D_w8pmj")
 
 [node name="WanderController" parent="." instance=ExtResource("8_kkrx2")]
