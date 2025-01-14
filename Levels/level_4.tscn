@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://c0kng5dk2r27g"]
+[gd_scene load_steps=34 format=4 uid="uid://c0kng5dk2r27g"]
 
 [ext_resource type="Script" path="res://Levels/level_4.gd" id="1_kotv2"]
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="2_s7cy2"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b740bwnvditu6" path="res://Art/Action RPG Resources/World/short_tree.tscn" id="22_dr75s"]
 [ext_resource type="PackedScene" uid="uid://d3tcvhxiu1igr" path="res://Enemies/blemmyae.tscn" id="23_hggyu"]
 [ext_resource type="PackedScene" uid="uid://6qhx6tjotcs5" path="res://Levels/door.tscn" id="24_mglom"]
+[ext_resource type="Texture2D" uid="uid://f1y5sienulm1" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Tileset/House_1 (open).png" id="25_8g0dq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mflou"]
 texture = ExtResource("4_ha6yg")
@@ -1851,6 +1852,10 @@ size = Vector2(30, 274)
 resource_local_to_scene = true
 size = Vector2(11, 113)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayyqn"]
+resource_local_to_scene = true
+size = Vector2(11, 13)
+
 [node name="level_4" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_kotv2")
@@ -3386,8 +3391,26 @@ shape = SubResource("RectangleShape2D_gnp5j")
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-16, -13)
 
+[node name="Door_H" parent="Doors" instance=ExtResource("24_mglom")]
+position = Vector2(400, 260)
+destination_level_tag = "forest_house_inter"
+destination_door_tag = "S"
+
+[node name="CollisionShape2D" parent="Doors/Door_H" index="0"]
+shape = SubResource("RectangleShape2D_ayyqn")
+
+[node name="Spawn" parent="Doors/Door_H" index="1"]
+position = Vector2(0, 15)
+
+[node name="House1(open)" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(400, 230)
+texture = ExtResource("25_8g0dq")
+
 [connection signal="body_entered" from="Dialogue_barrier" to="." method="_on_dialogue_barrier_body_entered"]
+[connection signal="body_entered" from="Doors/Door_H" to="." method="_on_door_h_body_entered"]
 
 [editable path="Camera2D"]
 [editable path="CanvasLayer/ParallaxBackground"]
 [editable path="Doors/Door_E"]
+[editable path="Doors/Door_H"]

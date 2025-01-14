@@ -81,7 +81,6 @@ func seek_player():
 	
 func update_wander():
 	state = pick_random_state(randomStates)
-	print(state)
 	wanderController.start_wander_timer(randi_range(1,3))
 #func state_switcher():
 	
