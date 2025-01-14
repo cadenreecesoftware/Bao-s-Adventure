@@ -28,6 +28,11 @@ var guard_progress = NONE:
 		return guard_progress
 	set(value):
 		guard_progress = value
+var tanuki_met = NONE:
+	get:
+		return tanuki_met
+	set(value):
+		tanuki_met = value
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bfm2b0sys2ptk" path="res://Art/Action RPG Resources/Music and Sounds/nuts_falling.mp3" id="4_4a0wv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm0sy"]
+size = Vector2(19, 20)
 
 [node name="TanNuts" type="Area2D"]
 collision_layer = 3
@@ -23,7 +24,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_eh8ua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_mm0sy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

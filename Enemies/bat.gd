@@ -48,7 +48,8 @@ func _physics_process(delta) -> void:
 			seek_player()
 			if wanderController.get_time_left() == 0:
 				update_wander()
-				
+				accelerate_towards_point(wanderController.target_position, delta)
+			#accelerate_towards_point(wanderController.target_position, delta)
 			accelerate_towards_point(wanderController.target_position, delta)
 			
 			if global_position.distance_to(wanderController.target_position) <= MAX_SPEED * delta:
@@ -80,6 +81,7 @@ func seek_player():
 	
 func update_wander():
 	state = pick_random_state(randomStates)
+	print(state)
 	wanderController.start_wander_timer(randi_range(1,3))
 #func state_switcher():
 	
