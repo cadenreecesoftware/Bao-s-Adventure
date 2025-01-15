@@ -10,6 +10,7 @@ const scene_roost_inter = preload("res://Levels/roost_interior.tscn")
 const scene_level3 = preload("res://Levels/level_3.tscn")
 const scene_level4 = preload("res://Levels/level_4.tscn")
 const scene_forest_house_inter = preload("res://Levels/forest_house_inter.tscn")
+const scene_temple_entrance = preload("res://Levels/temple_entrance.tscn")
 
 signal on_trigger_player_spawn
 
@@ -37,6 +38,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_level4
 		"forest_house_inter":
 			scene_to_load = scene_forest_house_inter
+		"temple_entrance":
+			scene_to_load = scene_temple_entrance
 			
 	if scene_to_load != null:
 		TransitionScreen.transition()
