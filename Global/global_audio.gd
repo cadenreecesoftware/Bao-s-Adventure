@@ -3,6 +3,7 @@ signal volume_changed(value)
 const forest_music1 = preload("res://Music/MysticalForest1.mp3")
 const town_music = preload("res://Music/Mill Town.mp3")
 const interior_music = preload("res://Music/Rory's Shop.mp3")
+const temple_interior_music = preload("res://Music/Mausoleum of Sacrifice.mp3")
 
 var current_music = ""
 var volume: int = -20
@@ -31,4 +32,8 @@ func play_interior_music():
 	current_music = "interior_music"
 	interior_music.loop
 	_play_music(interior_music, volume)
+func play_temple_music():
+	current_music = "temple_interior_music"
+	interior_music.loop
+	_play_music(temple_interior_music, volume)
 	

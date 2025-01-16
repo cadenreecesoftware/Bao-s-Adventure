@@ -28,6 +28,7 @@ PlayerPause="*res://Global/playerPause.tscn"
 Textbox="*res://Dialogue/textbox.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 DialogueTracker="*res://Global/dialogue_tracker.tscn"
+TeleportCooldown="*res://Global/teleport_cooldown.tscn"
 
 [dialogic]
 
@@ -47,6 +48,7 @@ directories/dtl_directory={
 "guard_talking": "res://Dialogue/Timelines/guard_talking.dtl",
 "mayor_already_met": "res://Dialogue/Timelines/mayor_already_met.dtl",
 "mayor_questing": "res://Dialogue/Timelines/mayor_questing.dtl",
+"no_key": "res://Dialogue/Timelines/no_key.dtl",
 "tanuki_meeting": "res://Dialogue/Timelines/tanuki_meeting.dtl",
 "tanuki_met": "res://Dialogue/Timelines/tanuki_met.dtl",
 "tanuki_saving_dialogue": "res://Dialogue/Timelines/tanuki_saving_dialogue.dtl",

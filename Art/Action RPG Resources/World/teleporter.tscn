@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bumyglrddxsma"]
+
+[ext_resource type="Script" path="res://Art/Action RPG Resources/World/teleporter.gd" id="1_1o7nh"]
+[ext_resource type="Texture2D" uid="uid://5pdkrdaibpn3" path="res://Art/Action RPG Resources/Interior/1x/base_tp.png" id="1_xgnks"]
+[ext_resource type="Texture2D" uid="uid://7mpcqeudrrir" path="res://Art/Action RPG Resources/Interior/1x/active_tp.png" id="2_7d6gw"]
+[ext_resource type="AudioStream" uid="uid://cktsd47krvaky" path="res://Art/Action RPG Resources/Music and Sounds/8-bit-game-sfx-sound-9-269964.mp3" id="4_rl0nn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fns1t"]
+size = Vector2(2, 3)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8abk1"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("4_rl0nn")
+
+[node name="Teleporter" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_1o7nh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_xgnks")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+texture = ExtResource("2_7d6gw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_fns1t")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_8abk1")
+volume_db = 2.364
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

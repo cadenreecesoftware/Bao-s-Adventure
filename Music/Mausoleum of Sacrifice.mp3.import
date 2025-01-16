@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://esc5pfhpfabg"
+path="res://.godot/imported/Mausoleum of Sacrifice.mp3-333fa541172780cfd8df8eab3d74b61e.mp3str"
+
+[deps]
+
+source_file="res://Music/Mausoleum of Sacrifice.mp3"
+dest_files=["res://.godot/imported/Mausoleum of Sacrifice.mp3-333fa541172780cfd8df8eab3d74b61e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

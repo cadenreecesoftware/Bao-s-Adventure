@@ -39,6 +39,11 @@ var tanuki_progress = NONE:
 		return tanuki_progress
 	set(value):
 		tanuki_progress = value
+var key_progress = NONE:
+	get:
+		return key_progress
+	set(value):
+		key_progress = value
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

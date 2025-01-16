@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctv8fod4gvqtn"]
+
+[ext_resource type="Script" path="res://Global/teleport_cooldown.gd" id="1_rfwi4"]
+
+[node name="TeleportCooldown" type="Timer"]
+script = ExtResource("1_rfwi4")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
