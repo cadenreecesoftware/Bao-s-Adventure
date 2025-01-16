@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://b835otupi7nv7"]
+[gd_scene load_steps=29 format=4 uid="uid://b835otupi7nv7"]
 
 [ext_resource type="Script" path="res://Levels/temple_entrance.gd" id="1_lplns"]
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="2_06rrp"]
@@ -6015,6 +6015,10 @@ sources/0 = SubResource("TileSetAtlasSource_flboq")
 resource_local_to_scene = true
 size = Vector2(11, 128.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58dq8"]
+resource_local_to_scene = true
+size = Vector2(14, 16)
+
 [node name="level_4" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_lplns")
@@ -6805,7 +6809,20 @@ shape = SubResource("RectangleShape2D_gnp5j")
 [node name="Spawn" parent="Doors/Door_E" index="1"]
 position = Vector2(-15, -25)
 
+[node name="Door_T" parent="Doors" instance=ExtResource("23_dxx0g")]
+position = Vector2(906, 383)
+destination_level_tag = "temple_room_1"
+destination_door_tag = "S"
+
+[node name="CollisionShape2D" parent="Doors/Door_T" index="0"]
+position = Vector2(-2, -6)
+shape = SubResource("RectangleShape2D_58dq8")
+
+[node name="Spawn" parent="Doors/Door_T" index="1"]
+position = Vector2(-2, 10)
+
 [node name="Collisions" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(752, 400, 800, 400, 800, 384, 871, 384, 941, 384, 1008, 384, 1008, 400, 1040, 400, 1040, 384, 1056, 384, 1056, 289, 752, 289)
@@ -6813,3 +6830,4 @@ polygon = PackedVector2Array(752, 400, 800, 400, 800, 384, 871, 384, 941, 384, 1
 [editable path="Camera2D"]
 [editable path="CanvasLayer/ParallaxBackground"]
 [editable path="Doors/Door_E"]
+[editable path="Doors/Door_T"]
