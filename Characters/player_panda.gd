@@ -125,6 +125,7 @@ func grapple_state():
 		move()
 		#grapple_tipper()
 	else:
+		$GrappleFailNoise.play()
 		pass
 
 

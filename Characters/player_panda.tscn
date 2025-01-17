@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://d2upw8umcdeq0"]
+[gd_scene load_steps=86 format=3 uid="uid://d2upw8umcdeq0"]
 
 [ext_resource type="Script" path="res://Characters/player_panda.gd" id="1_dasjy"]
 [ext_resource type="Texture2D" uid="uid://cj7aopmk173cs" path="res://Art/Action RPG Resources/Shadows/MediumShadow.png" id="2_p428s"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://b6shhbb7mb0ow" path="res://Art/Action RPG Resources/Music and Sounds/Swipe.wav" id="5_3xckr"]
 [ext_resource type="PackedScene" uid="uid://dqaxsun24l05v" path="res://Art/Action RPG Resources/Overlap/Hurtbox.tscn" id="5_f4jwd"]
 [ext_resource type="AudioStream" uid="uid://cfee8lqu7cd0o" path="res://Art/Action RPG Resources/Music and Sounds/Evade.wav" id="6_jq5wx"]
+[ext_resource type="AudioStream" uid="uid://bsoeibe01p6s" path="res://Art/Action RPG Resources/Music and Sounds/grapple_success.mp3" id="6_uqher"]
+[ext_resource type="AudioStream" uid="uid://dhp2oei3m4ftx" path="res://Art/Action RPG Resources/Music and Sounds/grapple_fail.mp3" id="11_b0byo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wl7c7"]
 shader = ExtResource("2_ww2y6")
@@ -319,6 +321,11 @@ tracks/4/keys = {
 }
 tracks/4/use_blend = true
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8buju"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("6_uqher")
+
 [sub_resource type="Animation" id="Animation_bbecl"]
 resource_name = "GrappleDown"
 length = 0.5
@@ -397,6 +404,21 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_8buju")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_nxjd8"]
 resource_name = "GrappleLeft"
@@ -476,6 +498,21 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_8buju")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_1bomo"]
 resource_name = "GrappleRight"
@@ -555,6 +592,21 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_8buju")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_qguwo"]
 resource_name = "GrappleUp"
@@ -634,6 +686,21 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_8buju")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_mw7mp"]
 resource_name = "IdleDown"
@@ -1286,6 +1353,11 @@ _data = {
 "hit_flash": SubResource("Animation_6ymqp")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3m22v"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("11_b0byo")
+
 [node name="PlayerPanda" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_dasjy")
@@ -1371,6 +1443,9 @@ position = Vector2(-1.0842e-19, 0)
 rotation = 1.5708
 scale = Vector2(-0.358695, 0.359659)
 shape = SubResource("CapsuleShape2D_ksrx4")
+
+[node name="GrappleFailNoise" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_3m22v")
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
