@@ -11,6 +11,7 @@ var player_in_area = false
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	NavigationManager.current_level = "res://Levels/temple_entrance.tscn"
 	PlayerPause.playerPaused = false
 	if GlobalAudio.current_music != "forest_music1":
 		GlobalAudio.play_forest_music_level()

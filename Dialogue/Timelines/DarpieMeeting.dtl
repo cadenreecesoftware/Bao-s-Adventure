@@ -1,5 +1,5 @@
 Darpie: AHHHHHHHHHH!!!!
 Darpie: WAIT WAIT! I KNOW HOW THIS LOOKS!
-Darpie: My name is Darpie and I'm '"business-creature". I have nowhere else to go... 
-Darpie: Please don't tell anyone I'm down here, I ain't hurting anyone. I'll give you friends-only discount!
-[signal arg="exit_darpie"]
+Darpie: My name is Darpie. I have nowhere else to go... 
+Darpie: Please don't tell anyone I'm down here, I ain't hurting anyone. Here take this I found it when I first came here.
+[signal arg="exit_darpie_meet"]

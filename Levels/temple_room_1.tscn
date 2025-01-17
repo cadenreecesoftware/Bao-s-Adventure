@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bnh5jsf72rwer"]
+[gd_scene load_steps=24 format=4 uid="uid://bnh5jsf72rwer"]
 
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_0tb26"]
 [ext_resource type="Script" path="res://Levels/temple_room_1.gd" id="1_78luu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://btwny1vj7pdmm" path="res://Art/Action RPG Resources/Interior/1x/Expansion_AlchemyLab.png" id="9_3w12d"]
 [ext_resource type="TileSet" uid="uid://cd5uvemidbplx" path="res://Art/Action RPG Resources/Interior/1x/temple.tres" id="9_p87k0"]
 [ext_resource type="PackedScene" uid="uid://bumyglrddxsma" path="res://Art/Action RPG Resources/World/teleporter.tscn" id="13_xmg57"]
+[ext_resource type="PackedScene" uid="uid://2rgykdk1383j" path="res://Enemies/bat.tscn" id="14_hkyjb"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
 specular_color = Color(0, 0, 0, 1)
@@ -1826,6 +1827,9 @@ position = Vector2(296, -9.5)
 shape = SubResource("RectangleShape2D_sjwoe")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Bat" parent="." instance=ExtResource("14_hkyjb")]
+position = Vector2(311, 86)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

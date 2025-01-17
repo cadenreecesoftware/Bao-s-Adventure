@@ -32,11 +32,16 @@ func _physics_process(delta: float) -> void:
 
 
 func DialogicSignal(arg: String):
+	if arg == "exit_darpie_meet":
+		timer.start(0.5)
+		dialogue_cooldown = true
+		PlayerPause.playerPaused = false
+		PlayerStats.max_health += 1
+		PlayerStats.health = PlayerStats.max_health
 	if arg == "exit_darpie":
 		timer.start(0.5)
 		dialogue_cooldown = true
 		PlayerPause.playerPaused = false
-
 
 func _on_timer_timeout() -> void:
 	dialogue_cooldown = false

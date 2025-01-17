@@ -6,6 +6,7 @@ var mayor_dialogue = preload("res://Dialogue/Timelines/MayorMeeting.dtl")
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	NavigationManager.current_level = "res://Levels/roost_interior.tscn"
 	GlobalAudio.play_interior_music()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)

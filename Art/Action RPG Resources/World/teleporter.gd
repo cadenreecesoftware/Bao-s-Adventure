@@ -1,10 +1,16 @@
 extends Area2D
+
+class_name Teleporter
+
+
 @onready var active_sprite = $Sprite2D2
 @onready var base_sprite = $Sprite2D
 @onready var tp_wait = $Timer
 @onready var audio = $AudioStreamPlayer
+signal stepped_on_teleport
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and TeleportCooldown.is_stopped():
+		stepped_on_teleport.emit()
 		tp_wait.start(0.5)
 		PlayerPause.playerPaused = true
 		audio.play()

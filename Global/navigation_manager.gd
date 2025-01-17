@@ -15,8 +15,17 @@ const scene_temple_room_1 = preload("res://Levels/temple_room_1.tscn")
 
 signal on_trigger_player_spawn
 
-var spawn_door_tag
+var spawn_door_tag = null:
+	get:
+		return spawn_door_tag
+	set(value):
+		spawn_door_tag = value
 var scene_to_load
+var current_level: String = "":
+	get:
+		return current_level
+	set(value):
+		current_level = value
 
 func go_to_level(level_tag, destination_tag):
 	

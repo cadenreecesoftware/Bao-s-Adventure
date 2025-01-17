@@ -6019,7 +6019,7 @@ size = Vector2(11, 128.5)
 resource_local_to_scene = true
 size = Vector2(14, 16)
 
-[node name="level_4" type="Node2D"]
+[node name="temple_entrance" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_lplns")
 

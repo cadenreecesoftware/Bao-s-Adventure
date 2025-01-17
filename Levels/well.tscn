@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=4 uid="uid://6wb10ekv8lqu"]
+[gd_scene load_steps=20 format=4 uid="uid://6wb10ekv8lqu"]
 
-[ext_resource type="Script" path="res://Levels/house_1_inter.gd" id="1_mfxod"]
+[ext_resource type="Script" path="res://Levels/well.gd" id="1_h8eg5"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="2_hsmf1"]
 [ext_resource type="PackedScene" uid="uid://sbjmlgfqqekh" path="res://camera_2d.tscn" id="3_2gdhp"]
 [ext_resource type="PackedScene" uid="uid://brvqky2pukeg4" path="res://Art/Action RPG Resources/UI/health_ui.tscn" id="4_ur5wr"]
@@ -17,7 +17,7 @@ specular_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufyn8"]
 resource_local_to_scene = true
-size = Vector2(14, 12)
+size = Vector2(13, 12)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q47rs"]
 texture = ExtResource("9_l3e0t")
@@ -104,9 +104,12 @@ scale_min = 0.0
 scale_max = 1.5
 color_ramp = SubResource("GradientTexture1D_fspoe")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17hcj"]
+size = Vector2(10, 11)
+
 [node name="Well" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_mfxod")
+script = ExtResource("1_h8eg5")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -171,7 +174,7 @@ destination_door_tag = "Well"
 spawn_direction = "down"
 
 [node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
-position = Vector2(-1, -1.52588e-05)
+position = Vector2(-1, 0.5)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_ufyn8")
 
@@ -211,6 +214,10 @@ polygon = PackedVector2Array(143, 79, 448, 79, 448, 76, 144, 76, 143, 76)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(139, 79, 139, 245, 453, 245, 453, 76, 449, 76, 449, 241, 143, 241, 143, 79)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(296, 183.5)
+shape = SubResource("RectangleShape2D_17hcj")
 
 [editable path="Camera2D"]
 [editable path="Doors/Door_S"]

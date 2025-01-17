@@ -4,6 +4,7 @@ extends Node2D
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	NavigationManager.current_level = "res://Levels/town.tscn"
 	if GlobalAudio.current_music != "town_music":
 		GlobalAudio.play_town_music()
 	if NavigationManager.spawn_door_tag != null:

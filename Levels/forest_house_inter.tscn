@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://bbv71xg6wu16t"]
 
-[ext_resource type="Script" path="res://Levels/house_1_inter.gd" id="1_27sex"]
+[ext_resource type="Script" path="res://Levels/forest_house_inter.gd" id="1_sf4le"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="2_ah5p3"]
 [ext_resource type="PackedScene" uid="uid://sbjmlgfqqekh" path="res://camera_2d.tscn" id="3_gj6ko"]
 [ext_resource type="PackedScene" uid="uid://brvqky2pukeg4" path="res://Art/Action RPG Resources/UI/health_ui.tscn" id="4_1uhho"]
@@ -21,7 +21,7 @@ size = Vector2(21, 19.5)
 
 [node name="forest_house_inter" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_27sex")
+script = ExtResource("1_sf4le")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

@@ -2,6 +2,7 @@ extends Control
 
 @onready var animations = $AnimationPlayer
 @onready var noises = $AudioStreamPlayer
+@onready var player = $"../../PlayerPanda"
 
 func _ready():
 	animations.play("RESET")
@@ -13,8 +14,46 @@ func resume():
 	animations.play_backwards("blur")
 
 	
-func save():
-	pass
+func save_game():	
+	var saved_game: SavedGame = SavedGame.new()
+	
+	#player singletons and position
+	saved_game.player_health = PlayerStats.health
+	saved_game.player_position = player.global_position
+	saved_game.player_max_health = PlayerStats.max_health
+	saved_game.current_level = NavigationManager.current_level
+	saved_game.player_wallet = Wallet.wallet
+	#saves all dialogue options and quest progress in the world
+	saved_game.dialogue_saver.append(DialogueTracker.mayor_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.well_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.darpie_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.guard_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.tanuki_met)
+	saved_game.dialogue_saver.append(DialogueTracker.tanuki_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.key_progress)
+	ResourceSaver.save(saved_game, "user://savegame.tres")
+func load_game():
+	
+	NavigationManager.spawn_door_tag = null
+	var saved_game:SavedGame = load("user://savegame.tres") as SavedGame
+	get_tree().paused = false
+	visible = false
+	#player.global_position = saved_game.player_position
+	PlayerStats.health = saved_game.player_health
+	PlayerStats.max_health = saved_game.player_max_health
+	Wallet.wallet = saved_game.player_wallet
+	DialogueTracker.mayor_progress = saved_game.dialogue_saver[0]
+	DialogueTracker.well_progress = saved_game.dialogue_saver[1]
+	DialogueTracker.darpie_progress = saved_game.dialogue_saver[2]
+	DialogueTracker.guard_progress = saved_game.dialogue_saver[3]
+	DialogueTracker.tanuki_met = saved_game.dialogue_saver[4]
+	DialogueTracker.tanuki_progress = saved_game.dialogue_saver[5]
+	DialogueTracker.key_progress = saved_game.dialogue_saver[6]
+	TransitionScreen.transition()
+	get_tree().change_scene_to_file(saved_game.current_level)
+	player.global_position = saved_game.player_position
+
+
 
 func pause():
 	get_tree().paused = true
@@ -40,6 +79,7 @@ func _on_resume_pressed() -> void:
 	
 func _on_save_pressed() -> void:
 	noises.play()
+	save_game()
 
 func _on_quit_pressed() -> void:
 	resume()
@@ -49,3 +89,8 @@ func _on_quit_pressed() -> void:
 	
 func _process(delta: float) -> void:
 	pausePressed()
+
+
+func _on_load_pressed() -> void:
+	noises.play()
+	load_game()

@@ -32,8 +32,6 @@ var talking = PlayerPause.playerPaused:
 @onready var grapple = $"grap_pivot/grapple"
 @onready var player_collider = $CollisionShape2D
 @onready var grapple_pivot = $grap_pivot
-@onready var interactable_finder: Area2D = $Direction/InteractableFinder
-
 
 
 
@@ -61,7 +59,6 @@ func _on_spawn(position: Vector2, direction: String):
 
 
 func _physics_process(_delta):
-	
 	if(!talking):
 		match state:
 			MOVE: 
@@ -153,3 +150,8 @@ func _on_hurtbox_area_entered(_area) -> void:
 	hurtbox.start_invincibility(0.7)
 	hit_flash_anim_player.play("hit_flash")
 	hurtbox.create_hit_effect()
+
+
+func _on_teleport_detector_area_entered(area: Area2D) -> void:
+	if area is Teleporter:
+		hit_flash_anim_player.play("hit_flash")

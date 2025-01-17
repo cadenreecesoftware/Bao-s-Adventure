@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b7o40x7ing25t"]
+[gd_scene load_steps=25 format=3 uid="uid://b7o40x7ing25t"]
 
 [ext_resource type="Script" path="res://Levels/pause_menu.gd" id="1_0aohm"]
 [ext_resource type="FontFile" uid="uid://dhxhdvxxhce7o" path="res://Art/Action RPG Resources/UI/fullpack/FantasyRPGtitle (size 11).ttf" id="1_f87rk"]
@@ -51,6 +51,8 @@ texture = ExtResource("2_733xn")
 expand_margin_left = 6.0
 expand_margin_right = 6.0
 expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5etrx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sthgv"]
 
@@ -192,6 +194,15 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_b5be2")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2iil8")
 text = "SAVE"
 
+[node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_f87rk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5etrx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hjemo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b5be2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2iil8")
+text = "LOAD"
+
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_f87rk")
@@ -212,4 +223,5 @@ stream = ExtResource("7_41b5v")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
