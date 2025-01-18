@@ -125,6 +125,7 @@ func attack_state():
 func grapple_state():
 	queue_redraw()
 	animationState.travel("Grapple")
+	hurtbox.start_invincibility(0.7)
 	if grapple.is_colliding():
 		#velocity = input_vector * to_local(grapple.get_collision_point() )
 		input_vector = lerp(input_vector, to_local(grapple.get_collision_point()), 0.003)

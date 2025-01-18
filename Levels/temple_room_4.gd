@@ -12,8 +12,9 @@ var dialogue_cooldown = false
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	NavigationManager.current_level = "res://Levels/temple_room_3.tscn"
+	DialogueTracker.grapple_chest = MET
 	Dialogic.signal_event.connect(DialogicSignal)
+	NavigationManager.current_level = "res://Levels/temple_room_4.tscn"
 	PlayerPause.playerPaused = false
 	if GlobalAudio.current_music != "temple_interior_music":
 		GlobalAudio.play_temple_music()
@@ -27,16 +28,10 @@ func _on_level_spawn(destination_tag: String):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player and DialogueTracker.key_progress == NONE:
-		Dialogic.start("no_key")
+	if body is Player and DialogueTracker.grapple_chest == NONE:
+		Dialogic.start("no_grapple_yet")
 		PlayerPause.playerPaused = true
-
+		
 func DialogicSignal(arg: String):
-	if arg == "exit_key_dialogue":
-		$Timer.start(0.5)
-		dialogue_cooldown = true
+	if arg == "exit_no_grapple":
 		PlayerPause.playerPaused = false
-
-
-func _on_timer_timeout() -> void:
-	dialogue_cooldown = false

@@ -14,6 +14,7 @@ const scene_temple_entrance = preload("res://Levels/temple_entrance.tscn")
 const scene_temple_room_1 = preload("res://Levels/temple_room_1.tscn")
 const scene_temple_room_2 = preload("res://Levels/temple_room_2.tscn")
 const scene_temple_room_3 = preload("res://Levels/temple_room_3.tscn")
+const scene_temple_room_4 = preload("res://Levels/temple_room_4.tscn")
 
 signal on_trigger_player_spawn
 
@@ -58,6 +59,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_temple_room_2
 		"temple_room_3":
 			scene_to_load = scene_temple_room_3
+		"temple_room_4":
+			scene_to_load = scene_temple_room_4
 			
 	if scene_to_load != null:
 		TransitionScreen.transition()

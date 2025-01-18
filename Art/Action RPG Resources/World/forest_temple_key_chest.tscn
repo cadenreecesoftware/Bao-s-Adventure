@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://04lm1p6j7r3m"]
+
+[ext_resource type="Script" path="res://Art/Action RPG Resources/World/forest_temple_key_chest.gd" id="1_o63ym"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="1_wybna"]
+[ext_resource type="Texture2D" uid="uid://tk756wnuetyn" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Objects/Chest_big.png" id="2_gkqbj"]
+[ext_resource type="PackedScene" uid="uid://dsm0jb1v48xdg" path="res://Dialogue/chat_detection.tscn" id="3_xquv2"]
+[ext_resource type="AudioStream" uid="uid://dkaj21v8akbwp" path="res://Art/Action RPG Resources/Music and Sounds/chest_open.mp3" id="4_p04ae"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6hd4o"]
+shader = ExtResource("1_wybna")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uksdc"]
+size = Vector2(12, 8)
+
+[sub_resource type="Animation" id="Animation_pmi0w"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_bvi8m"]
+resource_name = "open"
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.142857, 0.3, 0.428571),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yr1hr"]
+_data = {
+"RESET": SubResource("Animation_pmi0w"),
+"open": SubResource("Animation_bvi8m")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gys85"]
+radius = 45.0
+
+[node name="Grapple_hook_chest" type="CharacterBody2D"]
+script = ExtResource("1_o63ym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6hd4o")
+position = Vector2(0, -3)
+texture = ExtResource("2_gkqbj")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uksdc")
+
+[node name="ChatDetection" parent="." instance=ExtResource("3_xquv2")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_yr1hr")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_p04ae")
+pitch_scale = 1.2
+
+[node name="ForceField" type="Area2D" parent="."]
+visible = false
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForceField"]
+shape = SubResource("CircleShape2D_gys85")
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+
+[editable path="ChatDetection"]
