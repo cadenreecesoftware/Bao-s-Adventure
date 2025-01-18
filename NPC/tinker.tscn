@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhkawxbsme5vk"]
+
+[ext_resource type="Script" path="res://NPC/tinker.gd" id="1_85lfl"]
+[ext_resource type="Texture2D" uid="uid://djih7n2sy3eoo" path="res://Art/Action RPG Resources/Woodland Folk/1x/Characters/Raccoon01_idle.png" id="1_mqya2"]
+[ext_resource type="PackedScene" uid="uid://dsm0jb1v48xdg" path="res://Dialogue/chat_detection.tscn" id="2_7mc6v"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="2_ugopi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s16fa"]
+shader = ExtResource("2_ugopi")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xkv8"]
+atlas = ExtResource("1_mqya2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l0dd"]
+atlas = ExtResource("1_mqya2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48n8g"]
+atlas = ExtResource("1_mqya2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_witsw"]
+atlas = ExtResource("1_mqya2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix7rj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xkv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l0dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48n8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_witsw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p750v"]
+size = Vector2(10, 6)
+
+[node name="Tinker" type="CharacterBody2D"]
+script = ExtResource("1_85lfl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_s16fa")
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_ix7rj")
+autoplay = "default"
+frame_progress = 0.557569
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p750v")
+
+[node name="ChatDetection" parent="." instance=ExtResource("2_7mc6v")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

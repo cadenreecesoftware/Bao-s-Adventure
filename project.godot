@@ -39,6 +39,7 @@ directories/dch_directory={
 "Mayor": "res://Dialogue/Dialogic_Characters/Mayor.dch",
 "Oni": "res://Dialogue/Dialogic_Characters/Oni.dch",
 "Tanuki": "res://Dialogue/Dialogic_Characters/Tanuki.dch",
+"Tinker": "res://Dialogue/Dialogic_Characters/Tinker.dch",
 "anon": "res://Dialogue/Dialogic_Characters/anon.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
@@ -63,6 +64,10 @@ directories/dtl_directory={
 "tanuki_met": "res://Dialogue/Timelines/tanuki_met.dtl",
 "tanuki_saving_dialogue": "res://Dialogue/Timelines/tanuki_saving_dialogue.dtl",
 "temple_nuts": "res://Dialogue/Timelines/temple_nuts.dtl",
+"tinker_done": "res://Dialogue/Timelines/tinker_done.dtl",
+"tinker_meeting": "res://Dialogue/Timelines/tinker_meeting.dtl",
+"tinker_met": "res://Dialogue/Timelines/tinker_met.dtl",
+"tinker_quest_turn_in": "res://Dialogue/Timelines/tinker_quest_turn_in.dtl",
 "well_timeline": "res://Dialogue/Timelines/well_timeline.dtl",
 "whetstone_chest": "res://Dialogue/Timelines/whetstone_chest.dtl"
 }

@@ -76,3 +76,8 @@ var fen_progress = NONE:
 		return fen_progress
 	set(value):
 		fen_progress = value
+var tink_progress = NONE:
+	get:
+		return tink_progress
+	set(value):
+		tink_progress = value

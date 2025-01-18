@@ -36,3 +36,4 @@ func DialogicSignal(arg: String):
 	if arg == "exit_whetstone_chest":
 		PlayerPause.playerPaused = false
 		DialogueTracker.whetstone_progress = MET
+		DialogueTracker.tink_progress = QUESTING

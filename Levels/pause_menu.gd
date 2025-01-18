@@ -37,6 +37,7 @@ func save_game():
 	saved_game.dialogue_saver.append(DialogueTracker.temple_boss_progress)
 	saved_game.dialogue_saver.append(DialogueTracker.doe_progress)
 	saved_game.dialogue_saver.append(DialogueTracker.fen_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.tink_progress)
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 func load_game():
 	
@@ -61,6 +62,7 @@ func load_game():
 	DialogueTracker.temple_boss_progress = saved_game.dialogue_saver[10]
 	DialogueTracker.doe_progress = saved_game.dialogue_saver[11]
 	DialogueTracker.fen_progress = saved_game.dialogue_saver[12]
+	DialogueTracker.tink_progress = saved_game.dialogue_saver[13]
 	TransitionScreen.transition()
 	get_tree().change_scene_to_file(saved_game.current_level)
 	player.global_position = saved_game.player_position
