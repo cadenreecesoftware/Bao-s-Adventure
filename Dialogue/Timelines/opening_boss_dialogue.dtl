@@ -1,0 +1,6 @@
+anon: ...
+anon: Who dares to disturb my slumber.
+anon: If you have the gall to come into my temple, hopefully you'll make for an entertaining kill.
+anon: Very well...
+Oni: FACE ME!!!!
+[signal arg="exit_boss_dialogue"]

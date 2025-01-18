@@ -27,7 +27,7 @@ size = Vector2(4, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufyn8"]
 resource_local_to_scene = true
-size = Vector2(3, 5.00001)
+size = Vector2(5.74998, 5.00001)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ie1qe"]
 texture = ExtResource("9_iu4jb")

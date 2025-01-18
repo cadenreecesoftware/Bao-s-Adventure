@@ -61,3 +61,8 @@ var temple_nuts_chest_progress = NONE:
 		return temple_nuts_chest_progress
 	set(value):
 		temple_nuts_chest_progress = value
+var temple_boss_progress = NONE:
+	get:
+		return temple_boss_progress
+	set(value):
+		temple_boss_progress = value

@@ -35,6 +35,7 @@ directories/dch_directory={
 "Darpie": "res://Dialogue/Dialogic_Characters/Darpie.dch",
 "Guards": "res://Dialogue/Dialogic_Characters/Guards.dch",
 "Mayor": "res://Dialogue/Dialogic_Characters/Mayor.dch",
+"Oni": "res://Dialogue/Dialogic_Characters/Oni.dch",
 "Tanuki": "res://Dialogue/Dialogic_Characters/Tanuki.dch",
 "anon": "res://Dialogue/Dialogic_Characters/anon.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
@@ -51,6 +52,7 @@ directories/dtl_directory={
 "mayor_questing": "res://Dialogue/Timelines/mayor_questing.dtl",
 "no_grapple_yet": "res://Dialogue/Timelines/no_grapple_yet.dtl",
 "no_key": "res://Dialogue/Timelines/no_key.dtl",
+"opening_boss_dialogue": "res://Dialogue/Timelines/opening_boss_dialogue.dtl",
 "tanuki_meeting": "res://Dialogue/Timelines/tanuki_meeting.dtl",
 "tanuki_met": "res://Dialogue/Timelines/tanuki_met.dtl",
 "tanuki_saving_dialogue": "res://Dialogue/Timelines/tanuki_saving_dialogue.dtl",
