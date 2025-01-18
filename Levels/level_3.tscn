@@ -2330,21 +2330,6 @@ position = Vector2(630, 181)
 [node name="Grass24" parent="Grass_group" instance=ExtResource("7_tkrsi")]
 position = Vector2(645, 181)
 
-[node name="Slime" parent="Grass_group" instance=ExtResource("8_nxdad")]
-position = Vector2(295, 649)
-
-[node name="Slime2" parent="Grass_group" instance=ExtResource("8_nxdad")]
-position = Vector2(38, 618)
-
-[node name="Bat" parent="Grass_group" instance=ExtResource("9_vwcri")]
-position = Vector2(378, 309)
-
-[node name="Bat2" parent="Grass_group" instance=ExtResource("9_vwcri")]
-position = Vector2(173, 430)
-
-[node name="Bat3" parent="Grass_group" instance=ExtResource("9_vwcri")]
-position = Vector2(362, 192)
-
 [node name="DeadTreeSmall1" type="Sprite2D" parent="Grass_group"]
 position = Vector2(36, 788)
 texture = ExtResource("10_qsw32")
@@ -2380,6 +2365,24 @@ texture = ExtResource("10_qsw32")
 [node name="DeadTreeSmall4" type="Sprite2D" parent="Grass_group"]
 position = Vector2(415, 443)
 texture = ExtResource("10_qsw32")
+
+[node name="Slime" parent="." instance=ExtResource("8_nxdad")]
+position = Vector2(295, 649)
+
+[node name="Slime3" parent="." instance=ExtResource("8_nxdad")]
+position = Vector2(444, 262)
+
+[node name="Slime2" parent="." instance=ExtResource("8_nxdad")]
+position = Vector2(36, 656)
+
+[node name="Bat" parent="." instance=ExtResource("9_vwcri")]
+position = Vector2(378, 309)
+
+[node name="Bat2" parent="." instance=ExtResource("9_vwcri")]
+position = Vector2(241, 472)
+
+[node name="Bat3" parent="." instance=ExtResource("9_vwcri")]
+position = Vector2(362, 192)
 
 [node name="Camera2D" parent="." instance=ExtResource("8_altiw")]
 position = Vector2(280, 59)

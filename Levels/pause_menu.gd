@@ -23,6 +23,7 @@ func save_game():
 	saved_game.player_max_health = PlayerStats.max_health
 	saved_game.current_level = NavigationManager.current_level
 	saved_game.player_wallet = Wallet.wallet
+	saved_game.player_sword_damage = PlayerStats.sword_damage
 	#saves all dialogue options and quest progress in the world
 	saved_game.dialogue_saver.append(DialogueTracker.mayor_progress)
 	saved_game.dialogue_saver.append(DialogueTracker.well_progress)
@@ -38,6 +39,8 @@ func save_game():
 	saved_game.dialogue_saver.append(DialogueTracker.doe_progress)
 	saved_game.dialogue_saver.append(DialogueTracker.fen_progress)
 	saved_game.dialogue_saver.append(DialogueTracker.tink_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.mrbrie_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.msbrie_progress)
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 func load_game():
 	
@@ -49,6 +52,7 @@ func load_game():
 	PlayerStats.health = saved_game.player_health
 	PlayerStats.max_health = saved_game.player_max_health
 	Wallet.wallet = saved_game.player_wallet
+	PlayerStats.sword_damage = saved_game.player_sword_damage
 	DialogueTracker.mayor_progress = saved_game.dialogue_saver[0]
 	DialogueTracker.well_progress = saved_game.dialogue_saver[1]
 	DialogueTracker.darpie_progress = saved_game.dialogue_saver[2]
@@ -63,6 +67,8 @@ func load_game():
 	DialogueTracker.doe_progress = saved_game.dialogue_saver[11]
 	DialogueTracker.fen_progress = saved_game.dialogue_saver[12]
 	DialogueTracker.tink_progress = saved_game.dialogue_saver[13]
+	DialogueTracker.mrbrie_progress = saved_game.dialogue_saver[14]
+	DialogueTracker.msbrie_progress = saved_game.dialogue_saver[15]
 	TransitionScreen.transition()
 	get_tree().change_scene_to_file(saved_game.current_level)
 	player.global_position = saved_game.player_position

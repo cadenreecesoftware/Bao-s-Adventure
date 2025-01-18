@@ -1,17 +1,11 @@
 extends Node2D
 
-enum {
-	NONE,
-	MET, 
-	QUESTING,
-	DONE
-}
+
 @onready var pause_menu = $CanvasLayer/PauseMenu
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	DialogueTracker.tink_progress = QUESTING
-	NavigationManager.current_level = "res://Levels/house_4_inter.tscn"
+	NavigationManager.current_level = "res://Levels/house_5_inter.tscn"
 	GlobalAudio.play_interior_music()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)

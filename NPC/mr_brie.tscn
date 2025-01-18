@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://dh5u2cbsik3gl"]
+
+[ext_resource type="Texture2D" uid="uid://be5oogd7xtcou" path="res://Art/Action RPG Resources/Woodland Folk/1x/Characters/Mouse05_idle.png" id="1_c2ssy"]
+[ext_resource type="Script" path="res://NPC/mr_brie.gd" id="1_jkq4d"]
+[ext_resource type="PackedScene" uid="uid://dsm0jb1v48xdg" path="res://Dialogue/chat_detection.tscn" id="2_gdady"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="2_ldowk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq6gt"]
+shader = ExtResource("2_ldowk")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5iik"]
+atlas = ExtResource("1_c2ssy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv7m6"]
+atlas = ExtResource("1_c2ssy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plags"]
+atlas = ExtResource("1_c2ssy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amrr5"]
+atlas = ExtResource("1_c2ssy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lcp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5iik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv7m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plags")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amrr5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hldjt"]
+size = Vector2(8, 5)
+
+[node name="MrBrie" type="CharacterBody2D"]
+script = ExtResource("1_jkq4d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_kq6gt")
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_4lcp2")
+autoplay = "default"
+frame = 1
+frame_progress = 0.654667
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_hldjt")
+
+[node name="ChatDetection" parent="." instance=ExtResource("2_gdady")]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

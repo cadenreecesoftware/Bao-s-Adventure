@@ -17,5 +17,10 @@ var health = max_health:
 		emit_signal("health_changed", health)
 		if health <= 0:
 			emit_signal("no_health")
+var sword_damage = 1:
+	get:
+		return sword_damage
+	set(value):
+		sword_damage = value
 func _ready():
 	self.health = max_health

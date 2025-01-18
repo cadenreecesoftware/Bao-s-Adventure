@@ -8,6 +8,7 @@ const scene_house_1_inter = preload("res://Levels/house_1_inter.tscn")
 const scene_house_2_inter = preload("res://Levels/house_2_inter.tscn")
 const scene_house_3_inter = preload("res://Levels/house_3_inter.tscn")
 const scene_house_4_inter = preload("res://Levels/house_4_inter.tscn")
+const scene_house_5_inter = preload("res://Levels/house_5_inter.tscn")
 const scene_well = preload("res://Levels/well.tscn")
 const scene_roost_inter = preload("res://Levels/roost_interior.tscn")
 const scene_level3 = preload("res://Levels/level_3.tscn")
@@ -52,6 +53,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_house_3_inter
 		"house_4_inter":
 			scene_to_load = scene_house_4_inter
+		"house_5_inter":
+			scene_to_load = scene_house_5_inter
 		"scene_well":
 			scene_to_load = scene_well
 		"roost_interior":

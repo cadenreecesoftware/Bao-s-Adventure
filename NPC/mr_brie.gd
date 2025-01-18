@@ -22,27 +22,14 @@ func _physics_process(delta: float) -> void:
 	if player_in_area:
 		$AnimatedSprite2D.material.set_shader_parameter("line_thickness", 1)
 		if Input.is_action_just_pressed("interact") and PlayerPause.playerPaused != true and dialogue_cooldown == false:
-			match DialogueTracker.tink_progress:
+			match DialogueTracker.mrbrie_progress:
 				NONE:
-					run_dialogue("tinker_meeting")
+					run_dialogue("mrbrie_meeting")
 					PlayerPause.playerPaused = true
-					DialogueTracker.tink_progress = MET
+					DialogueTracker.mrbrie_progress = MET
 				MET:
-					run_dialogue("tinker_met")
+					run_dialogue("mrbrie_met")
 					PlayerPause.playerPaused = true
-				QUESTING:
-					run_dialogue("tinker_quest_turn_in")
-					PlayerStats.sword_damage += 1
-					PlayerPause.playerPaused = true
-					DialogueTracker.tink_progress = DONE
-				DONE:
-					run_dialogue("tinker_done")
-					PlayerPause.playerPaused = true
-				
-				
-
-				#run_dialogue("")
-				#PlayerPause.playerPaused = true
 	else:
 		$AnimatedSprite2D.material.set_shader_parameter("line_thickness", 0)
 
@@ -58,7 +45,7 @@ func run_dialogue(dialogue_string: String):
 	Dialogic.start(dialogue_string)
 	
 func DialogicSignal(arg: String):
-	if arg == "exit_tink":
+	if arg == "exit_mrbrie":
 		timer.start(0.5)
 		dialogue_cooldown = true
 		PlayerPause.playerPaused = false

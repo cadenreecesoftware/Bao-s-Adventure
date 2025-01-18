@@ -81,3 +81,13 @@ var tink_progress = NONE:
 		return tink_progress
 	set(value):
 		tink_progress = value
+var mrbrie_progress = NONE:
+	get:
+		return mrbrie_progress
+	set(value):
+		mrbrie_progress = value
+var msbrie_progress = NONE:
+	get:
+		return msbrie_progress
+	set(value):
+		msbrie_progress = value

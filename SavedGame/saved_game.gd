@@ -13,3 +13,4 @@ enum {
 @export var current_level: String
 @export var dialogue_saver: Array
 @export var player_wallet: float
+@export var player_sword_damage: float
