@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://beqdqvwltrvws"]
+[gd_scene load_steps=47 format=4 uid="uid://beqdqvwltrvws"]
 
 [ext_resource type="Script" path="res://Levels/town.gd" id="1_coqbe"]
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="2_sbdg1"]
@@ -2703,6 +2703,14 @@ size = Vector2(6.5, 9.5)
 resource_local_to_scene = true
 size = Vector2(16, 14.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee1sg"]
+resource_local_to_scene = true
+size = Vector2(11, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc2jx"]
+resource_local_to_scene = true
+size = Vector2(11, 13)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2557"]
 size = Vector2(13, 8)
 
@@ -3312,6 +3320,28 @@ shape = SubResource("RectangleShape2D_upo21")
 [node name="Spawn" parent="Doors/Door_Roost" index="1"]
 position = Vector2(-1, 13)
 
+[node name="Door_DH" parent="Doors" instance=ExtResource("17_gcs61")]
+position = Vector2(17, 211)
+destination_level_tag = "house_2_inter"
+destination_door_tag = "S"
+
+[node name="CollisionShape2D" parent="Doors/Door_DH" index="0"]
+shape = SubResource("RectangleShape2D_ee1sg")
+
+[node name="Spawn" parent="Doors/Door_DH" index="1"]
+position = Vector2(0, 14)
+
+[node name="Door_FH" parent="Doors" instance=ExtResource("17_gcs61")]
+position = Vector2(290, 207)
+destination_level_tag = "house_3_inter"
+destination_door_tag = "S"
+
+[node name="CollisionShape2D" parent="Doors/Door_FH" index="0"]
+shape = SubResource("RectangleShape2D_yc2jx")
+
+[node name="Spawn" parent="Doors/Door_FH" index="1"]
+position = Vector2(0, 12)
+
 [node name="GrassOverScreenEffect" parent="." instance=ExtResource("13_yeas1")]
 position = Vector2(404.653, 169.699)
 
@@ -3395,3 +3425,5 @@ position = Vector2(-124, 332)
 [editable path="Doors/Door_W"]
 [editable path="Doors/Door_Well"]
 [editable path="Doors/Door_Roost"]
+[editable path="Doors/Door_DH"]
+[editable path="Doors/Door_FH"]

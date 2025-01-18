@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://dc0j03x5ei3e6"]
+
+[ext_resource type="Script" path="res://NPC/doe.gd" id="1_05nfp"]
+[ext_resource type="Texture2D" uid="uid://bcrsns5pklxhn" path="res://Art/Action RPG Resources/Woodland Folk/1x/Characters/Deer03_idle.png" id="1_6xevj"]
+[ext_resource type="PackedScene" uid="uid://dsm0jb1v48xdg" path="res://Dialogue/chat_detection.tscn" id="2_jklws"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="2_p71qk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jmj3"]
+shader = ExtResource("2_p71qk")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pnym"]
+atlas = ExtResource("1_6xevj")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pdp8"]
+atlas = ExtResource("1_6xevj")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkd4u"]
+atlas = ExtResource("1_6xevj")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fel4"]
+atlas = ExtResource("1_6xevj")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g74ib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pnym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pdp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkd4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fel4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx8x6"]
+size = Vector2(10, 6)
+
+[node name="Doe" type="CharacterBody2D"]
+script = ExtResource("1_05nfp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_1jmj3")
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_g74ib")
+autoplay = "default"
+frame_progress = 0.200326
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_dx8x6")
+
+[node name="ChatDetection" parent="." instance=ExtResource("2_jklws")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="ChatDetection"]

@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=4 uid="uid://dmbdyswujkcf5"]
+
+[ext_resource type="Script" path="res://Levels/house_2_inter.gd" id="1_2g8sb"]
+[ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_vddne"]
+[ext_resource type="PackedScene" uid="uid://sbjmlgfqqekh" path="res://camera_2d.tscn" id="2_dq7ay"]
+[ext_resource type="PackedScene" uid="uid://brvqky2pukeg4" path="res://Art/Action RPG Resources/UI/health_ui.tscn" id="3_i8h3k"]
+[ext_resource type="Script" path="res://Art/Action RPG Resources/UI/health_ui.gd" id="4_vy1xp"]
+[ext_resource type="PackedScene" uid="uid://b7o40x7ing25t" path="res://Levels/pause_menu.tscn" id="5_l64vg"]
+[ext_resource type="PackedScene" uid="uid://ccudwedmve8qk" path="res://Art/Action RPG Resources/UI/wallet_ui.tscn" id="6_pokqa"]
+[ext_resource type="PackedScene" uid="uid://6qhx6tjotcs5" path="res://Levels/door.tscn" id="7_5aa5i"]
+[ext_resource type="TileSet" uid="uid://dyj8adt84c2k4" path="res://Art/Action RPG Resources/Interior/1x/interior_tile_set.tres" id="8_44xm2"]
+[ext_resource type="PackedScene" uid="uid://evhi47xpjaaj" path="res://Art/Action RPG Resources/Interior/Sprites/fireplace_sprite.tscn" id="9_6aleq"]
+[ext_resource type="PackedScene" uid="uid://dc0j03x5ei3e6" path="res://NPC/doe.tscn" id="11_eo1ea"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
+specular_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufyn8"]
+resource_local_to_scene = true
+size = Vector2(10.5, 19.5)
+
+[node name="house_2_inter" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_2g8sb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(248, 105, 248, 104, 264, 104, 264, 105, 267, 105, 267, 96, 283, 96, 320, 96, 320, 104, 320, 105, 400, 105, 400, 176, 405, 176, 405, 57, 187, 57, 187, 97, 187, 95, 192, 96, 208, 96, 208, 100, 209, 100, 209, 105, 211, 105, 211, 104, 237, 104, 237, 105, 239, 105, 239, 100, 240, 100, 240, 96, 245, 96, 245, 105)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(187, 95, 187, 181, 267, 181, 267, 213, 325, 213, 325, 181, 405, 181, 405, 176, 400, 176, 400, 177, 321, 177, 321, 208, 321, 209, 271, 209, 271, 177, 191, 177, 191, 96)
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = -2
+texture_repeat = 2
+position = Vector2(748.25, 52)
+scale = Vector2(1.40129, 1)
+texture = SubResource("CanvasTexture_d16jd")
+region_enabled = true
+region_rect = Rect2(0, 0, 2877.76, 1280)
+
+[node name="PlayerPanda" parent="." instance=ExtResource("1_vddne")]
+position = Vector2(296, 186)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerPanda"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" parent="." instance=ExtResource("2_dq7ay")]
+position = Vector2(296, 186)
+zoom = Vector2(1.5, 1.5)
+
+[node name="TopLeft" parent="Camera2D/Limits" index="0"]
+position = Vector2(125, 46)
+
+[node name="BottomRight" parent="Camera2D/Limits" index="1"]
+position = Vector2(456, 221)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Health_UI" parent="CanvasLayer" instance=ExtResource("3_i8h3k")]
+z_index = 3
+offset_right = 67.0
+offset_bottom = 17.0
+script = ExtResource("4_vy1xp")
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_l64vg")]
+visible = false
+
+[node name="Wallet_ui" parent="CanvasLayer" instance=ExtResource("6_pokqa")]
+z_index = 3
+anchors_preset = -1
+anchor_left = 0.863
+anchor_top = 0.851
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(1, 0.75405, 0.963252, 1)
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_S" parent="Doors" instance=ExtResource("7_5aa5i")]
+position = Vector2(299, 202)
+destination_level_tag = "town"
+destination_door_tag = "DH"
+spawn_direction = "down"
+
+[node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
+position = Vector2(-2.50003, 5.25)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_ufyn8")
+
+[node name="Spawn" parent="Doors/Door_S" index="1"]
+position = Vector2(-3, -19)
+
+[node name="OuterWalls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAALAAUAAAACAAEAAAALAAQAAAACAAEAAAALAAYAAAACAAEAAAALAAcAAAACAAEAAAALAAgAAAACAAEAAAAMAAMAAAABAAIAAAANAAMAAAABAAIAAAAOAAMAAAABAAIAAAAPAAMAAAABAAIAAAAQAAMAAAABAAIAAAARAAMAAAABAAIAAAASAAMAAAABAAIAAAATAAMAAAABAAIAAAAUAAMAAAABAAIAAAAVAAMAAAABAAIAAAAWAAMAAAABAAIAAAALAAMAAAAEAAEAAAAXAAMAAAABAAIAAAAYAAMAAAABAAIAAAAZAAMAAAADAAEAAAAZAAQAAAAAAAEAAAAZAAUAAAAAAAEAAAAZAAYAAAAAAAEAAAAZAAcAAAAAAAEAAAAZAAgAAAAAAAEAAAALAAkAAAACAAEAAAALAAoAAAACAAEAAAALAAsAAAAEAAAAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAPAAsAAAABAAAAAAAQAAsAAAACAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAABAAAAAAAWAAsAAAABAAAAAAAXAAsAAAABAAAAAAAYAAsAAAABAAAAAAAZAAsAAAADAAAAAAAQAAwAAAACAAEAAAAUAAwAAAAAAAEAAAAQAA0AAAAEAAAAAAARAA0AAAABAAAAAAASAA0AAAABAAAAAAATAA0AAAABAAAAAAAUAA0AAAADAAAAAAAZAAoAAAAAAAEAAAAZAAkAAAAAAAEAAAAMAAkAAAADAB4AAAAMAAoAAAADAB8AAAANAAkAAAAEAB4AAAANAAoAAAAEAB8AAAAOAAkAAAAEAB4AAAAOAAoAAAAEAB8AAAAMAAcAAAADAB0AAAAMAAgAAAADAB4AAAANAAcAAAAEAB0AAAANAAgAAAAEAB4AAAAOAAcAAAAEAB0AAAAOAAgAAAAEAB4AAAAPAAcAAAAFAB0AAAAPAAgAAAAFAB4AAAAPAAkAAAAFAB4AAAAPAAoAAAAFAB8AAAARAAwAAAAMAB8AAAASAAwAAAANAB8AAAATAAwAAAAOAB8AAAARAAsAAAAMAB0AAAASAAsAAAANAB0AAAATAAsAAAAOAB0AAAA=")
+tile_set = ExtResource("8_44xm2")
+
+[node name="InnerWalls" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAMAAQAAAASAAAAAAANAAQAAAATAAAAAAAOAAQAAAATAAAAAAAPAAQAAAATAAAAAAAQAAQAAAATAAAAAAARAAQAAAATAAAAAAASAAQAAAATAAAAAAATAAQAAAATAAAAAAAUAAQAAAATAAAAAAAVAAQAAAATAAAAAAAWAAQAAAATAAAAAAAXAAQAAAATAAAAAAAMAAUAAAASAAEAAAANAAUAAAATAAEAAAAOAAUAAAATAAEAAAAPAAUAAAATAAEAAAAQAAUAAAATAAEAAAARAAUAAAATAAEAAAASAAUAAAATAAEAAAATAAUAAAATAAEAAAAVAAUAAAATAAEAAAAUAAUAAAATAAEAAAAWAAUAAAATAAEAAAAXAAUAAAATAAEAAAAYAAQAAAAUAAAAAAAYAAUAAAAUAAEAAAA=")
+tile_set = ExtResource("8_44xm2")
+
+[node name="Floor" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAMAAYAAAAHAAMAAAANAAYAAAAHAAMAAAAOAAYAAAAHAAMAAAAPAAYAAAAHAAMAAAAQAAYAAAAHAAMAAAARAAYAAAAHAAMAAAASAAYAAAAHAAMAAAATAAYAAAAHAAMAAAAUAAYAAAAHAAMAAAAUAAcAAAAHAAMAAAAVAAcAAAAHAAMAAAAVAAYAAAAHAAMAAAAWAAYAAAAHAAMAAAAXAAYAAAAHAAMAAAAXAAcAAAAHAAMAAAAWAAcAAAAHAAMAAAATAAcAAAAHAAMAAAASAAcAAAAHAAMAAAARAAcAAAAHAAMAAAAQAAcAAAAHAAMAAAAPAAcAAAAHAAMAAAAOAAcAAAAHAAMAAAANAAcAAAAHAAMAAAAMAAcAAAAHAAMAAAAYAAYAAAAHAAMAAAAYAAcAAAAHAAMAAAAMAAgAAAAHAAMAAAANAAgAAAAHAAMAAAAOAAgAAAAHAAMAAAAPAAgAAAAHAAMAAAAQAAgAAAAHAAMAAAARAAgAAAAHAAMAAAASAAgAAAAHAAMAAAATAAgAAAAHAAMAAAAUAAgAAAAHAAMAAAAVAAgAAAAHAAMAAAAWAAgAAAAHAAMAAAAXAAgAAAAHAAMAAAAYAAgAAAAHAAMAAAAVAAQAAAAaAAYAAAAVAAUAAAAaAAcAAAAWAAQAAAAbAAYAAAAWAAUAAAAbAAcAAAANAAQAAAAaAAYAAAANAAUAAAAaAAcAAAAOAAQAAAAbAAYAAAAOAAUAAAAbAAcAAAAMAAkAAAAHAAMAAAAMAAoAAAAHAAMAAAANAAoAAAAHAAMAAAAOAAoAAAAHAAMAAAAPAAoAAAAHAAMAAAAQAAoAAAAHAAMAAAARAAoAAAAHAAMAAAASAAoAAAAHAAMAAAASAAkAAAAHAAMAAAARAAkAAAAHAAMAAAAQAAkAAAAHAAMAAAAPAAkAAAAHAAMAAAAOAAkAAAAHAAMAAAANAAkAAAAHAAMAAAATAAkAAAAHAAMAAAATAAoAAAAHAAMAAAAUAAoAAAAHAAMAAAAVAAkAAAAHAAMAAAAUAAkAAAAHAAMAAAAVAAoAAAAHAAMAAAAWAAoAAAAHAAMAAAAXAAoAAAAHAAMAAAAXAAkAAAAHAAMAAAAWAAkAAAAHAAMAAAAYAAkAAAAHAAMAAAAYAAoAAAAHAAMAAAARAAsAAAAHAAMAAAARAAwAAAAHAAMAAAASAAwAAAAHAAMAAAATAAwAAAAHAAMAAAATAAsAAAAHAAMAAAASAAsAAAAHAAMAAAA=")
+tile_set = ExtResource("8_44xm2")
+
+[node name="Decorations" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAUAAUAAAAGABkAAAAUAAYAAAAGABoAAAAVAAUAAAAGABcAAAAVAAYAAAAHABoAAAAWAAUAAAAIABkAAAAWAAYAAAAIABoAAAAXAAUAAAAIABcAAAAXAAYAAAAIABgAAAAYAAUAAAAHABcAAAAYAAYAAAAHABgAAAAXAAQAAAAYABMAAAAYAAQAAAAZABMAAAANAAUAAAACABEAAAANAAYAAAACABIAAAAOAAUAAAADABEAAAAOAAYAAAADABIAAAAPAAQAAAACAAwAAAAPAAUAAAACAA0AAAAPAAYAAAACAA4AAAAQAAQAAAADAAwAAAAQAAUAAAADAA0AAAAQAAYAAAADAA4AAAANAAgAAAAKABEAAAANAAkAAAAKABIAAAAOAAgAAAALABEAAAAOAAkAAAALABIAAAAYAAoAAAAVAA4AAAA=")
+tile_set = ExtResource("8_44xm2")
+
+[node name="FireplaceSprite" parent="." instance=ExtResource("9_6aleq")]
+position = Vector2(297, 82)
+
+[node name="Doe" parent="." instance=ExtResource("11_eo1ea")]
+position = Vector2(376, 108)
+
+[editable path="Camera2D"]
+[editable path="Doors/Door_S"]

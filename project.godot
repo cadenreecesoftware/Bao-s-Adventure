@@ -33,6 +33,8 @@ TeleportCooldown="*res://Global/teleport_cooldown.tscn"
 
 directories/dch_directory={
 "Darpie": "res://Dialogue/Dialogic_Characters/Darpie.dch",
+"Doe": "res://Dialogue/Dialogic_Characters/Doe.dch",
+"Fen": "res://Dialogue/Dialogic_Characters/Fen.dch",
 "Guards": "res://Dialogue/Dialogic_Characters/Guards.dch",
 "Mayor": "res://Dialogue/Dialogic_Characters/Mayor.dch",
 "Oni": "res://Dialogue/Dialogic_Characters/Oni.dch",
@@ -44,6 +46,10 @@ directories/dtl_directory={
 "DarpieMeeting": "res://Dialogue/Timelines/DarpieMeeting.dtl",
 "MayorMeeting": "res://Dialogue/Timelines/MayorMeeting.dtl",
 "darpie_met": "res://Dialogue/Timelines/darpie_met.dtl",
+"doe_meeting": "res://Dialogue/Timelines/doe_meeting.dtl",
+"doe_met": "res://Dialogue/Timelines/doe_met.dtl",
+"fen_meeting": "res://Dialogue/Timelines/fen_meeting.dtl",
+"fen_met": "res://Dialogue/Timelines/fen_met.dtl",
 "forest_gate": "res://Dialogue/Timelines/forest_gate.dtl",
 "grappling_hook_chest": "res://Dialogue/Timelines/grappling_hook_chest.dtl",
 "guard_talking": "res://Dialogue/Timelines/guard_talking.dtl",

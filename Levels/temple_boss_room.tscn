@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=4 uid="uid://d22mgyqkp8ya7"]
 
-[ext_resource type="Script" path="res://Levels/temple_room_1.gd" id="1_iwovk"]
+[ext_resource type="Script" path="res://Levels/temple_boss_room.gd" id="1_bswtu"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="2_2e758"]
 [ext_resource type="PackedScene" uid="uid://sbjmlgfqqekh" path="res://camera_2d.tscn" id="3_plfst"]
 [ext_resource type="PackedScene" uid="uid://brvqky2pukeg4" path="res://Art/Action RPG Resources/UI/health_ui.tscn" id="4_1ra4x"]
@@ -2238,7 +2238,7 @@ sources/0 = SubResource("TileSetAtlasSource_evtb6")
 
 [node name="temple_boss_room" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_iwovk")
+script = ExtResource("1_bswtu")
 
 [node name="Collisions" type="StaticBody2D" parent="."]
 

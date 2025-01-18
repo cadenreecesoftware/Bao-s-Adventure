@@ -66,3 +66,13 @@ var temple_boss_progress = NONE:
 		return temple_boss_progress
 	set(value):
 		temple_boss_progress = value
+var doe_progress = NONE:
+	get:
+		return doe_progress
+	set(value):
+		doe_progress = value
+var fen_progress = NONE:
+	get:
+		return fen_progress
+	set(value):
+		fen_progress = value
