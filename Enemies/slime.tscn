@@ -302,7 +302,7 @@ _data = {
 
 [node name="Slime" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 9
+collision_mask = 137
 script = ExtResource("1_5xlgn")
 MAX_SPEED = 20
 

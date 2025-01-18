@@ -39,8 +39,15 @@ var tanuki_progress = NONE:
 		return tanuki_progress
 	set(value):
 		tanuki_progress = value
+		
 var key_progress = NONE:
 	get:
 		return key_progress
 	set(value):
 		key_progress = value
+#manages chest in the first room to the left in the forest temple
+var grapple_chest = NONE:
+	get:
+		return grapple_chest
+	set(value):
+		grapple_chest = value

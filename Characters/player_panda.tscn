@@ -1313,8 +1313,8 @@ graph_offset = Vector2(0, 61.8182)
 height = 31.2677
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sr2ha"]
-radius = 6.0
-height = 15.6339
+radius = 9.0
+height = 18.0
 
 [sub_resource type="Animation" id="Animation_5x6dy"]
 length = 0.001
@@ -1360,6 +1360,7 @@ stream_0/stream = ExtResource("11_b0byo")
 
 [node name="PlayerPanda" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 129
 script = ExtResource("1_dasjy")
 
 [node name="MediumShadow" type="Sprite2D" parent="."]
@@ -1437,6 +1438,8 @@ collide_with_bodies = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="TeleportDetector" type="Area2D" parent="."]
+collision_layer = 129
+collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportDetector"]
 position = Vector2(-1.0842e-19, 0)

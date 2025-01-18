@@ -31,6 +31,7 @@ func save_game():
 	saved_game.dialogue_saver.append(DialogueTracker.tanuki_met)
 	saved_game.dialogue_saver.append(DialogueTracker.tanuki_progress)
 	saved_game.dialogue_saver.append(DialogueTracker.key_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.grapple_chest)
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 func load_game():
 	
@@ -49,6 +50,7 @@ func load_game():
 	DialogueTracker.tanuki_met = saved_game.dialogue_saver[4]
 	DialogueTracker.tanuki_progress = saved_game.dialogue_saver[5]
 	DialogueTracker.key_progress = saved_game.dialogue_saver[6]
+	DialogueTracker.grapple_chest = saved_game.dialogue_saver[7]
 	TransitionScreen.transition()
 	get_tree().change_scene_to_file(saved_game.current_level)
 	player.global_position = saved_game.player_position

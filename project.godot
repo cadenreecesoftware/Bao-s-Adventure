@@ -44,6 +44,7 @@ directories/dtl_directory={
 "MayorMeeting": "res://Dialogue/Timelines/MayorMeeting.dtl",
 "darpie_met": "res://Dialogue/Timelines/darpie_met.dtl",
 "forest_gate": "res://Dialogue/Timelines/forest_gate.dtl",
+"grappling_hook_chest": "res://Dialogue/Timelines/grappling_hook_chest.dtl",
 "guard_talking": "res://Dialogue/Timelines/guard_talking.dtl",
 "mayor_already_met": "res://Dialogue/Timelines/mayor_already_met.dtl",
 "mayor_questing": "res://Dialogue/Timelines/mayor_questing.dtl",
@@ -166,7 +167,7 @@ dialogic_default_action={
 2d_physics/layer_5="HookshotPoints"
 2d_physics/layer_6="Hookshotshooter"
 2d_physics/layer_7="SoftCollisions"
-2d_physics/layer_8="Interactables"
+2d_physics/layer_8="Pit"
 
 [rendering]
 

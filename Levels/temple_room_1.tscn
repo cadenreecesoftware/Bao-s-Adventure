@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bnh5jsf72rwer"]
+[gd_scene load_steps=26 format=4 uid="uid://bnh5jsf72rwer"]
 
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_0tb26"]
 [ext_resource type="Script" path="res://Levels/temple_room_1.gd" id="1_78luu"]
@@ -15,12 +15,19 @@
 [ext_resource type="PackedScene" uid="uid://bumyglrddxsma" path="res://Art/Action RPG Resources/World/teleporter.tscn" id="13_xmg57"]
 [ext_resource type="PackedScene" uid="uid://2rgykdk1383j" path="res://Enemies/bat.tscn" id="14_hkyjb"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_af0kf"]
+size = Vector2(13, 10)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
 specular_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufyn8"]
 resource_local_to_scene = true
-size = Vector2(9.49999, 17.25)
+size = Vector2(9.25, 6.00002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um350"]
+resource_local_to_scene = true
+size = Vector2(4, 8.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ie1qe"]
 texture = ExtResource("8_r36dy")
@@ -1678,6 +1685,14 @@ polygon = PackedVector2Array(176, 62, 416, 62, 416, -1, 322, 0, 322, 34, 269, 34
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(210, 62, 210, 114, 176, 114, 176, 209, 269, 208, 269, 143, 321, 143, 322, 206, 322, 208, 417, 209, 417, 114, 381, 114, 381, 62, 415, 62, 415, 55, 338, 55, 338, 117, 253, 116, 254, 61)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(184.5, 71)
+shape = SubResource("RectangleShape2D_af0kf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(407, 71)
+shape = SubResource("RectangleShape2D_af0kf")
+
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
@@ -1747,6 +1762,19 @@ shape = SubResource("RectangleShape2D_ufyn8")
 
 [node name="Spawn" parent="Doors/Door_S" index="1"]
 position = Vector2(-3, -19)
+
+[node name="Door_W" parent="Doors" instance=ExtResource("7_vwqt8")]
+position = Vector2(182, 89)
+destination_level_tag = "temple_room_2"
+destination_door_tag = "E"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(-4, 2)
+shape = SubResource("RectangleShape2D_um350")
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(3, 20)
 
 [node name="OuterWalls" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAALAP3/AAABAAIAAAAMAP3/AAABAAIAAAANAP3/AAABAAIAAAAOAP3/AAABAAIAAAAPAP3/AAABAAIAAAAQAP3/AAABAAIAAAARAP3/AAABAAIAAAASAP3/AAABAAIAAAATAP3/AAABAAIAAAAUAP3/AAABAAIAAAAVAP3/AAABAAIAAAAWAP3/AAABAAIAAAAXAP3/AAABAAIAAAAYAP3/AAABAAIAAAAZAP3/AAABAAIAAAAaAP3/AAADAAEAAAAaAP7/AAAAAAEAAAAaAP//AAAAAAEAAAAaAAAAAAAAAAEAAAAaAAEAAAAAAAEAAAAaAAIAAAAAAAEAAAAaAAMAAAAAAAEAAAAaAAQAAAAAAAEAAAAaAAUAAAAAAAEAAAAaAAYAAAAAAAEAAAAaAAcAAAAAAAEAAAAaAAgAAAAAAAEAAAAaAAkAAAAAAAEAAAAaAAoAAAAAAAEAAAAaAAsAAAAAAAEAAAAaAAwAAAAAAAEAAAAaAA0AAAADAAAAAAAZAA0AAAABAAAAAAAYAA0AAAABAAAAAAAXAA0AAAABAAAAAAAWAA0AAAABAAAAAAAVAA0AAAABAAAAAAAUAA0AAAABAAAAAAATAA0AAAABAAAAAAASAA0AAAABAAAAAAARAA0AAAABAAAAAAAQAA0AAAABAAAAAAAPAA0AAAABAAAAAAAOAA0AAAABAAAAAAANAA0AAAABAAAAAAAMAA0AAAABAAAAAAALAA0AAAABAAAAAAAKAA0AAAAEAAAAAAAKAAwAAAACAAEAAAAKAAsAAAACAAEAAAAKAAoAAAACAAEAAAAKAAkAAAACAAEAAAAKAAgAAAACAAEAAAAKAAcAAAACAAEAAAAKAAYAAAACAAEAAAAKAAUAAAACAAEAAAAKAAQAAAACAAEAAAAKAAMAAAACAAEAAAAKAAIAAAACAAEAAAAKAAEAAAACAAEAAAAKAAAAAAACAAEAAAAKAP//AAACAAEAAAAKAP7/AAACAAEAAAAKAP3/AAAEAAEAAAA=")
@@ -1836,6 +1864,7 @@ position = Vector2(311, 86)
 
 [editable path="Camera2D"]
 [editable path="Doors/Door_S"]
+[editable path="Doors/Door_W"]
 [editable path="Teleporter"]
 [editable path="Teleporter2"]
 [editable path="Teleporter3"]

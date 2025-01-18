@@ -937,7 +937,8 @@ _data = {
 }
 
 [node name="Blemmyae" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 8
+collision_mask = 129
 script = ExtResource("1_7h82i")
 ammo = ExtResource("2_b76wx")
 MAX_SPEED = 50
@@ -971,8 +972,7 @@ libraries = {
 }
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
-collision_mask = 3
+collision_mask = 2
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -1000,6 +1000,7 @@ shape = SubResource("RectangleShape2D_aa1bi")
 max_health = 2
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource("6_hms4p")]
+visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource("CircleShape2D_5coai")

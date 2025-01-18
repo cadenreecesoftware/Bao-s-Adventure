@@ -8,6 +8,12 @@ enum {
 	ATTACK,
 	GRAPPLE
 }
+enum {
+	NONE,
+	MET, 
+	QUESTING,
+	DONE
+}
 
 var state = MOVE
 var roll_vector = Vector2.LEFT
@@ -93,7 +99,7 @@ func move_state():
 		state = ATTACK
 	if Input.is_action_just_pressed("roll"):
 		state = ROLL
-	if Input.is_action_just_pressed("grapple"):
+	if Input.is_action_just_pressed("grapple") and DialogueTracker.grapple_chest != NONE:
 		state = GRAPPLE
 			#
 			#return
@@ -155,4 +161,5 @@ func _on_hurtbox_area_entered(_area) -> void:
 
 func _on_teleport_detector_area_entered(area: Area2D) -> void:
 	if area is Teleporter:
+		hurtbox.start_invincibility(0.7)
 		hit_flash_anim_player.play("hit_flash")

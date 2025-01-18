@@ -102,11 +102,14 @@ func _physics_process(delta: float) -> void:
 func _aim():
 	ray_cast.target_position = to_local(player.position)
 func _check_player_collision():
+	#if ray_cast.get_collider() == player and timer.is_stopped():
+		#timer.start()
+	#elif ray_cast.get_collider() != player and not timer.is_stopped():
+		#timer.stop()
 	if ray_cast.get_collider() == player and timer.is_stopped():
 		timer.start()
 	elif ray_cast.get_collider() != player and not timer.is_stopped():
 		timer.stop()
-
 
 func _on_timer_timeout() -> void:
 	_shoot()
