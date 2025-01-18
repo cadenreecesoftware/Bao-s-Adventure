@@ -93,10 +93,6 @@ func _physics_process(delta: float) -> void:
 				velocity =  velocity.move_toward(escape_dir.target_position * MAX_SPEED, ACCELERATION * delta)
 			
 
-			#else:
-				#var escape_dir = casts_missing.pick_random()
-				#velocity =  velocity.move_toward(escape_dir.target_position * MAX_SPEED, ACCELERATION * delta)
-
 			
 	
 func _aim():
@@ -233,7 +229,8 @@ func _on_player_detection_zone_body_exited(body: Node2D) -> void:
 
 
 func _on_player_too_close_zone_body_entered(body: Node2D) -> void:
-	state = TOOCLOSE
+	if body is Player:
+		state = TOOCLOSE
 
 
 func _on_player_too_close_zone_body_exited(body: Node2D) -> void:

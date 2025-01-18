@@ -52,7 +52,8 @@ directories/dtl_directory={
 "tanuki_meeting": "res://Dialogue/Timelines/tanuki_meeting.dtl",
 "tanuki_met": "res://Dialogue/Timelines/tanuki_met.dtl",
 "tanuki_saving_dialogue": "res://Dialogue/Timelines/tanuki_saving_dialogue.dtl",
-"well_timeline": "res://Dialogue/Timelines/well_timeline.dtl"
+"well_timeline": "res://Dialogue/Timelines/well_timeline.dtl",
+"whetstone_chest": "res://Dialogue/Timelines/whetstone_chest.dtl"
 }
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"

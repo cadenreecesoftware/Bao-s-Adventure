@@ -35,39 +35,41 @@ func _physics_process(delta) -> void:
 	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	move_and_slide()
 		
-	match state:
-		IDLE:
-			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-			seek_player()
-			
-			if wanderController.get_time_left() == 0:
-				update_wander()
-			
-		WANDER:
-			seek_player()
-			if wanderController.get_time_left() == 0:
-				update_wander()
+	if(PlayerPause.playerPaused != true):
+		match state:
+			IDLE:
+				velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+				seek_player()
 				
-			accelerate_towards_point(wanderController.target_position, delta)
-			
-			if global_position.distance_to(wanderController.target_position) <= MAX_SPEED * delta:
-				update_wander()
-			
-		CHASE:
-			var player = playerDetectionZone.player
-			if player != null:
-				animationTree.set("parameters/Idle/blend_position", velocity)
-				animationTree.set("parameters/Run/blend_position", velocity)
-				animationState.travel("Run")
-				var direction = global_position.direction_to(player.global_position)
-				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-			else:
-				state = IDLE
-			
-	if softCollision.is_colliding():
-		velocity += softCollision.get_push_vector() * delta * 400
-	move_and_slide()
-	
+				if wanderController.get_time_left() == 0:
+					update_wander()
+				
+			WANDER:
+				seek_player()
+				if wanderController.get_time_left() == 0:
+					update_wander()
+					
+				accelerate_towards_point(wanderController.target_position, delta)
+				
+				if global_position.distance_to(wanderController.target_position) <= MAX_SPEED * delta:
+					update_wander()
+				
+			CHASE:
+				var player = playerDetectionZone.player
+				if player != null:
+					animationTree.set("parameters/Idle/blend_position", velocity)
+					animationTree.set("parameters/Run/blend_position", velocity)
+					animationState.travel("Run")
+					var direction = global_position.direction_to(player.global_position)
+					velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+				else:
+					state = IDLE
+				
+		if softCollision.is_colliding():
+			velocity += softCollision.get_push_vector() * delta * 400
+		move_and_slide()
+	else:
+		pass
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)

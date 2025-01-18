@@ -1,13 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://fa403mnmeu5p"]
+[gd_scene load_steps=12 format=3 uid="uid://bpd48mk277f0p"]
 
-[ext_resource type="Script" path="res://Art/Action RPG Resources/World/grapple_hook_chest.gd" id="1_afi8y"]
-[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="2_7wxpi"]
-[ext_resource type="Texture2D" uid="uid://tk756wnuetyn" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Objects/Chest_big.png" id="3_kol21"]
-[ext_resource type="PackedScene" uid="uid://dsm0jb1v48xdg" path="res://Dialogue/chat_detection.tscn" id="4_u1i4v"]
-[ext_resource type="AudioStream" uid="uid://dkaj21v8akbwp" path="res://Art/Action RPG Resources/Music and Sounds/chest_open.mp3" id="5_6fa61"]
+[ext_resource type="Script" path="res://Art/Action RPG Resources/World/whetstone_chest.gd" id="1_1mahm"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="1_hfybn"]
+[ext_resource type="Texture2D" uid="uid://tk756wnuetyn" path="res://Art/Action RPG Resources/GameDev RPG pack/1x/Objects/Chest_big.png" id="2_fy58o"]
+[ext_resource type="PackedScene" uid="uid://dsm0jb1v48xdg" path="res://Dialogue/chat_detection.tscn" id="3_bgkhj"]
+[ext_resource type="AudioStream" uid="uid://dkaj21v8akbwp" path="res://Art/Action RPG Resources/Music and Sounds/chest_open.mp3" id="4_w0cqy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6hd4o"]
-shader = ExtResource("2_7wxpi")
+shader = ExtResource("1_hfybn")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 1.0
 
@@ -43,19 +43,19 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_gys85"]
 radius = 45.0
 
-[node name="Grapple_hook_chest" type="CharacterBody2D"]
-script = ExtResource("1_afi8y")
+[node name="whetstone_chest" type="CharacterBody2D"]
+script = ExtResource("1_1mahm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_6hd4o")
 position = Vector2(0, -3)
-texture = ExtResource("3_kol21")
+texture = ExtResource("2_fy58o")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uksdc")
 
-[node name="ChatDetection" parent="." instance=ExtResource("4_u1i4v")]
+[node name="ChatDetection" parent="." instance=ExtResource("3_bgkhj")]
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -66,7 +66,7 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("5_6fa61")
+stream = ExtResource("4_w0cqy")
 pitch_scale = 1.2
 
 [node name="ForceField" type="Area2D" parent="."]

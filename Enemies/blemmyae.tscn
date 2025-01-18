@@ -12,18 +12,21 @@
 [ext_resource type="Texture2D" uid="uid://bvhvq14tw40bp" path="res://Art/Action RPG Resources/Enemies/1x/Medieval Manuscripts/Blemmyae_attack.png" id="8_ggrtl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n1faf"]
+resource_local_to_scene = true
 shader = ExtResource("3_bnwj2")
 shader_parameter/color = Color(1, 0.101961, 0.101961, 1)
 shader_parameter/tint_factor = 0.0
 shader_parameter/fade = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yo2b0"]
+resource_local_to_scene = true
 shader = ExtResource("3_bnwj2")
 shader_parameter/color = Color(1, 0.101961, 0.101961, 1)
 shader_parameter/tint_factor = 0.0
 shader_parameter/fade = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w2ytv"]
+resource_local_to_scene = true
 shader = ExtResource("3_bnwj2")
 shader_parameter/color = Color(1, 0.101961, 0.101961, 1)
 shader_parameter/tint_factor = 0.0
@@ -751,10 +754,10 @@ radius = 6.0
 size = Vector2(18, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5coai"]
-radius = 159.003
+radius = 139.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fn2pp"]
-radius = 49.0
+radius = 28.0179
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vj7x7"]
 animation = &"AttackDown"
@@ -938,7 +941,7 @@ _data = {
 
 [node name="Blemmyae" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 129
+collision_mask = 137
 script = ExtResource("1_7h82i")
 ammo = ExtResource("2_b76wx")
 MAX_SPEED = 50
@@ -972,7 +975,7 @@ libraries = {
 }
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 2
+collision_mask = 3
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -1000,13 +1003,11 @@ shape = SubResource("RectangleShape2D_aa1bi")
 max_health = 2
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource("6_hms4p")]
-visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource("CircleShape2D_5coai")
 
 [node name="PlayerTooCloseZone" parent="." instance=ExtResource("6_hms4p")]
-visible = false
 
 [node name="CollisionShape2D" parent="PlayerTooCloseZone" index="0"]
 shape = SubResource("CircleShape2D_fn2pp")

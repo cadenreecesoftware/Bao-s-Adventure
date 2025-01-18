@@ -51,3 +51,8 @@ var grapple_chest = NONE:
 		return grapple_chest
 	set(value):
 		grapple_chest = value
+var whetstone_progress = NONE:
+	get:
+		return whetstone_progress
+	set(value):
+		whetstone_progress = value

@@ -47,4 +47,3 @@ func DialogicSignal(arg: String):
 func _on_door_h_body_entered(body: Node2D) -> void:
 	if body is Player:
 		house1_open.visible = true
-		print("hello")

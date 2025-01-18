@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://gju2xi6w7ana"]
+[gd_scene load_steps=25 format=4 uid="uid://gju2xi6w7ana"]
 
 [ext_resource type="Script" path="res://Levels/temple_room_2.gd" id="1_uwi02"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="2_vwjgu"]
@@ -14,8 +14,6 @@
 [ext_resource type="TileSet" uid="uid://dyj8adt84c2k4" path="res://Art/Action RPG Resources/Interior/1x/interior_tile_set.tres" id="11_svr71"]
 [ext_resource type="TileSet" uid="uid://cd5uvemidbplx" path="res://Art/Action RPG Resources/Interior/1x/temple.tres" id="12_hxabb"]
 [ext_resource type="PackedScene" uid="uid://d3tcvhxiu1igr" path="res://Enemies/blemmyae.tscn" id="13_87xs6"]
-[ext_resource type="PackedScene" uid="uid://dqrq8qyqigkoe" path="res://Enemies/slime.tscn" id="14_k68p0"]
-[ext_resource type="PackedScene" uid="uid://2rgykdk1383j" path="res://Enemies/bat.tscn" id="15_uvgja"]
 [ext_resource type="PackedScene" uid="uid://bumyglrddxsma" path="res://Art/Action RPG Resources/World/teleporter.tscn" id="16_x2opo"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
@@ -1667,7 +1665,7 @@ texture = ExtResource("9_hn8aa")
 [sub_resource type="TileSet" id="TileSet_w5gr0"]
 sources/0 = SubResource("TileSetAtlasSource_e4pi7")
 
-[node name="temple_room_1" type="Node2D"]
+[node name="temple_room_2" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_uwi02")
 
@@ -1756,6 +1754,8 @@ position = Vector2(-18, 8)
 
 [node name="Door_S" parent="Doors" instance=ExtResource("8_55gga")]
 position = Vector2(296, 201)
+destination_level_tag = "temple_room_3"
+destination_door_tag = "S"
 
 [node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
 position = Vector2(0, -1)
@@ -1798,12 +1798,6 @@ position = Vector2(296, 87)
 
 [node name="Blemmyae2" parent="." instance=ExtResource("13_87xs6")]
 position = Vector2(408, -89)
-
-[node name="Slime" parent="." instance=ExtResource("14_k68p0")]
-position = Vector2(328, -39)
-
-[node name="Bat" parent="." instance=ExtResource("15_uvgja")]
-position = Vector2(262, -40)
 
 [node name="Blemmyae3" parent="." instance=ExtResource("13_87xs6")]
 position = Vector2(279, -200)
