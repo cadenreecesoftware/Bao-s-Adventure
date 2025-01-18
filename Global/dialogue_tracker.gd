@@ -56,3 +56,8 @@ var whetstone_progress = NONE:
 		return whetstone_progress
 	set(value):
 		whetstone_progress = value
+var temple_nuts_chest_progress = NONE:
+	get:
+		return temple_nuts_chest_progress
+	set(value):
+		temple_nuts_chest_progress = value

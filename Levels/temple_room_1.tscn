@@ -22,7 +22,7 @@ specular_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufyn8"]
 resource_local_to_scene = true
-size = Vector2(2, 6.00002)
+size = Vector2(3, 5.00001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um350"]
 resource_local_to_scene = true

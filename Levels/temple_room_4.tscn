@@ -23,13 +23,13 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
 specular_color = Color(0, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufyn8"]
-resource_local_to_scene = true
-size = Vector2(10, 6.00002)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53j7j"]
 resource_local_to_scene = true
 size = Vector2(4, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufyn8"]
+resource_local_to_scene = true
+size = Vector2(10, 6.00002)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ie1qe"]
 texture = ExtResource("10_c57qy")
@@ -1708,13 +1708,13 @@ region_enabled = true
 region_rect = Rect2(0, 0, 2877.76, 1280)
 
 [node name="PlayerPanda" parent="." instance=ExtResource("2_kgnt7")]
-position = Vector2(202, 93)
+position = Vector2(369, -340)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerPanda"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("3_mqdve")]
-position = Vector2(202, 93)
+position = Vector2(369, -340)
 zoom = Vector2(1.5, 1.5)
 
 [node name="TopLeft" parent="Camera2D/Limits" index="0"]
@@ -1752,6 +1752,18 @@ color = Color(0.430864, 0.9023, 0.969523, 1)
 
 [node name="Doors" type="Node" parent="."]
 
+[node name="Door_E" parent="Doors" instance=ExtResource("8_vgas8")]
+position = Vector2(408, -328)
+destination_level_tag = "temple_room_5"
+destination_door_tag = "S"
+
+[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_53j7j")
+
+[node name="Spawn" parent="Doors/Door_E" index="1"]
+position = Vector2(-13, 0)
+
 [node name="Door_W" parent="Doors" instance=ExtResource("8_vgas8")]
 position = Vector2(181, 80)
 destination_level_tag = "temple_room_1"
@@ -1765,16 +1777,6 @@ shape = SubResource("RectangleShape2D_ufyn8")
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(13, 10)
-
-[node name="Door_E" parent="Doors" instance=ExtResource("8_vgas8")]
-position = Vector2(408, -328)
-
-[node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_53j7j")
-
-[node name="Spawn" parent="Doors/Door_E" index="1"]
-position = Vector2(-13, 0)
 
 [node name="OuterWalls" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAXAA0AAAABAAAAAAAWAA0AAAABAAAAAAAVAA0AAAABAAAAAAAUAA0AAAABAAAAAAATAA0AAAABAAAAAAASAA0AAAABAAAAAAARAA0AAAABAAAAAAAQAA0AAAABAAAAAAAPAA0AAAABAAAAAAAOAA0AAAABAAAAAAANAA0AAAABAAAAAAAMAA0AAAABAAAAAAALAA0AAAABAAAAAAAKAA0AAAAEAAAAAAAKAAwAAAACAAEAAAAKAAsAAAACAAEAAAAKAAoAAAACAAEAAAAKAAkAAAACAAEAAAAKAAgAAAACAAEAAAAKAAcAAAACAAEAAAAKAAYAAAACAAEAAAAKAAUAAAACAAEAAAAKAAQAAAACAAEAAAAKAAMAAAACAAEAAAAKAAIAAAACAAEAAAAKAAEAAAACAAEAAAAKAAAAAAACAAEAAAAKAP//AAACAAEAAAAKAP7/AAACAAEAAAAKAP3/AAACAAEAAAAYAA0AAAABAAAAAAAaAA0AAAADAAAAAAAaAAwAAAAAAAEAAAAaAAsAAAAAAAEAAAAaAAoAAAAAAAEAAAAaAAkAAAAAAAEAAAAaAAgAAAAAAAEAAAAaAAcAAAAAAAEAAAAaAAYAAAAAAAEAAAAaAAUAAAAAAAEAAAAaAAQAAAAAAAEAAAAaAAMAAAAAAAEAAAAaAAIAAAAAAAEAAAAaAAEAAAAAAAEAAAAZAA0AAAABAAAAAAAaAAAAAAAAAAEAAAAaAP//AAAAAAEAAAAaAP7/AAAAAAEAAAAaAP3/AAAAAAEAAAAaAPz/AAAAAAEAAAAaAPv/AAAAAAEAAAAaAPr/AAAAAAEAAAAaAPn/AAAAAAEAAAAaAPj/AAAAAAEAAAAaAPf/AAAAAAEAAAAaAPb/AAAAAAEAAAAaAPX/AAAAAAEAAAAaAPT/AAAAAAEAAAAaAPP/AAAAAAEAAAAKAPz/AAACAAEAAAAKAPv/AAACAAEAAAAKAPr/AAACAAEAAAAKAPn/AAACAAEAAAAKAPj/AAACAAEAAAAKAPf/AAACAAEAAAAKAPb/AAACAAEAAAAKAPX/AAACAAEAAAAKAPT/AAACAAEAAAAKAPP/AAACAAEAAAAKAPL/AAACAAEAAAAKAPH/AAACAAEAAAAKAPD/AAACAAEAAAAaAPL/AAAAAAEAAAAaAPH/AAAAAAEAAAAaAPD/AAAAAAEAAAAaAO//AAAAAAEAAAAKAO//AAACAAEAAAAKAO7/AAACAAEAAAAKAO3/AAACAAEAAAAKAOz/AAACAAEAAAAKAOv/AAACAAEAAAAKAOr/AAACAAEAAAAKAOn/AAACAAEAAAAKAOj/AAACAAEAAAAKAOf/AAACAAEAAAAKAOb/AAAEAAEAAAALAOb/AAABAAIAAAAMAOb/AAABAAIAAAANAOb/AAABAAIAAAAOAOb/AAABAAIAAAAPAOb/AAABAAIAAAAQAOb/AAABAAIAAAARAOb/AAABAAIAAAASAOb/AAABAAIAAAATAOb/AAABAAIAAAAUAOb/AAABAAIAAAAVAOb/AAABAAIAAAAWAOb/AAABAAIAAAAXAOb/AAABAAIAAAAYAOb/AAABAAIAAAAZAOb/AAABAAIAAAAaAOb/AAADAAEAAAAaAOf/AAAAAAEAAAAaAOj/AAAAAAEAAAAaAOn/AAAAAAEAAAAaAOr/AAAAAAEAAAAaAOv/AAAAAAEAAAAaAOz/AAAAAAEAAAAaAO3/AAAAAAEAAAAaAO7/AAAAAAEAAAA=")
@@ -1818,7 +1820,7 @@ polygon = PackedVector2Array(175, -373, 171, -373, 172, 213, 176, 213)
 position = Vector2(200, 107)
 
 [node name="Node2D5" parent="." instance=ExtResource("14_b1aqi")]
-position = Vector2(282, -212)
+position = Vector2(282, -211)
 
 [node name="Node2D" parent="." instance=ExtResource("14_b1aqi")]
 position = Vector2(296, 87)
@@ -1830,7 +1832,7 @@ position = Vector2(311, 176)
 position = Vector2(295, -7)
 
 [node name="Node2D6" parent="." instance=ExtResource("15_dqlqn")]
-position = Vector2(408, -230)
+position = Vector2(408, -228)
 
 [node name="Blemmyae" parent="." instance=ExtResource("16_sfqtn")]
 position = Vector2(202, -92)
@@ -1909,14 +1911,14 @@ position = Vector2(184, -328)
 [node name="Marker2D" parent="Teleporter8" index="3"]
 position = Vector2(112, 528)
 
-[node name="Grapple_hook_chest" parent="." instance=ExtResource("19_k5pmt")]
-position = Vector2(295, -366)
+[node name="key_chest" parent="." instance=ExtResource("19_k5pmt")]
+position = Vector2(296, -364)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="Camera2D"]
-[editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
+[editable path="Doors/Door_W"]
 [editable path="Teleporter"]
 [editable path="Teleporter2"]
 [editable path="Teleporter3"]

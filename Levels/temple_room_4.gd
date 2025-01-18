@@ -12,7 +12,6 @@ var dialogue_cooldown = false
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	DialogueTracker.grapple_chest = MET
 	Dialogic.signal_event.connect(DialogicSignal)
 	NavigationManager.current_level = "res://Levels/temple_room_4.tscn"
 	PlayerPause.playerPaused = false
