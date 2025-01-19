@@ -1862,6 +1862,10 @@ position = Vector2(295, 72)
 position = Vector2(0, -48)
 
 [node name="Teleporter6" parent="." instance=ExtResource("13_xmg57")]
+position = Vector2(295, 24)
+
+[node name="Marker2D" parent="Teleporter6" index="3"]
+position = Vector2(0, 48)
 
 [node name="Teleporter7" parent="." instance=ExtResource("13_xmg57")]
 position = Vector2(263, 88)

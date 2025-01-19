@@ -94,3 +94,4 @@ func _on_stats_no_health() -> void:
 	DialogueTracker.temple_boss_progress = DONE
 	queue_free()
 	Dialogic.start("boss_beat")
+	PlayerPause.playerPaused = true
