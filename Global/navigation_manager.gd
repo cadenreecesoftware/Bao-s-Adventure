@@ -9,6 +9,8 @@ const scene_house_2_inter = preload("res://Levels/house_2_inter.tscn")
 const scene_house_3_inter = preload("res://Levels/house_3_inter.tscn")
 const scene_house_4_inter = preload("res://Levels/house_4_inter.tscn")
 const scene_house_5_inter = preload("res://Levels/house_5_inter.tscn")
+const scene_house_6_inter = preload("res://Levels/house_6_inter.tscn")
+const scene_house_7_inter = preload("res://Levels/house_7_inter.tscn")
 const scene_well = preload("res://Levels/well.tscn")
 const scene_roost_inter = preload("res://Levels/roost_interior.tscn")
 const scene_level3 = preload("res://Levels/level_3.tscn")
@@ -20,6 +22,8 @@ const scene_temple_room_2 = preload("res://Levels/temple_room_2.tscn")
 const scene_temple_room_3 = preload("res://Levels/temple_room_3.tscn")
 const scene_temple_room_4 = preload("res://Levels/temple_room_4.tscn")
 const scene_temple_room_5 = preload("res://Levels/temple_room_5.tscn")
+const scene_temple_boss_room = preload("res://Levels/temple_boss_room.tscn")
+
 
 
 signal on_trigger_player_spawn
@@ -55,6 +59,10 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_house_4_inter
 		"house_5_inter":
 			scene_to_load = scene_house_5_inter
+		"house_6_inter":
+			scene_to_load = scene_house_6_inter
+		"house_7_inter":
+			scene_to_load = scene_house_7_inter
 		"scene_well":
 			scene_to_load = scene_well
 		"roost_interior":
@@ -77,6 +85,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_temple_room_4
 		"temple_room_5":
 			scene_to_load = scene_temple_room_5
+		"temple_boss_room":
+			scene_to_load = scene_temple_boss_room
 		
 			
 	if scene_to_load != null:

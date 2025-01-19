@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bbv71xg6wu16t"]
+[gd_scene load_steps=15 format=4 uid="uid://bbv71xg6wu16t"]
 
 [ext_resource type="Script" path="res://Levels/forest_house_inter.gd" id="1_sf4le"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="2_ah5p3"]
@@ -11,6 +11,7 @@
 [ext_resource type="TileSet" uid="uid://dyj8adt84c2k4" path="res://Art/Action RPG Resources/Interior/1x/interior_tile_set.tres" id="9_sv3yg"]
 [ext_resource type="PackedScene" uid="uid://b7kr65g6vsik3" path="res://NPC/tanuki.tscn" id="9_vxe1b"]
 [ext_resource type="PackedScene" uid="uid://evhi47xpjaaj" path="res://Art/Action RPG Resources/Interior/Sprites/fireplace_sprite.tscn" id="10_w5owv"]
+[ext_resource type="Texture2D" uid="uid://sdfhoupugv1m" path="res://Art/Action RPG Resources/Woodland Folk/1x/Objects/Pot.png" id="12_5vcd2"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
 specular_color = Color(0, 0, 0, 1)
@@ -130,6 +131,10 @@ position = Vector2(297, 82)
 
 [node name="Tanuki" parent="." instance=ExtResource("9_vxe1b")]
 position = Vector2(296, 133)
+
+[node name="Pot" type="Sprite2D" parent="."]
+position = Vector2(216, 133)
+texture = ExtResource("12_5vcd2")
 
 [editable path="Camera2D"]
 [editable path="Doors/Door_S"]

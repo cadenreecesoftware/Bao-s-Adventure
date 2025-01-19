@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="C^2"
-run/main_scene="res://Levels/intro.tscn"
+run/main_scene="res://Levels/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -40,10 +40,13 @@ directories/dch_directory={
 "MrBrie": "res://Dialogue/Dialogic_Characters/MrBrie.dch",
 "MsBrie": "res://Dialogue/Dialogic_Characters/MsBrie.dch",
 "Oni": "res://Dialogue/Dialogic_Characters/Oni.dch",
+"Rocco": "res://Dialogue/Dialogic_Characters/Rocco.dch",
 "Tanuki": "res://Dialogue/Dialogic_Characters/Tanuki.dch",
 "Tinker": "res://Dialogue/Dialogic_Characters/Tinker.dch",
 "anon": "res://Dialogue/Dialogic_Characters/anon.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"sadie": "res://Dialogue/Dialogic_Characters/sadie.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch",
+"weaver": "res://Dialogue/Dialogic_Characters/weaver.dch"
 }
 directories/dtl_directory={
 "DarpieMeeting": "res://Dialogue/Timelines/DarpieMeeting.dtl",
@@ -69,6 +72,11 @@ directories/dtl_directory={
 "no_key": "res://Dialogue/Timelines/no_key.dtl",
 "opening_boss_dialogue": "res://Dialogue/Timelines/opening_boss_dialogue.dtl",
 "opening_dialogue": "res://Dialogue/Timelines/opening_dialogue.dtl",
+"rocco_bought": "res://Dialogue/Timelines/rocco_bought.dtl",
+"rocco_meeting": "res://Dialogue/Timelines/rocco_meeting.dtl",
+"rocco_met": "res://Dialogue/Timelines/rocco_met.dtl",
+"sadie_meeting": "res://Dialogue/Timelines/sadie_meeting.dtl",
+"sadie_met": "res://Dialogue/Timelines/sadie_met.dtl",
 "tanuki_meeting": "res://Dialogue/Timelines/tanuki_meeting.dtl",
 "tanuki_met": "res://Dialogue/Timelines/tanuki_met.dtl",
 "tanuki_saving_dialogue": "res://Dialogue/Timelines/tanuki_saving_dialogue.dtl",
@@ -77,6 +85,8 @@ directories/dtl_directory={
 "tinker_meeting": "res://Dialogue/Timelines/tinker_meeting.dtl",
 "tinker_met": "res://Dialogue/Timelines/tinker_met.dtl",
 "tinker_quest_turn_in": "res://Dialogue/Timelines/tinker_quest_turn_in.dtl",
+"weaver_meeting": "res://Dialogue/Timelines/weaver_meeting.dtl",
+"weaver_met": "res://Dialogue/Timelines/weaver_met.dtl",
 "well_timeline": "res://Dialogue/Timelines/well_timeline.dtl",
 "whetstone_chest": "res://Dialogue/Timelines/whetstone_chest.dtl"
 }

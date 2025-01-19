@@ -1,22 +1,11 @@
 extends Node2D
 
-const heart_purchasable = preload("res://Interactables/heart_store_pickup.tscn")
-enum {
-	NONE,
-	MET, 
-	QUESTING,
-	DONE
-}
+
 @onready var pause_menu = $CanvasLayer/PauseMenu
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if DialogueTracker.rocco_progress != QUESTING:
-			var heart = heart_purchasable.instantiate()
-			get_parent().add_child.call_deferred(heart)
-			heart.global_position = $heart_spawner.global_position
-	Wallet.wallet += 25
-	NavigationManager.current_level = "res://Levels/roost_interior.tscn"
+	NavigationManager.current_level = "res://Levels/house_7_inter.tscn"
 	GlobalAudio.play_interior_music()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)

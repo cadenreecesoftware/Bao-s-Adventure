@@ -91,3 +91,18 @@ var msbrie_progress = NONE:
 		return msbrie_progress
 	set(value):
 		msbrie_progress = value
+var weaver_progress = NONE:
+	get:
+		return weaver_progress
+	set(value):
+		weaver_progress = value
+var sadie_progress = NONE:
+	get:
+		return sadie_progress
+	set(value):
+		sadie_progress = value
+var rocco_progress = NONE:
+	get:
+		return rocco_progress
+	set(value):
+		rocco_progress = value

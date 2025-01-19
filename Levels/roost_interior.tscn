@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bmjfn3vl6yee0"]
+[gd_scene load_steps=14 format=4 uid="uid://bmjfn3vl6yee0"]
 
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_6t07e"]
 [ext_resource type="Script" path="res://Levels/roost_interior.gd" id="1_ovwp4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ccudwedmve8qk" path="res://Art/Action RPG Resources/UI/wallet_ui.tscn" id="6_imxoi"]
 [ext_resource type="PackedScene" uid="uid://6qhx6tjotcs5" path="res://Levels/door.tscn" id="7_sxtul"]
 [ext_resource type="TileSet" uid="uid://dyj8adt84c2k4" path="res://Art/Action RPG Resources/Interior/1x/interior_tile_set.tres" id="8_ska13"]
+[ext_resource type="PackedScene" uid="uid://bac4dytub72pe" path="res://NPC/rocco.tscn" id="10_kyu5r"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
 specular_color = Color(0, 0, 0, 1)
@@ -16,6 +17,9 @@ specular_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufyn8"]
 resource_local_to_scene = true
 size = Vector2(21, 19.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_av0fm"]
+size = Vector2(14, 22)
 
 [node name="Roost_interior" type="Node2D"]
 y_sort_enabled = true
@@ -106,8 +110,29 @@ tile_map_data = PackedByteArray("AAAKAAsAAAANAAIAAAALAAsAAAANAAIAAAAMAAsAAAANAAI
 tile_set = ExtResource("8_ska13")
 
 [node name="Decorations" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAOAAsAAAAWAAYAABANAAsAAAAXAAYAABAOAAwAAAAWAAcAABANAAwAAAAXAAcAABAWAAQAAAAaAAYAAAAWAAUAAAAaAAcAAAAXAAQAAAAbAAYAAAAXAAUAAAAbAAcAAAAKAAQAAAAaAAYAAAAKAAUAAAAaAAcAAAALAAQAAAAbAAYAAAALAAUAAAAbAAcAAAAQAAQAAAAaAAYAAAAQAAUAAAAaAAcAAAARAAQAAAAbAAYAAAARAAUAAAAbAAcAAAAOAAYAAAAKAB0AAAAOAAcAAAAKAB4AAAAOAAgAAAAKAB8AAAAPAAYAAAAKAB0AAAAPAAcAAAAKAB4AAAAPAAgAAAAKAB8AAAAQAAYAAAAKAB0AAAAQAAcAAAAKAB4AAAAQAAgAAAAKAB8AAAARAAYAAAAKAB0AAAARAAcAAAAKAB4AAAARAAgAAAAKAB8AAAASAAYAAAAKAB0AAAASAAcAAAAKAB4AAAASAAgAAAAKAB8AAAATAAYAAAAKAB0AAAATAAcAAAAKAB4AAAATAAgAAAAKAB8AAAAUAAYAAAALAB0AAAAUAAcAAAALAB4AAAAUAAgAAAALAB8AAAANAAYAAAAJAB0AAAANAAcAAAAJAB4AAAANAAgAAAAJAB8AAAAXAAsAAAAXAA0AAAAXAAoAAAAXAAwAAAA=")
+tile_map_data = PackedByteArray("AAAOAAsAAAAWAAYAABANAAsAAAAXAAYAABAOAAwAAAAWAAcAABANAAwAAAAXAAcAABAWAAQAAAAaAAYAAAAWAAUAAAAaAAcAAAAXAAQAAAAbAAYAAAAXAAUAAAAbAAcAAAAKAAQAAAAaAAYAAAAKAAUAAAAaAAcAAAALAAQAAAAbAAYAAAALAAUAAAAbAAcAAAAQAAQAAAAaAAYAAAAQAAUAAAAaAAcAAAARAAQAAAAbAAYAAAARAAUAAAAbAAcAAAAOAAYAAAAKAB0AAAAOAAcAAAAKAB4AAAAOAAgAAAAKAB8AAAAPAAYAAAAKAB0AAAAPAAcAAAAKAB4AAAAPAAgAAAAKAB8AAAAQAAYAAAAKAB0AAAAQAAcAAAAKAB4AAAAQAAgAAAAKAB8AAAARAAYAAAAKAB0AAAARAAcAAAAKAB4AAAARAAgAAAAKAB8AAAASAAYAAAAKAB0AAAASAAcAAAAKAB4AAAASAAgAAAAKAB8AAAATAAYAAAAKAB0AAAATAAcAAAAKAB4AAAATAAgAAAAKAB8AAAAUAAYAAAALAB0AAAAUAAcAAAALAB4AAAAUAAgAAAALAB8AAAANAAYAAAAJAB0AAAANAAcAAAAJAB4AAAANAAgAAAAJAB8AAAAXAAsAAAAXAA0AAAAXAAoAAAAXAAwAAAAVAAgAAAASABsAAAAVAAkAAAASABwAAAAWAAgAAAATABsAAAAWAAkAAAATABwAAAAXAAgAAAAUABsAAAAXAAkAAAAUABwAAAA=")
 tile_set = ExtResource("8_ska13")
+
+[node name="Rocco" parent="." instance=ExtResource("10_kyu5r")]
+position = Vector2(360, 133)
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
+polygon = PackedVector2Array(204, 209, 337, 209, 337, 193, 385, 193, 385, 95, 159, 95, 159, 57, 388, 57, 389, 57, 389, 197, 341, 197, 341, 213, 203, 213)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collision"]
+polygon = PackedVector2Array(203, 213, 207, 213, 207, 193, 159, 193, 159, 95, 155, 95, 155, 197, 203, 197)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(378, 182)
+shape = SubResource("RectangleShape2D_av0fm")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Collision"]
+polygon = PackedVector2Array(337, 152, 385, 152, 385, 128, 372, 128, 372, 137, 348, 137, 348, 128, 336, 128, 336, 152)
+
+[node name="heart_spawner" type="Marker2D" parent="."]
+position = Vector2(271, 113)
 
 [editable path="Camera2D"]
 [editable path="Doors/Door_S"]

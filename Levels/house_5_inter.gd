@@ -5,7 +5,7 @@ extends Node2D
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	NavigationManager.current_level = "res://Levels/house_5_inter.tscn"
+	NavigationManager.current_level = "res://Levels/house_6_inter.tscn"
 	GlobalAudio.play_interior_music()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)

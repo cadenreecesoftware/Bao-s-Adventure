@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dmbdyswujkcf5"]
+[gd_scene load_steps=17 format=4 uid="uid://dmbdyswujkcf5"]
 
 [ext_resource type="Script" path="res://Levels/house_2_inter.gd" id="1_2g8sb"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_vddne"]
@@ -11,6 +11,13 @@
 [ext_resource type="TileSet" uid="uid://dyj8adt84c2k4" path="res://Art/Action RPG Resources/Interior/1x/interior_tile_set.tres" id="8_44xm2"]
 [ext_resource type="PackedScene" uid="uid://evhi47xpjaaj" path="res://Art/Action RPG Resources/Interior/Sprites/fireplace_sprite.tscn" id="9_6aleq"]
 [ext_resource type="PackedScene" uid="uid://dc0j03x5ei3e6" path="res://NPC/doe.tscn" id="11_eo1ea"]
+[ext_resource type="PackedScene" uid="uid://b2tjm3depvcfh" path="res://Art/Action RPG Resources/World/pot.tscn" id="12_qjci4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp7t2"]
+size = Vector2(16, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0k51d"]
+size = Vector2(23, 25)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
 specular_color = Color(0, 0, 0, 1)
@@ -30,6 +37,14 @@ polygon = PackedVector2Array(248, 105, 248, 104, 264, 104, 264, 105, 267, 105, 2
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(187, 95, 187, 181, 267, 181, 267, 213, 325, 213, 325, 181, 405, 181, 405, 176, 400, 176, 400, 177, 321, 177, 321, 208, 321, 209, 271, 209, 271, 177, 191, 177, 191, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(394, 168.5)
+shape = SubResource("RectangleShape2D_vp7t2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(224.5, 145.5)
+shape = SubResource("RectangleShape2D_0k51d")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -124,6 +139,9 @@ position = Vector2(297, 82)
 
 [node name="Doe" parent="." instance=ExtResource("11_eo1ea")]
 position = Vector2(376, 108)
+
+[node name="Pot" parent="." instance=ExtResource("12_qjci4")]
+position = Vector2(200, 101)
 
 [editable path="Camera2D"]
 [editable path="Doors/Door_S"]

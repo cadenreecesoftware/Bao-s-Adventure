@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://beqdqvwltrvws"]
+[gd_scene load_steps=55 format=4 uid="uid://beqdqvwltrvws"]
 
 [ext_resource type="Script" path="res://Levels/town.gd" id="1_coqbe"]
 [ext_resource type="Texture2D" uid="uid://kltcdg5pgkld" path="res://Art/Action RPG Resources/World/GrassBackground.png" id="2_sbdg1"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://ckr71sf5k5udb" path="res://NPC/guard_1.tscn" id="29_oxu1g"]
 [ext_resource type="PackedScene" uid="uid://cijchx5bf46qy" path="res://NPC/guard_2.tscn" id="30_5a7km"]
 [ext_resource type="Texture2D" uid="uid://bu2rtv078jelx" path="res://Art/Action RPG Resources/Woodland Folk/1x/Buildings/Burrow01_B.png" id="33_2lpsw"]
+[ext_resource type="PackedScene" uid="uid://b2tjm3depvcfh" path="res://Art/Action RPG Resources/World/pot.tscn" id="34_sfqr1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a33bf"]
 texture = ExtResource("4_slnt6")
@@ -2721,8 +2722,19 @@ size = Vector2(11, 13)
 resource_local_to_scene = true
 size = Vector2(11, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrg67"]
+resource_local_to_scene = true
+size = Vector2(11, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wixw5"]
+resource_local_to_scene = true
+size = Vector2(11, 13)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2557"]
 size = Vector2(13, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lugrx"]
+size = Vector2(16, 127)
 
 [node name="Town" type="Node2D"]
 y_sort_enabled = true
@@ -2761,7 +2773,7 @@ tile_map_data = PackedByteArray("AAAdAPv/AAAQAAIAAAAdAPn/AAADAAEAAAAcAPv/AAAEAAE
 tile_set = SubResource("TileSet_5c3tr")
 
 [node name="Decor" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD1/woAAAAOAAAAAAD2/woAAAAPAAAAAAD3/woAAAAQAAAAAAD1/xUAAAAOAAAAAAD2/xUAAAAPAAAAAAD3/xUAAAAQAAAAAAAEAAoAAAAdABwAAAAEAAsAAAAdAB0AAAAFAAoAAAAeABwAAAAFAAsAAAAeAB0AAAD8/xUAAAAGAAIAAAD9/xQAAAAHAAEAAAANABEAAAAJAAIAAAAPAAoAAAAJAAIAAAAGAAoAAAAIAAEAAAD7/wsAAAAGAAEAAAADAA0AAAAHAAIAAAD+/w0AAAAIAAIAAAAdAAkAAAAIAAEAAAAdAAYAAAAIAAEAAAAXAAsAAAAHAAEAAAAYAAoAAAAGAAEAAAAcAAwAAAAGAAEAAAAYAAYAAAAHAAEAAAAXAAgAAAAJAAEAAAADAPz/AAAIAAMAAAAGAPr/AAAIAAIAAAAQAAAAAAAIAAIAAAAOAPz/AAAHAAMAAAAAAAYAAAAHAAMAAAACAAQAAAAIAAMAAAASAAUAAAAIAAMAAAAVAAAAAAAJAAIAAAARAAUAAAAHAAEAAAD9/wYAAAAGAAMAAAD6/wcAAAAGAAMAAAD8/xcAAAAIAAEAAAD//xgAAAAHAAIAAAD//xkAAAAHAAMAAAADABcAAAAGAAMAAAD7/x0AAAAIAAIAAAABABoAAAAIAAEAAAAEABsAAAAIAAEAAAAbACMAAAAIAAEAAAAhACIAAAAIAAEAAAAiACIAAAAIAAEAAAAkACQAAAAHAAEAAAAjACQAAAAHAAEAAAAcAB8AAAAHAAEAAAAeAB4AAAAGAAEAAAAhAB0AAAAGAAEAAAAjABwAAAAIAAIAAAAlAB8AAAAIAAIAAAAYAB8AAAAFAAIAAAAWABgAAAAFAAIAAAAdABMAAAAFAAIAAAAfABkAAAAHAAIAAAAnABQAAAAHAAIAAAARABMAAAAJAAEAAAAXABAAAAAJAAEAAAACABQAAAAJAAEAAAAGABcAAAAJAAEAAAAeABEAAAAJAAIAAAAnABoAAAAJAAIAAAAnACMAAAAJAAIAAAAGACIAAAAJAAIAAAAGACQAAAAGAAEAAAARAB8AAAAFAAEAAAAVABUAAAAFAAEAAAA=")
+tile_map_data = PackedByteArray("AAD1/woAAAAOAAAAAAD2/woAAAAPAAAAAAD3/woAAAAQAAAAAAD1/xUAAAAOAAAAAAD2/xUAAAAPAAAAAAD3/xUAAAAQAAAAAAAEAAoAAAAdABwAAAAEAAsAAAAdAB0AAAAFAAoAAAAeABwAAAAFAAsAAAAeAB0AAAD8/xUAAAAGAAIAAAD9/xQAAAAHAAEAAAANABEAAAAJAAIAAAAPAAoAAAAJAAIAAAAGAAoAAAAIAAEAAAD7/wsAAAAGAAEAAAADAA0AAAAHAAIAAAD+/w0AAAAIAAIAAAAdAAkAAAAIAAEAAAAdAAYAAAAIAAEAAAAXAAsAAAAHAAEAAAAYAAoAAAAGAAEAAAAcAAwAAAAGAAEAAAAYAAYAAAAHAAEAAAAXAAgAAAAJAAEAAAADAPz/AAAIAAMAAAAGAPr/AAAIAAIAAAAQAAAAAAAIAAIAAAAOAPz/AAAHAAMAAAAAAAYAAAAHAAMAAAACAAQAAAAIAAMAAAASAAUAAAAIAAMAAAAVAAAAAAAJAAIAAAARAAUAAAAHAAEAAAD9/wYAAAAGAAMAAAD6/wcAAAAGAAMAAAD8/xcAAAAIAAEAAAD//xgAAAAHAAIAAAD//xkAAAAHAAMAAAADABcAAAAGAAMAAAD7/x0AAAAIAAIAAAABABoAAAAIAAEAAAAEABsAAAAIAAEAAAAbACMAAAAIAAEAAAAhACIAAAAIAAEAAAAiACIAAAAIAAEAAAAkACQAAAAHAAEAAAAjACQAAAAHAAEAAAAcAB8AAAAHAAEAAAAeAB4AAAAGAAEAAAAhAB0AAAAGAAEAAAAjABwAAAAIAAIAAAAlAB8AAAAIAAIAAAAYAB8AAAAFAAIAAAAWABgAAAAFAAIAAAAdABMAAAAFAAIAAAAfABkAAAAHAAIAAAAnABQAAAAHAAIAAAARABMAAAAJAAEAAAAXABAAAAAJAAEAAAACABQAAAAJAAEAAAAGABcAAAAJAAEAAAAeABEAAAAJAAIAAAAnABoAAAAJAAIAAAAnACMAAAAJAAIAAAAGACIAAAAJAAIAAAAGACQAAAAGAAEAAAARAB8AAAAFAAEAAAAVABUAAAAFAAEAAAAsAAoAAAANAAAAAAAsAAsAAAANAAEAAAAsAAwAAAANAAEAAAAsAA0AAAANAAEAAAAsAA4AAAANAAEAAAAsAA8AAAANAAEAAAAsABAAAAANAAEAAAAsABEAAAANAAIAAAAmAAoAAAAJAAIAAAAnAAwAAAAIAAEAAAAqAAsAAAAIAAEAAAArABEAAAAGAAEAAAAoABAAAAAGAAEAAAAuABMAAAAGAAEAAAAsABQAAAAGAAEAAAApAAwAAAAGAAIAAAAfAAwAAAAGAAIAAAAfAAoAAAAHAAMAAAAMAA0AAAAHAAMAAAAOAAoAAAAHAAMAAAAMAAsAAAAFAAEAAAAMAAMAAAAGAAEAAAAnABIAAAAJAAEAAAABABEAAAAJAAEAAAAHABkAAAAHAAIAAAD7/w0AAAAHAAEAAAD4/xEAAAAHAAEAAAA=")
 tile_set = SubResource("TileSet_0o1or")
 
 [node name="Trees_group" type="Node2D" parent="."]
@@ -3142,7 +3154,7 @@ zoom = Vector2(1.5, 1.5)
 position = Vector2(-177, -181)
 
 [node name="BottomRight" parent="Camera2D/Limits" index="1"]
-position = Vector2(702, 633)
+position = Vector2(731, 636)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
@@ -3374,6 +3386,28 @@ shape = SubResource("RectangleShape2D_qda1c")
 [node name="Spawn" parent="Doors/Door_BH" index="1"]
 position = Vector2(0, 14)
 
+[node name="Door_WH" parent="Doors" instance=ExtResource("17_gcs61")]
+position = Vector2(319, 512)
+destination_level_tag = "house_6_inter"
+destination_door_tag = "S"
+
+[node name="CollisionShape2D" parent="Doors/Door_WH" index="0"]
+shape = SubResource("RectangleShape2D_yrg67")
+
+[node name="Spawn" parent="Doors/Door_WH" index="1"]
+position = Vector2(0, 15)
+
+[node name="Door_SH" parent="Doors" instance=ExtResource("17_gcs61")]
+position = Vector2(329, 327)
+destination_level_tag = "house_7_inter"
+destination_door_tag = "S"
+
+[node name="CollisionShape2D" parent="Doors/Door_SH" index="0"]
+shape = SubResource("RectangleShape2D_wixw5")
+
+[node name="Spawn" parent="Doors/Door_SH" index="1"]
+position = Vector2(0, 18)
+
 [node name="GrassOverScreenEffect" parent="." instance=ExtResource("13_yeas1")]
 position = Vector2(404.653, 169.699)
 
@@ -3457,6 +3491,10 @@ shape = SubResource("RectangleShape2D_o2557")
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(520, 332, 617, 332, 617, 282, 617, 280, 515, 280, 515, 332)
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(717, 223.5)
+shape = SubResource("RectangleShape2D_lugrx")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("29_oxu1g")]
 position = Vector2(-124, 182)
 
@@ -3467,6 +3505,12 @@ position = Vector2(-124, 332)
 position = Vector2(560, 184)
 texture = ExtResource("33_2lpsw")
 
+[node name="Pot" parent="." instance=ExtResource("34_sfqr1")]
+position = Vector2(100, 183)
+
+[node name="Pot2" parent="." instance=ExtResource("34_sfqr1")]
+position = Vector2(354, 344)
+
 [editable path="Camera2D"]
 [editable path="Doors/Door_may_house"]
 [editable path="Doors/Door_W"]
@@ -3476,3 +3520,5 @@ texture = ExtResource("33_2lpsw")
 [editable path="Doors/Door_FH"]
 [editable path="Doors/Door_TH"]
 [editable path="Doors/Door_BH"]
+[editable path="Doors/Door_WH"]
+[editable path="Doors/Door_SH"]

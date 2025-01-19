@@ -41,6 +41,10 @@ func save_game():
 	saved_game.dialogue_saver.append(DialogueTracker.tink_progress)
 	saved_game.dialogue_saver.append(DialogueTracker.mrbrie_progress)
 	saved_game.dialogue_saver.append(DialogueTracker.msbrie_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.weaver_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.sadie_progress)
+	saved_game.dialogue_saver.append(DialogueTracker.rocco_progress)
+	
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 func load_game():
 	
@@ -69,6 +73,10 @@ func load_game():
 	DialogueTracker.tink_progress = saved_game.dialogue_saver[13]
 	DialogueTracker.mrbrie_progress = saved_game.dialogue_saver[14]
 	DialogueTracker.msbrie_progress = saved_game.dialogue_saver[15]
+	DialogueTracker.weaver_progress = saved_game.dialogue_saver[16]
+	DialogueTracker.sadie_progress = saved_game.dialogue_saver[17]
+	DialogueTracker.rocco_progress = saved_game.dialogue_saver[18]
+
 	TransitionScreen.transition()
 	get_tree().change_scene_to_file(saved_game.current_level)
 	player.global_position = saved_game.player_position

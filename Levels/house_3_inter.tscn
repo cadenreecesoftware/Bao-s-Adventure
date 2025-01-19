@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://birxlgj4uba6"]
+[gd_scene load_steps=15 format=4 uid="uid://birxlgj4uba6"]
 
 [ext_resource type="Script" path="res://Levels/house_3_inter.gd" id="1_jtbwj"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="2_u0apf"]
@@ -11,6 +11,7 @@
 [ext_resource type="TileSet" uid="uid://dyj8adt84c2k4" path="res://Art/Action RPG Resources/Interior/1x/interior_tile_set.tres" id="9_xb7lp"]
 [ext_resource type="PackedScene" uid="uid://evhi47xpjaaj" path="res://Art/Action RPG Resources/Interior/Sprites/fireplace_sprite.tscn" id="10_ev0xk"]
 [ext_resource type="PackedScene" uid="uid://b1blksqqkyge3" path="res://NPC/fen.tscn" id="11_stwl7"]
+[ext_resource type="PackedScene" uid="uid://b2tjm3depvcfh" path="res://Art/Action RPG Resources/World/pot.tscn" id="12_jr8ot"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
 specular_color = Color(0, 0, 0, 1)
@@ -134,6 +135,12 @@ position = Vector2(297, 82)
 
 [node name="Fen" parent="." instance=ExtResource("11_stwl7")]
 position = Vector2(223, 107)
+
+[node name="Pot" parent="." instance=ExtResource("12_jr8ot")]
+position = Vector2(393, 171)
+
+[node name="Pot2" parent="." instance=ExtResource("12_jr8ot")]
+position = Vector2(200, 169)
 
 [editable path="Camera2D"]
 [editable path="Doors/Door_S"]
