@@ -250,7 +250,7 @@ blend_mode = 1
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_57gu2")
 states/Idle/position = Vector2(332, 107)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_4yepl")
-states/Run/position = Vector2(468, 107)
+states/Run/position = Vector2(492, 107)
 states/Start/position = Vector2(173, 107)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_wvi4h"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_elk1x"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_6u2dp")]
 

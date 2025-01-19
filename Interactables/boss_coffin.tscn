@@ -40,6 +40,7 @@ _data = {
 }
 
 [node name="BossCoffin" type="CharacterBody2D"]
+collision_layer = 128
 script = ExtResource("1_wwl2d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

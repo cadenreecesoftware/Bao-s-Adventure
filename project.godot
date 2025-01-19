@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="C^2"
-run/main_scene="res://Levels/level.tscn"
+run/main_scene="res://Levels/intro.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -48,6 +48,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "DarpieMeeting": "res://Dialogue/Timelines/DarpieMeeting.dtl",
 "MayorMeeting": "res://Dialogue/Timelines/MayorMeeting.dtl",
+"boss_beat": "res://Dialogue/Timelines/boss_beat.dtl",
 "darpie_met": "res://Dialogue/Timelines/darpie_met.dtl",
 "doe_meeting": "res://Dialogue/Timelines/doe_meeting.dtl",
 "doe_met": "res://Dialogue/Timelines/doe_met.dtl",
@@ -66,6 +67,7 @@ directories/dtl_directory={
 "no_grapple_yet": "res://Dialogue/Timelines/no_grapple_yet.dtl",
 "no_key": "res://Dialogue/Timelines/no_key.dtl",
 "opening_boss_dialogue": "res://Dialogue/Timelines/opening_boss_dialogue.dtl",
+"opening_dialogue": "res://Dialogue/Timelines/opening_dialogue.dtl",
 "tanuki_meeting": "res://Dialogue/Timelines/tanuki_meeting.dtl",
 "tanuki_met": "res://Dialogue/Timelines/tanuki_met.dtl",
 "tanuki_saving_dialogue": "res://Dialogue/Timelines/tanuki_saving_dialogue.dtl",

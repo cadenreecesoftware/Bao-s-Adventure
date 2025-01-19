@@ -19,8 +19,9 @@ var invincible = false :
 			emit_signal("invincibility_ended")
 
 func start_invincibility(duration):
-	self.invincible = true
-	timer.start(duration)
+	if(PlayerStats.health > 0):
+		self.invincible = true
+		timer.start(duration)
 	
 
 func create_hit_effect() -> void:

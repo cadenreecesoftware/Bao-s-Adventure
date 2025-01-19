@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://btrsg5ahqkvuw"]
+[gd_scene load_steps=20 format=3 uid="uid://btrsg5ahqkvuw"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_8jwm1"]
 [ext_resource type="FontFile" uid="uid://dhxhdvxxhce7o" path="res://Art/Action RPG Resources/UI/fullpack/FantasyRPGtitle (size 11).ttf" id="2_fu6jn"]
@@ -76,6 +76,9 @@ expand_margin_top = 2.0
 expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_ekrhs"]
+specular_color = Color(0, 0, 0, 1)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -152,6 +155,17 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_hfxlp")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_naetf")
 theme_override_styles/normal = SubResource("StyleBoxTexture_c00x7")
 text = "EXIT"
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = -2
+texture_repeat = 2
+position = Vector2(748.25, 52)
+scale = Vector2(1.40129, 1)
+texture = SubResource("CanvasTexture_ekrhs")
+region_enabled = true
+region_rect = Rect2(0, 0, 2877.76, 1280)
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]

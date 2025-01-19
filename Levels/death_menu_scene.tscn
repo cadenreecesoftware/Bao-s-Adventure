@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq46h43y76ls5"]
+
+[ext_resource type="PackedScene" uid="uid://cpe6hcwwion7" path="res://Levels/death_menu.tscn" id="1_ikydh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_oc6s4"]
+specular_color = Color(0, 0, 0, 1)
+
+[node name="death_menu_scene" type="CanvasLayer"]
+
+[node name="DeathMenu" parent="." instance=ExtResource("1_ikydh")]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = -2
+texture_repeat = 2
+position = Vector2(748.25, 52)
+scale = Vector2(1.40129, 1)
+texture = SubResource("CanvasTexture_oc6s4")
+region_enabled = true
+region_rect = Rect2(0, 0, 2877.76, 1280)

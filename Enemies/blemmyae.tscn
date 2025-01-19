@@ -775,13 +775,13 @@ animation = &"AttackLeft"
 blend_point_0/node = SubResource("AnimationNodeAnimation_vj7x7")
 blend_point_0/pos = Vector2(0, 1.1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_spbwp")
-blend_point_1/pos = Vector2(1.1, 0)
+blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_f6n81")
 blend_point_2/pos = Vector2(0, -1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_h6cpg")
-blend_point_3/pos = Vector2(-1.1, 0)
-min_space = Vector2(-1.1, -1.1)
-max_space = Vector2(1.1, 1.1)
+blend_point_3/pos = Vector2(-1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rcvnw"]
@@ -800,13 +800,13 @@ animation = &"IdleLeft"
 blend_point_0/node = SubResource("AnimationNodeAnimation_rcvnw")
 blend_point_0/pos = Vector2(0, 1.1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_54xl6")
-blend_point_1/pos = Vector2(1.1, 0)
+blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_jlgdr")
 blend_point_2/pos = Vector2(0, -1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_kmb2q")
-blend_point_3/pos = Vector2(-1.1, 0)
-min_space = Vector2(-1.1, -1.1)
-max_space = Vector2(1.1, 1.1)
+blend_point_3/pos = Vector2(-1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3a4au"]
@@ -825,13 +825,13 @@ animation = &"RunLeft"
 blend_point_0/node = SubResource("AnimationNodeAnimation_3a4au")
 blend_point_0/pos = Vector2(0, 1.1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_6b75i")
-blend_point_1/pos = Vector2(1.1, 0)
+blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_0etf0")
 blend_point_2/pos = Vector2(0, -1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_xjmtm")
-blend_point_3/pos = Vector2(-1.1, 0)
-min_space = Vector2(-1.1, -1.1)
-max_space = Vector2(1.1, 1.1)
+blend_point_3/pos = Vector2(-1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d0ntt"]

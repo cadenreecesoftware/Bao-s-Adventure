@@ -77,6 +77,7 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_temple_room_4
 		"temple_room_5":
 			scene_to_load = scene_temple_room_5
+		
 			
 	if scene_to_load != null:
 		TransitionScreen.transition()

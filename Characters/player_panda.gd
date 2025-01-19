@@ -52,7 +52,7 @@ func set_talking(value):
 func _ready():
 	randomize()
 	PlayerPause.connect("paused_changed", set_talking)
-	self.stats.connect("no_health", queue_free)
+	self.stats.connect("no_health", death)
 	animationTree.active = true
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 
@@ -62,7 +62,9 @@ func _on_spawn(position: Vector2, direction: String):
 	#print("Idle" + direction.to_pascal_case())
 	global_position = position
 	
-
+func death():
+	get_tree().paused = true
+	get_tree().change_scene_to_file.call_deferred("res://Levels/death_menu_scene.tscn")
 
 func _physics_process(_delta):
 	if(!talking):
@@ -156,8 +158,9 @@ func grapple_animation_finished():
 func _on_hurtbox_area_entered(_area) -> void:
 	stats.health -= 1
 	hurtbox.start_invincibility(0.7)
-	hit_flash_anim_player.play("hit_flash")
-	hurtbox.create_hit_effect()
+	if(PlayerStats.health > 0):
+		hit_flash_anim_player.play("hit_flash")
+		hurtbox.create_hit_effect()
 
 
 func _on_teleport_detector_area_entered(area: Area2D) -> void:
