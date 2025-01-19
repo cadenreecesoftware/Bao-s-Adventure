@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://d22mgyqkp8ya7"]
+[gd_scene load_steps=26 format=4 uid="uid://d22mgyqkp8ya7"]
 
 [ext_resource type="Script" path="res://Levels/temple_boss_room.gd" id="1_bswtu"]
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="2_2e758"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ccudwedmve8qk" path="res://Art/Action RPG Resources/UI/wallet_ui.tscn" id="7_068re"]
 [ext_resource type="PackedScene" uid="uid://cpe6hcwwion7" path="res://Levels/death_menu.tscn" id="8_ubtkk"]
 [ext_resource type="PackedScene" uid="uid://6qhx6tjotcs5" path="res://Levels/door.tscn" id="8_y1add"]
+[ext_resource type="PackedScene" uid="uid://b2tjm3depvcfh" path="res://Art/Action RPG Resources/World/pot.tscn" id="9_105a8"]
 [ext_resource type="Texture2D" uid="uid://bxmqwo4twxmyy" path="res://Art/Action RPG Resources/Interior/1x/Expansion_Music.png" id="9_ymb83"]
 [ext_resource type="Texture2D" uid="uid://btwny1vj7pdmm" path="res://Art/Action RPG Resources/Interior/1x/Expansion_AlchemyLab.png" id="10_pkyjq"]
 [ext_resource type="TileSet" uid="uid://dyj8adt84c2k4" path="res://Art/Action RPG Resources/Interior/1x/interior_tile_set.tres" id="11_l0ctc"]
@@ -2376,6 +2377,18 @@ position = Vector2(304, 95)
 
 [node name="Boss_Spawner" type="Marker2D" parent="."]
 position = Vector2(304, 68)
+
+[node name="Pot" parent="." instance=ExtResource("9_105a8")]
+position = Vector2(119, 201)
+
+[node name="Pot2" parent="." instance=ExtResource("9_105a8")]
+position = Vector2(488, 201)
+
+[node name="Pot3" parent="." instance=ExtResource("9_105a8")]
+position = Vector2(488, 10)
+
+[node name="Pot4" parent="." instance=ExtResource("9_105a8")]
+position = Vector2(120, 10)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

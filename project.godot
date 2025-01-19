@@ -49,6 +49,7 @@ directories/dtl_directory={
 "DarpieMeeting": "res://Dialogue/Timelines/DarpieMeeting.dtl",
 "MayorMeeting": "res://Dialogue/Timelines/MayorMeeting.dtl",
 "boss_beat": "res://Dialogue/Timelines/boss_beat.dtl",
+"credits": "res://Dialogue/Timelines/credits.dtl",
 "darpie_met": "res://Dialogue/Timelines/darpie_met.dtl",
 "doe_meeting": "res://Dialogue/Timelines/doe_meeting.dtl",
 "doe_met": "res://Dialogue/Timelines/doe_met.dtl",

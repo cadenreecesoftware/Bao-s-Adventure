@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2tjm3depvcfh"]
+
+[ext_resource type="Script" path="res://Art/Action RPG Resources/World/pot.gd" id="1_1s2bc"]
+[ext_resource type="Texture2D" uid="uid://cv4lftfmwf5mh" path="res://Art/Action RPG Resources/Interior/1x/pot.png" id="2_pqigi"]
+[ext_resource type="PackedScene" uid="uid://dqaxsun24l05v" path="res://Art/Action RPG Resources/Overlap/Hurtbox.tscn" id="3_y4w67"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1y0u"]
+size = Vector2(10, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gm4s"]
+size = Vector2(14, 14)
+
+[node name="Pot" type="Node2D"]
+script = ExtResource("1_1s2bc")
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_n1y0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pqigi")
+centered = false
+offset = Vector2(-8, -10)
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_y4w67")]
+position = Vector2(0, 1)
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_2gm4s")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

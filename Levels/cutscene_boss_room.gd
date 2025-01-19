@@ -18,3 +18,10 @@ func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
 	var door = get_node(door_path) as Door
 	NavigationManager.trigger_player_spawn(door.spawn.global_position, door.spawn_direction)
+
+
+func _on_credit_starter_body_entered(body: Node2D) -> void:
+	if body is Player:
+		TransitionScreen.transition()
+		await TransitionScreen.on_transition_finished
+		get_tree().change_scene_to_file.call_deferred("res://Levels/credits.tscn")

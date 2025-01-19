@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1xa1pp5ty7n8"]
+
+[ext_resource type="Texture2D" uid="uid://dsbs3wug5a060" path="res://Art/Action RPG Resources/Woodland Folk/1x/Objects/Pot_breaking.png" id="1_5ixs5"]
+[ext_resource type="Script" path="res://Art/Action RPG Resources/Effects/pot_effect.gd" id="2_dry01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grb32"]
+atlas = ExtResource("1_5ixs5")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3rf4"]
+atlas = ExtResource("1_5ixs5")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qimn"]
+atlas = ExtResource("1_5ixs5")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om8dw"]
+atlas = ExtResource("1_5ixs5")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfg57"]
+atlas = ExtResource("1_5ixs5")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xp76m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grb32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3rf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qimn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om8dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfg57")
+}],
+"loop": false,
+"name": &"animate",
+"speed": 15.0
+}]
+
+[node name="pot_effect" type="AnimatedSprite2D"]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_xp76m")
+animation = &"animate"
+autoplay = "animate"
+script = ExtResource("2_dry01")
