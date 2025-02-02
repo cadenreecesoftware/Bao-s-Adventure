@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bmjfn3vl6yee0"]
+[gd_scene load_steps=15 format=4 uid="uid://bmjfn3vl6yee0"]
 
 [ext_resource type="PackedScene" uid="uid://d2upw8umcdeq0" path="res://Characters/player_panda.tscn" id="1_6t07e"]
 [ext_resource type="Script" path="res://Levels/roost_interior.gd" id="1_ovwp4"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://6qhx6tjotcs5" path="res://Levels/door.tscn" id="7_sxtul"]
 [ext_resource type="TileSet" uid="uid://dyj8adt84c2k4" path="res://Art/Action RPG Resources/Interior/1x/interior_tile_set.tres" id="8_ska13"]
 [ext_resource type="PackedScene" uid="uid://bac4dytub72pe" path="res://NPC/rocco.tscn" id="10_kyu5r"]
+[ext_resource type="PackedScene" uid="uid://c1u5bq1c2stmf" path="res://Interactables/heart_store_pickup.tscn" id="11_wjr2h"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_d16jd"]
 specular_color = Color(0, 0, 0, 1)
@@ -131,7 +132,7 @@ shape = SubResource("RectangleShape2D_av0fm")
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Collision"]
 polygon = PackedVector2Array(337, 152, 385, 152, 385, 128, 372, 128, 372, 137, 348, 137, 348, 128, 336, 128, 336, 152)
 
-[node name="heart_spawner" type="Marker2D" parent="."]
+[node name="heartpickup" parent="." instance=ExtResource("11_wjr2h")]
 position = Vector2(271, 113)
 
 [editable path="Camera2D"]

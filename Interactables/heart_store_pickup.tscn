@@ -1,3 +1,42 @@
-[gd_scene format=3 uid="uid://c1u5bq1c2stmf"]
+[gd_scene load_steps=8 format=3 uid="uid://c1u5bq1c2stmf"]
 
-[node name="" type="Object"]
+[ext_resource type="Shader" path="res://Art/Action RPG Resources/Effects/outline.gdshader" id="1_rrv5i"]
+[ext_resource type="Texture2D" uid="uid://bop2lduoysuta" path="res://Art/Action RPG Resources/Effects/heart_drop_effect.png" id="2_4llh8"]
+[ext_resource type="Script" path="res://Interactables/heart_store_pickup.gd" id="3_sytqr"]
+[ext_resource type="PackedScene" uid="uid://dsm0jb1v48xdg" path="res://Dialogue/chat_detection.tscn" id="4_a263e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11ofo"]
+shader = ExtResource("1_rrv5i")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0lfil"]
+shader = ExtResource("1_rrv5i")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajsfy"]
+size = Vector2(6, 3.75)
+
+[node name="heartpickup" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_11ofo")
+position = Vector2(0, -2)
+script = ExtResource("3_sytqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0lfil")
+texture = ExtResource("2_4llh8")
+hframes = 4
+frame = 1
+
+[node name="ChatDetection" parent="." instance=ExtResource("4_a263e")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.125)
+shape = SubResource("RectangleShape2D_ajsfy")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

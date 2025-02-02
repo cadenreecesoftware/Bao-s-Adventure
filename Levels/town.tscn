@@ -3495,6 +3495,9 @@ polygon = PackedVector2Array(520, 332, 617, 332, 617, 282, 617, 280, 515, 280, 5
 position = Vector2(717, 223.5)
 shape = SubResource("RectangleShape2D_lugrx")
 
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Collisions"]
+polygon = PackedVector2Array(86, 542, 86, 625, 656, 625, 656, 647, 71, 647, 71, 542)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("29_oxu1g")]
 position = Vector2(-124, 182)
 

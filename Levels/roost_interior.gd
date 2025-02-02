@@ -11,11 +11,9 @@ enum {
 var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if DialogueTracker.rocco_progress != QUESTING:
-			var heart = heart_purchasable.instantiate()
-			get_parent().add_child.call_deferred(heart)
-			heart.global_position = $heart_spawner.global_position
-	Wallet.wallet += 25
+	if DialogueTracker.rocco_progress == QUESTING:
+		$heartpickup.queue_free()
+
 	NavigationManager.current_level = "res://Levels/roost_interior.tscn"
 	GlobalAudio.play_interior_music()
 	if NavigationManager.spawn_door_tag != null:

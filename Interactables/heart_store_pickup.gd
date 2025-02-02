@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D.material.set_shader_parameter("line_thickness", 1)
 		if Input.is_action_just_pressed("interact") and PlayerPause.playerPaused != true and Wallet.wallet >= 25:
 			PlayerStats.max_health += 1
+			Wallet.wallet -= 25
 			PlayerStats.health = PlayerStats.max_health
 			DialogueTracker.rocco_progress = QUESTING
 			queue_free()

@@ -8,7 +8,7 @@
 size = Vector2(12, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufsyx"]
-size = Vector2(17, 17)
+size = Vector2(17, 14.5)
 
 [node name="Node2D" type="StaticBody2D"]
 
@@ -27,7 +27,7 @@ shape = SubResource("RectangleShape2D_pbfp4")
 collision_layer = 16
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(1, 0)
+position = Vector2(1, -1.25)
 shape = SubResource("RectangleShape2D_ufsyx")
 
 [editable path="Hurtbox"]
